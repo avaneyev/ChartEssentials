@@ -11,6 +11,11 @@
 		D58152D21E2D4934004DE813 /* ChartEssentialsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D58152D11E2D4934004DE813 /* ChartEssentialsTests.m */; };
 		D58152D41E2D4934004DE813 /* ChartEssentials.h in Headers */ = {isa = PBXBuildFile; fileRef = D58152C61E2D4934004DE813 /* ChartEssentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D58152F91E2D4AAC004DE813 /* ChartEssentials.h in Headers */ = {isa = PBXBuildFile; fileRef = D58152C61E2D4934004DE813 /* ChartEssentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D599F23F1E2DBE7900816FF7 /* CEValueColumn.h in Headers */ = {isa = PBXBuildFile; fileRef = D599F23D1E2DBE7900816FF7 /* CEValueColumn.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D599F2401E2DBE7900816FF7 /* CEValueColumn.mm in Sources */ = {isa = PBXBuildFile; fileRef = D599F23E1E2DBE7900816FF7 /* CEValueColumn.mm */; };
+		D599F2411E2DC2C900816FF7 /* CEValueColumn.h in Headers */ = {isa = PBXBuildFile; fileRef = D599F23D1E2DBE7900816FF7 /* CEValueColumn.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D599F2421E2DC2CE00816FF7 /* CEValueColumn.mm in Sources */ = {isa = PBXBuildFile; fileRef = D599F23E1E2DBE7900816FF7 /* CEValueColumn.mm */; };
+		D599F2451E2DC6FF00816FF7 /* CETools.h in Headers */ = {isa = PBXBuildFile; fileRef = D599F2441E2DC6FF00816FF7 /* CETools.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +37,9 @@
 		D58152D31E2D4934004DE813 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D58152E21E2D4A29004DE813 /* ChartEssentials.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ChartEssentials.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D58152E51E2D4A29004DE813 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D599F23D1E2DBE7900816FF7 /* CEValueColumn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEValueColumn.h; sourceTree = "<group>"; };
+		D599F23E1E2DBE7900816FF7 /* CEValueColumn.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CEValueColumn.mm; sourceTree = "<group>"; };
+		D599F2441E2DC6FF00816FF7 /* CETools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CETools.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +91,8 @@
 		D58152C51E2D4934004DE813 /* ChartEssentials */ = {
 			isa = PBXGroup;
 			children = (
+				D599F2431E2DC6FF00816FF7 /* Tools */,
+				D599F23C1E2DBE4F00816FF7 /* DataTable */,
 				D58152C61E2D4934004DE813 /* ChartEssentials.h */,
 				D58152C71E2D4934004DE813 /* Info.plist */,
 			);
@@ -106,6 +116,23 @@
 			path = "ChartEssentials-macOS";
 			sourceTree = "<group>";
 		};
+		D599F23C1E2DBE4F00816FF7 /* DataTable */ = {
+			isa = PBXGroup;
+			children = (
+				D599F23D1E2DBE7900816FF7 /* CEValueColumn.h */,
+				D599F23E1E2DBE7900816FF7 /* CEValueColumn.mm */,
+			);
+			path = DataTable;
+			sourceTree = "<group>";
+		};
+		D599F2431E2DC6FF00816FF7 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				D599F2441E2DC6FF00816FF7 /* CETools.h */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -113,6 +140,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D599F23F1E2DBE7900816FF7 /* CEValueColumn.h in Headers */,
+				D599F2451E2DC6FF00816FF7 /* CETools.h in Headers */,
 				D58152D41E2D4934004DE813 /* ChartEssentials.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -121,6 +150,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D599F2411E2DC2C900816FF7 /* CEValueColumn.h in Headers */,
 				D58152F91E2D4AAC004DE813 /* ChartEssentials.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -253,6 +283,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D599F2401E2DBE7900816FF7 /* CEValueColumn.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +299,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D599F2421E2DC2CE00816FF7 /* CEValueColumn.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

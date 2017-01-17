@@ -22,6 +22,8 @@ FOUNDATION_EXPORT double ChartEssentialsVersionNumber;
 //! Project version string for ChartEssentials.
 FOUNDATION_EXPORT const unsigned char ChartEssentialsVersionString[];
 
-// In this header, you should import all the public headers of your framework using statements like #import <ChartEssentials/PublicHeader.h>
+#import <ChartEssentials/CETools.h>
+
+#import <ChartEssentials/CEValueColumn.h>
 
 
