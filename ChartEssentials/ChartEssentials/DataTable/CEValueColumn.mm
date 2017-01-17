@@ -17,6 +17,7 @@
     NSUInteger _totalCount;
     NSUInteger _chunkLength;
     std::vector<CGFloat *> _chunks;
+    CGFloat *_lastChunk;
 }
 
 - (instancetype)init
@@ -31,6 +32,7 @@
     {
         _totalCount = 0;
         _chunkLength = length;
+        _lastChunk = NULL;
     }
     return self;
 }
@@ -78,19 +80,61 @@
         @throw [NSException exceptionWithName:NSRangeException reason: @"Column is empty" userInfo:nil];
     }
 
-    auto it = --(_chunks.end());
     NSUInteger lastIndex = _totalCount % _chunkLength;
-    return (*it)[lastIndex - 1];
+    return _lastChunk[lastIndex - 1];
 }
 
 - (void)addValue:(CGFloat)value
 {
-    
+    NSUInteger lastIndex = _totalCount % _chunkLength;
+    if (lastIndex > 0)
+    {
+        _lastChunk[lastIndex] = value;
+    }
+    else
+    {
+        _lastChunk = (CGFloat *)malloc(sizeof(CGFloat) * _chunkLength);
+        _lastChunk[0] = value;
+        _chunks.push_back(_lastChunk);
+    }
+    _totalCount++;
 }
 
 - (void)addValues:(CGFloat *)values count:(NSUInteger)count
 {
+    NSUInteger lastIndex = _totalCount % _chunkLength;
+    CGFloat *memStart;
     
+    if (_chunkLength - lastIndex >= count)
+    {
+        memStart = _lastChunk + lastIndex;
+        memcpy(memStart, values, sizeof(CGFloat) * count);
+    }
+    else
+    {
+        const size_t chunkSize = sizeof(CGFloat) * _chunkLength;
+        if (lastIndex + 1 < _chunkLength)
+        {
+            // copy until the end of the current chunk
+            size_t count = _chunkLength - lastIndex;
+            memStart = _lastChunk + lastIndex;
+            memcpy(memStart, values, sizeof(CGFloat) * count);
+            
+        }
+        
+        while (count >= _chunkLength)
+        {
+            _lastChunk = (CGFloat *)malloc(chunkSize);
+            memcpy(_lastChunk, values, chunkSize);
+            count -= _chunkLength;
+            values += _chunkLength;
+        }
+        
+        if (count > 0)
+        {
+            // copy remainig items
+        }
+    }
 }
 
 - (CGFloat)valueAtIndex:(NSUInteger)index
