@@ -8,14 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		D58152CD1E2D4934004DE813 /* ChartEssentials.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D58152C31E2D4934004DE813 /* ChartEssentials.framework */; };
-		D58152D21E2D4934004DE813 /* ChartEssentialsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D58152D11E2D4934004DE813 /* ChartEssentialsTests.m */; };
 		D58152D41E2D4934004DE813 /* ChartEssentials.h in Headers */ = {isa = PBXBuildFile; fileRef = D58152C61E2D4934004DE813 /* ChartEssentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D58152F91E2D4AAC004DE813 /* ChartEssentials.h in Headers */ = {isa = PBXBuildFile; fileRef = D58152C61E2D4934004DE813 /* ChartEssentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D599F23F1E2DBE7900816FF7 /* CEValueColumn.h in Headers */ = {isa = PBXBuildFile; fileRef = D599F23D1E2DBE7900816FF7 /* CEValueColumn.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D599F2401E2DBE7900816FF7 /* CEValueColumn.mm in Sources */ = {isa = PBXBuildFile; fileRef = D599F23E1E2DBE7900816FF7 /* CEValueColumn.mm */; };
 		D599F2411E2DC2C900816FF7 /* CEValueColumn.h in Headers */ = {isa = PBXBuildFile; fileRef = D599F23D1E2DBE7900816FF7 /* CEValueColumn.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D599F2421E2DC2CE00816FF7 /* CEValueColumn.mm in Sources */ = {isa = PBXBuildFile; fileRef = D599F23E1E2DBE7900816FF7 /* CEValueColumn.mm */; };
-		D599F2451E2DC6FF00816FF7 /* CETools.h in Headers */ = {isa = PBXBuildFile; fileRef = D599F2441E2DC6FF00816FF7 /* CETools.h */; };
+		D599F2451E2DC6FF00816FF7 /* CETools.h in Headers */ = {isa = PBXBuildFile; fileRef = D599F2441E2DC6FF00816FF7 /* CETools.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D5B2626C1E345C5600328A1F /* CEValueColumnTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B2626B1E345C5600328A1F /* CEValueColumnTests.m */; };
+		D5B2626D1E345D8700328A1F /* CETools.h in Headers */ = {isa = PBXBuildFile; fileRef = D599F2441E2DC6FF00816FF7 /* CETools.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,13 +34,19 @@
 		D58152C61E2D4934004DE813 /* ChartEssentials.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChartEssentials.h; sourceTree = "<group>"; };
 		D58152C71E2D4934004DE813 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D58152CC1E2D4934004DE813 /* ChartEssentialsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChartEssentialsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D58152D11E2D4934004DE813 /* ChartEssentialsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChartEssentialsTests.m; sourceTree = "<group>"; };
 		D58152D31E2D4934004DE813 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D58152E21E2D4A29004DE813 /* ChartEssentials.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ChartEssentials.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D58152E51E2D4A29004DE813 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D599F23D1E2DBE7900816FF7 /* CEValueColumn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEValueColumn.h; sourceTree = "<group>"; };
 		D599F23E1E2DBE7900816FF7 /* CEValueColumn.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CEValueColumn.mm; sourceTree = "<group>"; };
 		D599F2441E2DC6FF00816FF7 /* CETools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CETools.h; sourceTree = "<group>"; };
+		D5B2626B1E345C5600328A1F /* CEValueColumnTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEValueColumnTests.m; sourceTree = "<group>"; };
+		D5B2626F1E345DEA00328A1F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D5B262711E345DF000328A1F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D5B262731E345DF500328A1F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		D5B262751E345DFD00328A1F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		D5B262771E345E0200328A1F /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/AppKit.framework; sourceTree = DEVELOPER_DIR; };
+		D5B262791E345E0900328A1F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +82,7 @@
 				D58152E31E2D4A29004DE813 /* ChartEssentials-macOS */,
 				D58152D01E2D4934004DE813 /* ChartEssentialsTests */,
 				D58152C41E2D4934004DE813 /* Products */,
+				D5B2626E1E345DE900328A1F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,7 +110,7 @@
 		D58152D01E2D4934004DE813 /* ChartEssentialsTests */ = {
 			isa = PBXGroup;
 			children = (
-				D58152D11E2D4934004DE813 /* ChartEssentialsTests.m */,
+				D5B2626A1E345C1600328A1F /* DataTable */,
 				D58152D31E2D4934004DE813 /* Info.plist */,
 			);
 			path = ChartEssentialsTests;
@@ -133,6 +141,27 @@
 			path = Tools;
 			sourceTree = "<group>";
 		};
+		D5B2626A1E345C1600328A1F /* DataTable */ = {
+			isa = PBXGroup;
+			children = (
+				D5B2626B1E345C5600328A1F /* CEValueColumnTests.m */,
+			);
+			path = DataTable;
+			sourceTree = "<group>";
+		};
+		D5B2626E1E345DE900328A1F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D5B262791E345E0900328A1F /* QuartzCore.framework */,
+				D5B262771E345E0200328A1F /* AppKit.framework */,
+				D5B262751E345DFD00328A1F /* Foundation.framework */,
+				D5B262731E345DF500328A1F /* QuartzCore.framework */,
+				D5B262711E345DF000328A1F /* UIKit.framework */,
+				D5B2626F1E345DEA00328A1F /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -152,6 +181,7 @@
 			files = (
 				D599F2411E2DC2C900816FF7 /* CEValueColumn.h in Headers */,
 				D58152F91E2D4AAC004DE813 /* ChartEssentials.h in Headers */,
+				D5B2626D1E345D8700328A1F /* CETools.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,7 +321,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D58152D21E2D4934004DE813 /* ChartEssentialsTests.m in Sources */,
+				D5B2626C1E345C5600328A1F /* CEValueColumnTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
