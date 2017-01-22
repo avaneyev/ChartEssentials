@@ -105,35 +105,46 @@
     NSUInteger lastIndex = _totalCount % _chunkLength;
     CGFloat *memStart;
     
-    if (_chunkLength - lastIndex >= count)
+    _totalCount += count;
+    
+    // If there is space is the current chunk, fill it up first
+    if (lastIndex != 0)
     {
-        memStart = _lastChunk + lastIndex;
-        memcpy(memStart, values, sizeof(CGFloat) * count);
-    }
-    else
-    {
-        const size_t chunkSize = sizeof(CGFloat) * _chunkLength;
-        if (lastIndex + 1 < _chunkLength)
+        if (_chunkLength - lastIndex >= count)
         {
-            // copy until the end of the current chunk
-            size_t count = _chunkLength - lastIndex;
             memStart = _lastChunk + lastIndex;
             memcpy(memStart, values, sizeof(CGFloat) * count);
             
+            return;
         }
-        
-        while (count >= _chunkLength)
+        else
         {
-            _lastChunk = (CGFloat *)malloc(chunkSize);
-            memcpy(_lastChunk, values, chunkSize);
-            count -= _chunkLength;
-            values += _chunkLength;
+            NSUInteger copyCount = _chunkLength - lastIndex;
+            memStart = _lastChunk + lastIndex;
+            memcpy(memStart, values, sizeof(CGFloat) * copyCount);
+            values += copyCount;
+            count -= copyCount;
         }
+    }
+    
+    const size_t chunkSize = sizeof(CGFloat) * _chunkLength;
+    
+    // copy whole chunks
+    while (count >= _chunkLength)
+    {
+        _lastChunk = (CGFloat *)malloc(chunkSize);
+        _chunks.push_back(_lastChunk);
+        memcpy(_lastChunk, values, chunkSize);
+        count -= _chunkLength;
+        values += _chunkLength;
+    }
         
-        if (count > 0)
-        {
-            // copy remainig items
-        }
+    // copy remainig items
+    if (count > 0)
+    {
+        _lastChunk = (CGFloat *)malloc(chunkSize);
+        _chunks.push_back(_lastChunk);
+        memcpy(_lastChunk, values, sizeof(CGFloat) * count);
     }
 }
 
