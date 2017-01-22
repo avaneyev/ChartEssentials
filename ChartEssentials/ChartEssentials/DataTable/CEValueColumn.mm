@@ -66,7 +66,7 @@
 {
     if (_totalCount == 0)
     {
-        @throw [NSException exceptionWithName:NSRangeException reason: @"Column is empty" userInfo:nil];
+        @throw [NSException exceptionWithName:NSRangeException reason:@"Column is empty" userInfo:nil];
     }
 
     auto it = _chunks.begin();
@@ -77,7 +77,7 @@
 {
     if (_totalCount == 0)
     {
-        @throw [NSException exceptionWithName:NSRangeException reason: @"Column is empty" userInfo:nil];
+        @throw [NSException exceptionWithName:NSRangeException reason:@"Column is empty" userInfo:nil];
     }
 
     NSUInteger lastIndex = _totalCount % _chunkLength;
@@ -139,7 +139,15 @@
 
 - (CGFloat)valueAtIndex:(NSUInteger)index
 {
-    return 0;
+    if (index >= _totalCount)
+    {
+        @throw [NSException exceptionWithName:NSRangeException reason:[NSString stringWithFormat:@"Index %ld is beyond column length %ld", (long)index, (long)_totalCount] userInfo:nil];
+    }
+    
+    NSUInteger chunkNumber = index / _chunkLength;
+    NSUInteger indexInChunk = index % _chunkLength;
+    
+    return _chunks[chunkNumber][indexInChunk];
 }
 
 - (NSUInteger)valuesInRange:(NSRange)range buffer:(CGFloat *)buffer
