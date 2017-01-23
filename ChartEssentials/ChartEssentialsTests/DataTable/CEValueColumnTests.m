@@ -115,4 +115,81 @@
     XCTAssertEqualWithAccuracy([column valueAtIndex:160], 153, 0.001);
 }
 
+static NSUInteger _VerifyBufferValues(const CGFloat *buffer, NSUInteger start, NSUInteger total, CGFloat expectedValue)
+{
+    for (NSUInteger i = start; i < total; i++)
+    {
+        const CGFloat *verifyValue = buffer + i;
+        if (ABS(*verifyValue - expectedValue) > 0.001) return i;
+    }
+    return NSUIntegerMax;
+}
+
+- (void)testReadingValuesByRange
+{
+    CEValueColumn *column = [[CEValueColumn alloc] initWithChunkLength:40];
+
+    CGFloat valueBatch[100];
+    const NSUInteger length = sizeof(valueBatch) / sizeof(CGFloat);
+    for (NSUInteger i = 0; i < length; i++)
+    {
+        valueBatch[i] = i + 5;
+    }
+
+    [column addValues:valueBatch count:length];
+    [column addValues:valueBatch count:length];
+    
+    for (NSUInteger i = 0; i < length; i++)
+    {
+        valueBatch[i] = -1;
+    }
+    
+    // Empty range
+    NSUInteger result = [column valuesInRange:NSMakeRange(120, 0) buffer:valueBatch];
+    XCTAssertEqual(result, 0);
+    XCTAssertEqual(_VerifyBufferValues(valueBatch, 0, length, -1), NSUIntegerMax);
+    
+    // A range of 1 element
+    result = [column valuesInRange:NSMakeRange(65, 1) buffer:valueBatch];
+    XCTAssertEqual(result, 1);
+    XCTAssertEqualWithAccuracy(valueBatch[0], 70, 0.001);
+    XCTAssertEqual(_VerifyBufferValues(valueBatch, 1, length, -1), NSUIntegerMax);
+    
+    // A range of a few elements crossing a chunk boundary
+    result = [column valuesInRange:NSMakeRange(35, 10) buffer:valueBatch];
+    XCTAssertEqual(result, 10);
+    for (NSUInteger i = 0; i < 10; i++)
+    {
+        XCTAssertEqualWithAccuracy(valueBatch[i], 40 + i, 0.001);
+    }
+    XCTAssertEqual(_VerifyBufferValues(valueBatch, 10, length, -1), NSUIntegerMax);
+    
+    // A range crossing several chunk boundaries
+    result = [column valuesInRange:NSMakeRange(30, 75) buffer:valueBatch];
+    XCTAssertEqual(result, 75);
+    for (NSUInteger i = 0; i < 70; i++)
+    {
+        XCTAssertEqualWithAccuracy(valueBatch[i], 35 + i, 0.001);
+    }
+    for (NSUInteger i = 0; i < 5; i++)
+    {
+        XCTAssertEqualWithAccuracy(valueBatch[70 + i], i + 5, 0.001);
+    }
+    XCTAssertEqual(_VerifyBufferValues(valueBatch, 75, length, -1), NSUIntegerMax);
+    
+    // A range in the end
+    for (NSUInteger i = 0; i < length; i++)
+    {
+        valueBatch[i] = -1;
+    }
+    
+    result = [column valuesInRange:NSMakeRange(150, 75) buffer:valueBatch];
+    XCTAssertEqual(result, 50);
+    for (NSUInteger i = 0; i < 50; i++)
+    {
+        XCTAssertEqualWithAccuracy(valueBatch[i], 55 + i, 0.001);
+    }
+    XCTAssertEqual(_VerifyBufferValues(valueBatch, 50, length, -1), NSUIntegerMax);
+}
+
 @end

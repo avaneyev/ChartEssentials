@@ -163,7 +163,41 @@
 
 - (NSUInteger)valuesInRange:(NSRange)range buffer:(CGFloat *)buffer
 {
-    return 0;
+    if (range.location >= _totalCount)
+    {
+        @throw [NSException exceptionWithName:NSRangeException reason:[NSString stringWithFormat:@"Range %@ is beyond column length %ld", NSStringFromRange(range), (long)_totalCount] userInfo:nil];
+    }
+    
+    if (buffer == NULL) THROW_INVALID_PARAM(buffer, nil);
+    
+    if (range.length == 0) return 0;
+    
+    NSUInteger firstChunk = range.location / _chunkLength;
+    NSUInteger firstPosition = range.location % _chunkLength;
+    NSUInteger remainingInChunk = _chunkLength - firstPosition;
+    NSUInteger remainingInColumn = _totalCount - range.location;
+    auto iterator = _chunks.cbegin() + firstChunk;
+    
+    if (remainingInChunk >= range.length && remainingInColumn >= range.length)
+    {
+        memcpy(buffer, *iterator + firstPosition, sizeof(CGFloat) * range.length);
+        return range.length;
+    }
+
+    NSUInteger copiedLength = MIN(remainingInChunk, remainingInColumn);
+    memcpy(buffer, *iterator + firstPosition, sizeof(CGFloat) * copiedLength);
+    remainingInColumn -= copiedLength;
+    
+    while (remainingInColumn > 0 && copiedLength < range.length)
+    {
+        ++iterator;
+        remainingInChunk = MIN(range.length - copiedLength, MIN(remainingInColumn, _chunkLength));
+        memcpy(buffer + copiedLength, *iterator, sizeof(CGFloat) * remainingInChunk);
+        copiedLength += remainingInChunk;
+        remainingInColumn -= remainingInChunk;
+    }
+
+    return copiedLength;
 }
 
 - (CEValueColumn *)columnFromRange:(NSRange)range
