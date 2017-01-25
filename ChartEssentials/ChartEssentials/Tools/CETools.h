@@ -18,6 +18,7 @@
 #endif
 
 #define THROW_ABSTRACT(info) @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:[NSString stringWithFormat:@"%s is abstract!",  __PRETTY_FUNCTION__] userInfo:(info)]
+#define THROW_NYI(info) @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:[NSString stringWithFormat:@"%s is not yet implemented!",  __PRETTY_FUNCTION__] userInfo:(info)]
 #define THROW_INCONSISTENCY(info) @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:[NSString stringWithFormat:@"Inconsistency in %s!",  __PRETTY_FUNCTION__] userInfo:(info)]
 #define THROW_NOT_IMPLEMENTED(info) @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:[NSString stringWithFormat:@"%s is not implemented!",  __PRETTY_FUNCTION__] userInfo:(info)]
 #define THROW_INVALID_PARAMS(info) @throw [NSException exceptionWithName:NSInvalidArgumentException reason:[NSString stringWithFormat:@"%s received invalid parameters!",  __PRETTY_FUNCTION__] userInfo:(info)]
