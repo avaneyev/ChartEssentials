@@ -19,6 +19,7 @@
 		D599F2411E2DC2C900816FF7 /* CEValueColumn.h in Headers */ = {isa = PBXBuildFile; fileRef = D599F23D1E2DBE7900816FF7 /* CEValueColumn.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D599F2421E2DC2CE00816FF7 /* CEValueColumn.mm in Sources */ = {isa = PBXBuildFile; fileRef = D599F23E1E2DBE7900816FF7 /* CEValueColumn.mm */; };
 		D599F2451E2DC6FF00816FF7 /* CETools.h in Headers */ = {isa = PBXBuildFile; fileRef = D599F2441E2DC6FF00816FF7 /* CETools.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D5B053D81E399E7A002E2362 /* CEDateColumnTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B053D71E399E7A002E2362 /* CEDateColumnTests.m */; };
 		D5B2626C1E345C5600328A1F /* CEValueColumnTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B2626B1E345C5600328A1F /* CEValueColumnTests.m */; };
 		D5B2626D1E345D8700328A1F /* CETools.h in Headers */ = {isa = PBXBuildFile; fileRef = D599F2441E2DC6FF00816FF7 /* CETools.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
@@ -46,6 +47,7 @@
 		D599F23D1E2DBE7900816FF7 /* CEValueColumn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEValueColumn.h; sourceTree = "<group>"; };
 		D599F23E1E2DBE7900816FF7 /* CEValueColumn.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CEValueColumn.mm; sourceTree = "<group>"; };
 		D599F2441E2DC6FF00816FF7 /* CETools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CETools.h; sourceTree = "<group>"; };
+		D5B053D71E399E7A002E2362 /* CEDateColumnTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEDateColumnTests.m; sourceTree = "<group>"; };
 		D5B2626B1E345C5600328A1F /* CEValueColumnTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEValueColumnTests.m; sourceTree = "<group>"; };
 		D5B2626F1E345DEA00328A1F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D5B262711E345DF000328A1F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -153,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				D5B2626B1E345C5600328A1F /* CEValueColumnTests.m */,
+				D5B053D71E399E7A002E2362 /* CEDateColumnTests.m */,
 			);
 			path = DataTable;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5B2626C1E345C5600328A1F /* CEValueColumnTests.m in Sources */,
+				D5B053D81E399E7A002E2362 /* CEDateColumnTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
