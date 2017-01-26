@@ -50,7 +50,10 @@
 
 - (void)addObjects:(NSArray<NSDate *> *)objects
 {
-    THROW_NYI(nil);
+    for (NSDate *date in objects)
+    {
+        _data.push_back(date);
+    }
 }
 
 - (NSDate *)objectAtIndex:(NSUInteger)index
@@ -60,7 +63,17 @@
 
 - (NSArray<NSDate *> *)objectsInRange:(NSRange)range
 {
-    THROW_NYI(nil);
+    if (range.location >= _data.size()) THROW_INVALID_PARAM(range, nil);
+    if (range.length == 0) return @[];
+    
+    NSMutableArray *results = [[NSMutableArray alloc] initWithCapacity:range.length];
+    auto it = _data.cbegin() + range.location;
+    NSUInteger copied = 0;
+    for (it = _data.cbegin() + range.location; copied < range.length && it != _data.cend(); ++it, ++copied)
+    {
+        [results addObject:*it];
+    }
+    return results;
 }
 
 - (NSRange)rangeForStart:(NSDate *)start finish:(NSDate *)finish
