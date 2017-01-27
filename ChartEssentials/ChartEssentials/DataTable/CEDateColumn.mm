@@ -45,6 +45,7 @@
 
 - (void)addObject:(NSDate *)object
 {
+    CEAssert(_data.size() == 0 || [*_data.crbegin() compare:object] == NSOrderedAscending);
     _data.push_back(object);
 }
 
@@ -52,6 +53,7 @@
 {
     for (NSDate *date in objects)
     {
+        CEAssert(_data.size() == 0 || [*_data.crbegin() compare:date] == NSOrderedAscending);
         _data.push_back(date);
     }
 }
