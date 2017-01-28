@@ -80,7 +80,14 @@
 
 - (NSRange)rangeForStart:(NSDate *)start finish:(NSDate *)finish
 {
-    THROW_NYI(nil);
+    if (start == nil) THROW_INVALID_PARAM(start, nil);
+    if (finish == nil) THROW_INVALID_PARAM(start, nil);
+    if ([start compare:finish] != NSOrderedAscending) return NSMakeRange(NSNotFound, 0);
+    
+    auto startIt = std::lower_bound(_data.cbegin(), _data.cend(), start, [](NSDate *lhs, NSDate *rhs) -> bool { return [lhs compare:rhs] == NSOrderedAscending; });
+    auto finishIt = std::lower_bound(_data.cbegin(), _data.cend(), finish, [](NSDate *lhs, NSDate *rhs) -> bool { return [lhs compare:rhs] == NSOrderedAscending; });
+
+    return NSMakeRange(startIt - _data.cbegin(), finishIt - startIt + 1);
 }
 
 - (NSArray<NSDate *> *)pointsAfter:(NSDate *)start count:(NSUInteger)count

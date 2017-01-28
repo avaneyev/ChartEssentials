@@ -9,6 +9,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import <Foundation/Foundation.h>
 #import <ChartEssentials/CEDateColumn.h>
 
 @interface CEDateColumnTests : XCTestCase
@@ -79,6 +80,36 @@
     XCTAssertEqualObjects(column.last, [date dateByAddingTimeInterval:(NSTimeInterval)(4500 + 42)]);
     XCTAssertEqualObjects([column objectAtIndex:42], [date dateByAddingTimeInterval:87]);
     XCTAssertEqualObjects([column objectAtIndex:43], [date dateByAddingTimeInterval:90]);
+}
+
+- (void)testFindDataRangeFromDateRange
+{
+    NSDateComponents *components = [[NSDateComponents alloc] init];
+    components.year = 2017;
+    components.month = 1;
+    components.day = 1;
+    NSCalendar *calendar = [NSCalendar calendarWithIdentifier:NSCalendarIdentifierGregorian];
+    NSTimeInterval hour = 60 * 60;
+    
+    NSDate *currentDate = [calendar dateFromComponents:components];
+    NSDate *startDate = [currentDate dateByAddingTimeInterval:10 * hour];
+    NSDate *finishDate = [currentDate dateByAddingTimeInterval:100 * hour];
+    
+    CEDateColumn *column = [[CEDateColumn alloc] init];
+    [column addObject:currentDate];
+    
+    for (NSUInteger i = 0; i < 1000; ++i)
+    {
+        currentDate = [currentDate dateByAddingTimeInterval:hour];
+        [column addObject:currentDate];
+    }
+    
+    NSRange resultingRange = [column rangeForStart:startDate finish:finishDate];
+    
+    XCTAssertEqual(resultingRange.location, 10);
+    XCTAssertEqual(resultingRange.length, 91);
+    XCTAssertEqualObjects([column objectAtIndex:resultingRange.location], startDate);
+    XCTAssertEqualObjects([column objectAtIndex:resultingRange.location + resultingRange.length - 1], finishDate);
 }
 
 @end
