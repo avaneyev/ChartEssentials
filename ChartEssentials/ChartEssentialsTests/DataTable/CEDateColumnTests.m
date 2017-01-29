@@ -104,12 +104,35 @@
         [column addObject:currentDate];
     }
     
+    // Range boundaries fall precisely on the elements
     NSRange resultingRange = [column rangeForStart:startDate finish:finishDate];
-    
     XCTAssertEqual(resultingRange.location, 10);
     XCTAssertEqual(resultingRange.length, 91);
     XCTAssertEqualObjects([column objectAtIndex:resultingRange.location], startDate);
     XCTAssertEqualObjects([column objectAtIndex:resultingRange.location + resultingRange.length - 1], finishDate);
+    
+    // Range boundaries fall between the elements
+    startDate = [startDate dateByAddingTimeInterval:-(hour / 2)];
+    finishDate = [finishDate dateByAddingTimeInterval:hour / 3];
+    
+    resultingRange = [column rangeForStart:startDate finish:finishDate];
+    XCTAssertEqual(resultingRange.location, 10);
+    XCTAssertEqual(resultingRange.length, 91);
+    XCTAssertEqual([startDate compare:[column objectAtIndex:resultingRange.location]], NSOrderedAscending);
+    XCTAssertEqual([finishDate compare:[column objectAtIndex:resultingRange.location + resultingRange.length - 1]], NSOrderedDescending);
+    
+    // Range start and finish fall between two nearest data points, therefore the range is empty
+    finishDate = [startDate dateByAddingTimeInterval:hour / 10];
+    resultingRange = [column rangeForStart:startDate finish:finishDate];
+    XCTAssertEqual(resultingRange.location, 10);
+    XCTAssertEqual(resultingRange.length, 0);
+
+    // Range end is far beyond last data point, range covers data until the last value in the column.
+    finishDate = [startDate dateByAddingTimeInterval:hour * 2000];
+    resultingRange = [column rangeForStart:startDate finish:finishDate];
+    XCTAssertEqual(resultingRange.location, 10);
+    XCTAssertEqual(resultingRange.length, 991);
+    XCTAssertEqualObjects([column objectAtIndex:resultingRange.location + resultingRange.length - 1], column.last);
 }
 
 @end
