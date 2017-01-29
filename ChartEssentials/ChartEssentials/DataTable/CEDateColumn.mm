@@ -85,7 +85,7 @@
     if ([start compare:finish] != NSOrderedAscending) return NSMakeRange(NSNotFound, 0);
     
     auto startIt = std::lower_bound(_data.cbegin(), _data.cend(), start, [](NSDate *lhs, NSDate *rhs) -> bool { return [lhs compare:rhs] == NSOrderedAscending; });
-    auto finishIt = --std::upper_bound(_data.cbegin(), _data.cend(), finish, [](NSDate *lhs, NSDate *rhs) -> bool { return [lhs compare:rhs] == NSOrderedAscending; });
+    auto finishIt = --std::upper_bound(startIt, _data.cend(), finish, [](NSDate *lhs, NSDate *rhs) -> bool { return [lhs compare:rhs] == NSOrderedAscending; });
 
     return NSMakeRange(startIt - _data.cbegin(), finishIt - startIt + 1);
 }
