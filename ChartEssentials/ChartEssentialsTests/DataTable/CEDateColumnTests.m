@@ -135,4 +135,62 @@
     XCTAssertEqualObjects([column objectAtIndex:resultingRange.location + resultingRange.length - 1], column.last);
 }
 
+- (void)testCopyDataPointsFromDate
+{
+    NSDateComponents *components = [[NSDateComponents alloc] init];
+    components.year = 2017;
+    components.month = 1;
+    components.day = 1;
+    NSCalendar *calendar = [NSCalendar calendarWithIdentifier:NSCalendarIdentifierGregorian];
+    NSTimeInterval hour = 60 * 60;
+    
+    NSDate *currentDate = [calendar dateFromComponents:components];
+    NSDate *startDate1 = [currentDate dateByAddingTimeInterval:150 * hour];
+    NSDate *startDate2 = [currentDate dateByAddingTimeInterval:214 * hour + hour / 2];
+    NSDate *startDate3 = [currentDate dateByAddingTimeInterval:995 * hour + hour / 2];
+    NSDate *startDate4 = [currentDate dateByAddingTimeInterval:15 * hour + hour / 2];
+    NSDate *startDate5 = [currentDate dateByAddingTimeInterval:-(2 * hour)];
+    NSDate *startDate6 = [currentDate dateByAddingTimeInterval:2000 * hour];
+    NSMutableArray *dataAsArray = [[NSMutableArray alloc] initWithCapacity:1001];
+    
+    CEDateColumn *column = [[CEDateColumn alloc] init];
+    [column addObject:currentDate];
+    [dataAsArray addObject:currentDate];
+    
+    for (NSUInteger i = 0; i < 1000; ++i)
+    {
+        currentDate = [currentDate dateByAddingTimeInterval:hour];
+        [column addObject:currentDate];
+        [dataAsArray addObject:currentDate];
+    }
+    
+    NSArray<NSDate *> *expectedPoints = [dataAsArray subarrayWithRange:NSMakeRange(150, 35)];
+    XCTAssertEqualObjects([column pointsAfter:startDate1 count:35], expectedPoints);
+
+    expectedPoints = [dataAsArray subarrayWithRange:NSMakeRange(150 - 44, 45)];
+    XCTAssertEqualObjects([column pointsBefore:startDate1 count:45], expectedPoints);
+    
+    expectedPoints = [dataAsArray subarrayWithRange:NSMakeRange(215, 90)];
+    XCTAssertEqualObjects([column pointsAfter:startDate2 count:90], expectedPoints);
+
+    expectedPoints = [dataAsArray subarrayWithRange:NSMakeRange(214 - 82, 83)];
+    XCTAssertEqualObjects([column pointsBefore:startDate2 count:83], expectedPoints);
+    
+    expectedPoints = [dataAsArray subarrayWithRange:NSMakeRange(996, 5)];
+    XCTAssertEqualObjects([column pointsAfter:startDate3 count:30], expectedPoints);
+
+    expectedPoints = [dataAsArray subarrayWithRange:NSMakeRange(0, 16)];
+    XCTAssertEqualObjects([column pointsBefore:startDate4 count:55], expectedPoints);
+
+    expectedPoints = [dataAsArray subarrayWithRange:NSMakeRange(0, 30)];
+    XCTAssertEqualObjects([column pointsAfter:startDate5 count:30], expectedPoints);
+    
+    XCTAssertEqualObjects([column pointsBefore:startDate5 count:30], @[]);
+
+    XCTAssertEqualObjects([column pointsAfter:startDate6 count:50], @[]);
+    
+    expectedPoints = [dataAsArray subarrayWithRange:NSMakeRange(1001 - 45, 45)];
+    XCTAssertEqualObjects([column pointsBefore:startDate6 count:45], expectedPoints);
+}
+
 @end

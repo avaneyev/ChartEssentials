@@ -92,12 +92,40 @@
 
 - (NSArray<NSDate *> *)pointsAfter:(NSDate *)start count:(NSUInteger)count
 {
-    THROW_NYI(nil);
+    if (start == nil) THROW_INVALID_PARAM(start, nil);
+    if (count == 0 || [start compare:*_data.crbegin()] == NSOrderedDescending) return @[];
+    
+    auto end = _data.cend();
+    auto startIt = std::lower_bound(_data.cbegin(), end, start, [](NSDate *lhs, NSDate *rhs) -> bool { return [lhs compare:rhs] == NSOrderedAscending; });
+    NSUInteger availableCount = end - startIt;
+    auto endIt = availableCount < count ? end : startIt + count;
+    
+    NSMutableArray *result = [[NSMutableArray alloc] initWithCapacity:count];
+    for (; startIt != endIt; ++startIt)
+    {
+        [result addObject:*startIt];
+    }
+    
+    return result;
 }
 
 - (NSArray<NSDate *> *)pointsBefore:(NSDate *)start count:(NSUInteger)count
 {
-    THROW_NYI(nil);
+    if (start == nil) THROW_INVALID_PARAM(start, nil);
+    if (count == 0 || [start compare:*_data.cbegin()] == NSOrderedAscending) return @[];
+    
+    auto begin = _data.cbegin();
+    auto finishIt = std::upper_bound(begin, _data.cend(), start, [](NSDate *lhs, NSDate *rhs) -> bool { return [lhs compare:rhs] == NSOrderedAscending; });
+    NSUInteger availableCount = finishIt - begin;
+    auto startIt = availableCount < count ? begin : finishIt - count;
+    
+    NSMutableArray *result = [[NSMutableArray alloc] initWithCapacity:count];
+    for (; startIt != finishIt; ++startIt)
+    {
+        [result addObject:*startIt];
+    }
+    
+    return result;
 }
 
 @end
