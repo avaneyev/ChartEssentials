@@ -51,6 +51,12 @@
 
 @synthesize dateColumn = _dateColumn;
 
+- (id)copyWithZone:(NSZone *)zone
+{
+    NSDictionary *valueColumnCopy = [[NSDictionary allocWithZone:zone] initWithDictionary:_valueColumns copyItems:YES];
+    return [[[self class] allocWithZone:zone] initWithDateColumn:[_dateColumn copyWithZone:zone] valueColumns:valueColumnCopy];
+}
+
 - (NSSet<NSString *> *)valueColumnNames
 {
     return [NSSet setWithArray:_valueColumns.allKeys];

@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
  Data table class for storing time series of column-based data.
  A time series table has a date column and one or more value column.
  */
-@interface CEDateIndexedTable : NSObject
+@interface CEDateIndexedTable : NSObject<NSCopying>
 
 - (nullable instancetype)init NS_UNAVAILABLE;
 
