@@ -9,7 +9,9 @@
 //
 
 #import <ChartEssentials/CEValueColumn.h>
+#import <ChartEssentials/CEDateIndexedTable.h>
 #import <ChartEssentials/CETools.h>
+#import "CEValueColumn+Private.h"
 #import <vector>
 
 @implementation CEValueColumn
@@ -18,6 +20,8 @@
     NSUInteger _chunkLength;
     std::vector<CGFloat *> _chunks;
     CGFloat *_lastChunk;
+    
+    __weak CEDateIndexedTable *_table;
 }
 
 - (instancetype)init
@@ -49,6 +53,8 @@
         delete (*it);
     }
 }
+
+@synthesize _table = _table;
 
 - (instancetype)copyWithZone:(NSZone *)zone
 {

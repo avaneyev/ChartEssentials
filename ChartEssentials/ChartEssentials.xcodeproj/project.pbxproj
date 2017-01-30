@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D57FA7CB1E3EEC880072DF8A /* CEDateIndexedTable.h in Headers */ = {isa = PBXBuildFile; fileRef = D57FA7C91E3EEC880072DF8A /* CEDateIndexedTable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D57FA7CC1E3EEC880072DF8A /* CEDateIndexedTable.m in Sources */ = {isa = PBXBuildFile; fileRef = D57FA7CA1E3EEC880072DF8A /* CEDateIndexedTable.m */; };
+		D57FA7CD1E3EEEE80072DF8A /* CEDateIndexedTable.h in Headers */ = {isa = PBXBuildFile; fileRef = D57FA7C91E3EEC880072DF8A /* CEDateIndexedTable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D57FA7CE1E3EEEF00072DF8A /* CEDateIndexedTable.m in Sources */ = {isa = PBXBuildFile; fileRef = D57FA7CA1E3EEC880072DF8A /* CEDateIndexedTable.m */; };
+		D57FA7D01E3EF10F0072DF8A /* CEDateColumn+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = D57FA7CF1E3EF0EB0072DF8A /* CEDateColumn+Private.h */; };
+		D57FA7D11E3EF1100072DF8A /* CEDateColumn+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = D57FA7CF1E3EF0EB0072DF8A /* CEDateColumn+Private.h */; };
 		D58152CD1E2D4934004DE813 /* ChartEssentials.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D58152C31E2D4934004DE813 /* ChartEssentials.framework */; };
 		D58152D41E2D4934004DE813 /* ChartEssentials.h in Headers */ = {isa = PBXBuildFile; fileRef = D58152C61E2D4934004DE813 /* ChartEssentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D58152F91E2D4AAC004DE813 /* ChartEssentials.h in Headers */ = {isa = PBXBuildFile; fileRef = D58152C61E2D4934004DE813 /* ChartEssentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -35,6 +41,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D57FA7C91E3EEC880072DF8A /* CEDateIndexedTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEDateIndexedTable.h; sourceTree = "<group>"; };
+		D57FA7CA1E3EEC880072DF8A /* CEDateIndexedTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEDateIndexedTable.m; sourceTree = "<group>"; };
+		D57FA7CF1E3EF0EB0072DF8A /* CEDateColumn+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CEDateColumn+Private.h"; sourceTree = "<group>"; };
+		D57FA7D21E3EF23B0072DF8A /* CEValueColumn+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CEValueColumn+Private.h"; sourceTree = "<group>"; };
 		D58152C31E2D4934004DE813 /* ChartEssentials.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ChartEssentials.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D58152C61E2D4934004DE813 /* ChartEssentials.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChartEssentials.h; sourceTree = "<group>"; };
 		D58152C71E2D4934004DE813 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -135,10 +145,14 @@
 		D599F23C1E2DBE4F00816FF7 /* DataTable */ = {
 			isa = PBXGroup;
 			children = (
-				D599F23D1E2DBE7900816FF7 /* CEValueColumn.h */,
-				D599F23E1E2DBE7900816FF7 /* CEValueColumn.mm */,
 				D587C2651E3852ED00603B9C /* CEDateColumn.h */,
+				D57FA7CF1E3EF0EB0072DF8A /* CEDateColumn+Private.h */,
 				D587C2661E3852ED00603B9C /* CEDateColumn.mm */,
+				D599F23D1E2DBE7900816FF7 /* CEValueColumn.h */,
+				D57FA7D21E3EF23B0072DF8A /* CEValueColumn+Private.h */,
+				D599F23E1E2DBE7900816FF7 /* CEValueColumn.mm */,
+				D57FA7C91E3EEC880072DF8A /* CEDateIndexedTable.h */,
+				D57FA7CA1E3EEC880072DF8A /* CEDateIndexedTable.m */,
 			);
 			path = DataTable;
 			sourceTree = "<group>";
@@ -154,8 +168,8 @@
 		D5B2626A1E345C1600328A1F /* DataTable */ = {
 			isa = PBXGroup;
 			children = (
-				D5B2626B1E345C5600328A1F /* CEValueColumnTests.m */,
 				D5B053D71E399E7A002E2362 /* CEDateColumnTests.m */,
+				D5B2626B1E345C5600328A1F /* CEValueColumnTests.m */,
 			);
 			path = DataTable;
 			sourceTree = "<group>";
@@ -180,9 +194,11 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D57FA7D01E3EF10F0072DF8A /* CEDateColumn+Private.h in Headers */,
 				D587C2671E3852ED00603B9C /* CEDateColumn.h in Headers */,
 				D599F23F1E2DBE7900816FF7 /* CEValueColumn.h in Headers */,
 				D599F2451E2DC6FF00816FF7 /* CETools.h in Headers */,
+				D57FA7CB1E3EEC880072DF8A /* CEDateIndexedTable.h in Headers */,
 				D58152D41E2D4934004DE813 /* ChartEssentials.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -191,9 +207,11 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D57FA7D11E3EF1100072DF8A /* CEDateColumn+Private.h in Headers */,
 				D587C2691E3852F300603B9C /* CEDateColumn.h in Headers */,
 				D599F2411E2DC2C900816FF7 /* CEValueColumn.h in Headers */,
 				D58152F91E2D4AAC004DE813 /* ChartEssentials.h in Headers */,
+				D57FA7CD1E3EEEE80072DF8A /* CEDateIndexedTable.h in Headers */,
 				D5B2626D1E345D8700328A1F /* CETools.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -326,6 +344,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D57FA7CC1E3EEC880072DF8A /* CEDateIndexedTable.m in Sources */,
 				D599F2401E2DBE7900816FF7 /* CEValueColumn.mm in Sources */,
 				D587C2681E3852ED00603B9C /* CEDateColumn.mm in Sources */,
 			);
@@ -344,6 +363,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D57FA7CE1E3EEEF00072DF8A /* CEDateIndexedTable.m in Sources */,
 				D599F2421E2DC2CE00816FF7 /* CEValueColumn.mm in Sources */,
 				D587C26A1E3852F900603B9C /* CEDateColumn.mm in Sources */,
 			);

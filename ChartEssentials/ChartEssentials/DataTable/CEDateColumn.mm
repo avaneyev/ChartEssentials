@@ -9,13 +9,18 @@
 //
 
 #import <ChartEssentials/CEDateColumn.h>
+#import <ChartEssentials/CEDateIndexedTable.h>
 #import <ChartEssentials/CETools.h>
+#import "CEDateColumn+Private.h"
 #import <vector>
 
 @implementation CEDateColumn
 {
     std::vector<NSDate *> _data;
+    __weak CEDateIndexedTable *_table;
 }
+
+@synthesize _table = _table;
 
 - (id)copyWithZone:(NSZone *)zone
 {

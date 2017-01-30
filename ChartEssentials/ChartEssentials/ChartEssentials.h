@@ -30,5 +30,4 @@ FOUNDATION_EXPORT const unsigned char ChartEssentialsVersionString[];
 
 #import <ChartEssentials/CEDateColumn.h>
 #import <ChartEssentials/CEValueColumn.h>
-
-
+#import <ChartEssentials/CEDateIndexedTable.h>
