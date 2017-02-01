@@ -20,6 +20,7 @@
 		D587C2681E3852ED00603B9C /* CEDateColumn.mm in Sources */ = {isa = PBXBuildFile; fileRef = D587C2661E3852ED00603B9C /* CEDateColumn.mm */; };
 		D587C2691E3852F300603B9C /* CEDateColumn.h in Headers */ = {isa = PBXBuildFile; fileRef = D587C2651E3852ED00603B9C /* CEDateColumn.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D587C26A1E3852F900603B9C /* CEDateColumn.mm in Sources */ = {isa = PBXBuildFile; fileRef = D587C2661E3852ED00603B9C /* CEDateColumn.mm */; };
+		D58CA35D1E419391004B60DE /* CEDateIndexedTableTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D58CA35C1E419391004B60DE /* CEDateIndexedTableTests.m */; };
 		D599F23F1E2DBE7900816FF7 /* CEValueColumn.h in Headers */ = {isa = PBXBuildFile; fileRef = D599F23D1E2DBE7900816FF7 /* CEValueColumn.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D599F2401E2DBE7900816FF7 /* CEValueColumn.mm in Sources */ = {isa = PBXBuildFile; fileRef = D599F23E1E2DBE7900816FF7 /* CEValueColumn.mm */; };
 		D599F2411E2DC2C900816FF7 /* CEValueColumn.h in Headers */ = {isa = PBXBuildFile; fileRef = D599F23D1E2DBE7900816FF7 /* CEValueColumn.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -54,6 +55,7 @@
 		D58152E51E2D4A29004DE813 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D587C2651E3852ED00603B9C /* CEDateColumn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEDateColumn.h; sourceTree = "<group>"; };
 		D587C2661E3852ED00603B9C /* CEDateColumn.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CEDateColumn.mm; sourceTree = "<group>"; };
+		D58CA35C1E419391004B60DE /* CEDateIndexedTableTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEDateIndexedTableTests.m; sourceTree = "<group>"; };
 		D599F23D1E2DBE7900816FF7 /* CEValueColumn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEValueColumn.h; sourceTree = "<group>"; };
 		D599F23E1E2DBE7900816FF7 /* CEValueColumn.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CEValueColumn.mm; sourceTree = "<group>"; };
 		D599F2441E2DC6FF00816FF7 /* CETools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CETools.h; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 			children = (
 				D5B053D71E399E7A002E2362 /* CEDateColumnTests.m */,
 				D5B2626B1E345C5600328A1F /* CEValueColumnTests.m */,
+				D58CA35C1E419391004B60DE /* CEDateIndexedTableTests.m */,
 			);
 			path = DataTable;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 			files = (
 				D5B2626C1E345C5600328A1F /* CEValueColumnTests.m in Sources */,
 				D5B053D81E399E7A002E2362 /* CEDateColumnTests.m in Sources */,
+				D58CA35D1E419391004B60DE /* CEDateIndexedTableTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
