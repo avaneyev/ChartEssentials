@@ -8,11 +8,15 @@
 //  Distributed under BSD license. See LICENSE for details.
 //
 
+#import <Foundation/Foundation.h>
+
 #if TARGET_OS_IPHONE
 
 #import <UIKit/UIKit.h>
 
 #elif TARGET_OS_MAC
+
+#import <AppKit/AppKit.h>
 
 #endif
 
@@ -22,6 +26,8 @@ FOUNDATION_EXPORT double ChartEssentialsVersionNumber;
 //! Project version string for ChartEssentials.
 FOUNDATION_EXPORT const unsigned char ChartEssentialsVersionString[];
 
-// In this header, you should import all the public headers of your framework using statements like #import <ChartEssentials/PublicHeader.h>
+#import <ChartEssentials/CETools.h>
 
-
+#import <ChartEssentials/CEDateColumn.h>
+#import <ChartEssentials/CEValueColumn.h>
+#import <ChartEssentials/CEDateIndexedTable.h>
