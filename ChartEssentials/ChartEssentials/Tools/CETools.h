@@ -29,11 +29,20 @@
 do {                                                \
     BOOL conditionResult = (condition);             \
     if (!conditionResult) {                          \
-        @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:[NSString stringWithFormat:@"Assertion failed in in %s: %s!",  __PRETTY_FUNCTION__, #condition] userInfo:nil];   \
+        @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:[NSString stringWithFormat:@"Assertion failed in %s: %s!",  __PRETTY_FUNCTION__, #condition] userInfo:nil];   \
     }                                               \
 } while (0)
 #else
 #define CEAssert(condition)
+#endif
+
+#ifdef DEBUG
+#define CEBug()                                     \
+do {                                                \
+    @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:[NSString stringWithFormat:@"BUG: unexpected operation in %s!",  __PRETTY_FUNCTION__] userInfo:nil];   \
+} while (0)
+#else
+#define CEBug()
 #endif
 
 // Pair of macros to enter and leave the critical section
