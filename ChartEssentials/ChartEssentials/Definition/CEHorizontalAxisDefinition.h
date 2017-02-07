@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  Horizontal axis describes a shared chart axis. Data on all subcharts is scaled based on this axis.
+ Horizontal axis is the time axis of the time series data.
  */
 @interface CEHorizontalAxisDefinition : NSObject<NSCoding>
 

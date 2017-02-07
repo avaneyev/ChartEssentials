@@ -1,5 +1,5 @@
 //
-//  CEInstrumentDefinition.m
+//  CEVerticalAxisDefinition.m
 //  ChartEssentials
 //
 //  Created by Anton Vaneev.
@@ -8,22 +8,17 @@
 //  Distributed under BSD license. See LICENSE for details.
 //
 
-#import <ChartEssentials/CEInstrumentDefinition.h>
+#import <ChartEssentials/CEVerticalAxisDefinition.h>
 #import <ChartEssentials/CETools.h>
 
-@implementation CEInstrumentDefinition
-{
-    NSString *_identifier;
-    NSString *_caption;
-}
+@implementation CEVerticalAxisDefinition
 
-- (instancetype)initWithId:(NSString *)identifier
+- (instancetype)initWithId:(NSString *)axisId
 {
-    CEAlwaysAssert(identifier != nil);
-    
+    CEAlwaysAssert(axisId != nil);
     if (self = [super init])
     {
-        _identifier = [identifier copy];
+        _axisId = [axisId copy];
     }
     return self;
 }
@@ -42,10 +37,10 @@
     // TODO: encode object contents
 }
 
-
 #pragma mark - Properties
 
-@synthesize identifier = _identifier;
+@synthesize axisId = _axisId;
 @synthesize caption = _caption;
+@synthesize unitName = _unitName;
 
 @end
