@@ -9,8 +9,23 @@
 //
 
 #import <ChartEssentials/CESubchartDefinition.h>
+#import <ChartEssentials/CETools.h>
 
 @implementation CESubchartDefinition
+{
+    NSString *_subchartId;
+}
+
+- (instancetype)initWithId:(NSString *)subchartId
+{
+    CEAlwaysAssert(subchartId != nil);
+    
+    if (self = [super init])
+    {
+        _subchartId = [subchartId copy];
+    }
+    return self;
+}
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
@@ -25,5 +40,10 @@
 {
     // TODO: encode object contents
 }
+
+
+#pragma mark - Properties
+
+@synthesize subchartId = _subchartId;
 
 @end

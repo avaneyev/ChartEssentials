@@ -33,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Instrument identifier - a string that is used by other definition objects to reference the instrument.
  */
-@property (nonatomic, readonly) NSString *identifier;
+@property (nonatomic, readonly) NSString *instrumentId;
 
 /**
  Instrument caption - a string that is used to display the instrument in a legend.

@@ -1,5 +1,5 @@
 //
-//  CEInstrumentDefinition.m
+//  CEStudyDefinition.m
 //  ChartEssentials
 //
 //  Created by Anton Vaneev.
@@ -8,22 +8,21 @@
 //  Distributed under BSD license. See LICENSE for details.
 //
 
-#import <ChartEssentials/CEInstrumentDefinition.h>
+#import <ChartEssentials/CEStudyDefinition.h>
 #import <ChartEssentials/CETools.h>
 
-@implementation CEInstrumentDefinition
+@implementation CEStudyDefinition
 {
-    NSString *_instrumentId;
-    NSString *_caption;
+    NSString *_studyId;
 }
 
-- (instancetype)initWithId:(NSString *)identifier
+- (instancetype)initWithId:(NSString *)studyId
 {
-    CEAlwaysAssert(identifier != nil);
+    CEAlwaysAssert(studyId != nil);
     
     if (self = [super init])
     {
-        _instrumentId = [identifier copy];
+        _studyId = [studyId copy];
     }
     return self;
 }
@@ -45,7 +44,7 @@
 
 #pragma mark - Properties
 
-@synthesize instrumentId = _instrumentId;
-@synthesize caption = _caption;
+@synthesize studyId = _studyId;
+
 
 @end

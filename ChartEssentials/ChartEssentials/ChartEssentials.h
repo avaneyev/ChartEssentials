@@ -41,3 +41,4 @@ FOUNDATION_EXPORT const unsigned char ChartEssentialsVersionString[];
 
 #import <ChartEssentials/CEVerticalAxisDefinition.h>
 
+#import <ChartEssentials/CEStudyDefinition.h>

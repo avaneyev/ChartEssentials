@@ -17,6 +17,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface CESubchartDefinition : NSObject<NSCoding>
 
+- (instancetype)init NS_UNAVAILABLE;
+
+- (instancetype)initWithId:(NSString *)subchartId NS_DESIGNATED_INITIALIZER;
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder NS_DESIGNATED_INITIALIZER;
+
+@property (nonatomic, readonly) NSString *subchartId;
+
 @end
 
 NS_ASSUME_NONNULL_END
