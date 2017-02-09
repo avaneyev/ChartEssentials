@@ -12,6 +12,7 @@
 
 @class CEVerticalAxisDefinition;
 @class CEStudyDefinition;
+@class CEDrawingDefinition;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -44,6 +45,12 @@ NS_ASSUME_NONNULL_BEGIN
  Studies are not ordered, drawing order will be determined by the drawings.
  */
 @property (nonatomic, readonly) NSDictionary<NSString *,CEStudyDefinition *> *studies;
+
+/**
+ A list of drawings rendered on a subchart.
+ Drawing order defines z-order of the drawings, last being top-most (closest to the viewer).
+ */
+@property (nonatomic, readonly) NSArray<CEDrawingDefinition *> *drawings;
 
 @end
 
