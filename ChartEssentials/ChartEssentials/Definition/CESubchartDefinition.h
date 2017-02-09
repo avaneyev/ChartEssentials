@@ -10,6 +10,9 @@
 
 #import <Foundation/Foundation.h>
 
+@class CEVerticalAxisDefinition;
+@class CEStudyDefinition;
+
 NS_ASSUME_NONNULL_BEGIN
 
 /**
@@ -23,7 +26,24 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder NS_DESIGNATED_INITIALIZER;
 
+/**
+ Subchart identifier used to reference the subchart elsewhere.
+ */
 @property (nonatomic, readonly) NSString *subchartId;
+
+/**
+ A list of vertical axes belonging to the subchart.
+ An axis order related to other axes determines its position on the subchart.
+ Axes are placed from inside to outside, alternating sides, right first.
+ For example, if there are 3 axes, they are placed | 2 | ------------ | 1 | 3 |
+ */
+@property (nonatomic, readonly) NSArray<CEVerticalAxisDefinition *> *verticalAxes;
+
+/**
+ A dictionary of studies drawn on a subchart.
+ Studies are not ordered, drawing order will be determined by the drawings.
+ */
+@property (nonatomic, readonly) NSDictionary<NSString *,CEStudyDefinition *> *studies;
 
 @end
 

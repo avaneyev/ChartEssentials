@@ -14,6 +14,8 @@
 @implementation CESubchartDefinition
 {
     NSString *_subchartId;
+    NSArray<CEVerticalAxisDefinition *> *_verticalAxes;
+    NSDictionary<NSString *, CEStudyDefinition *> *_studies;
 }
 
 - (instancetype)initWithId:(NSString *)subchartId
@@ -45,5 +47,7 @@
 #pragma mark - Properties
 
 @synthesize subchartId = _subchartId;
+@synthesize verticalAxes = _verticalAxes;
+@synthesize studies = _studies;
 
 @end

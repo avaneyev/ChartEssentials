@@ -1,5 +1,5 @@
 //
-//  CEHorizontalAxisDefinition.m
+//  CEDrawingDefinition.m
 //  ChartEssentials
 //
 //  Created by Anton Vaneev.
@@ -8,21 +8,21 @@
 //  Distributed under BSD license. See LICENSE for details.
 //
 
-#import <ChartEssentials/CEHorizontalAxisDefinition.h>
+#import <ChartEssentials/CEDrawingDefinition.h>
 #import <ChartEssentials/CETools.h>
 
-@implementation CEHorizontalAxisDefinition
+@implementation CEDrawingDefinition
 {
-    NSString *_axisId;
+    NSString *_drawingId;
 }
 
-- (instancetype)initWithId:(NSString *)axisId
+- (instancetype)initWithId:(NSString *)drawingId
 {
-    CEAlwaysAssert(axisId != nil);
+    CEAlwaysAssert(drawingId != nil);
     
     if (self = [super init])
     {
-        _axisId = [axisId copy];
+        _drawingId = [drawingId copy];
     }
     return self;
 }
@@ -44,6 +44,6 @@
 
 #pragma mark - Properties
 
-@synthesize axisId = _axisId;
+@synthesize drawingId = _drawingId;
 
 @end

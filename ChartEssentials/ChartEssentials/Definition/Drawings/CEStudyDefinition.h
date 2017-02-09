@@ -21,7 +21,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface CEStudyDefinition : NSObject<NSCoding>
 
-- (instancetype)initWithId:(NSString *)studyId;
+- (instancetype)init NS_UNAVAILABLE;
+
+- (instancetype)initWithId:(NSString *)studyId NS_DESIGNATED_INITIALIZER;
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder NS_DESIGNATED_INITIALIZER;
+
 
 /**
  Study identifier - a string that is used by other definition objects to reference the study.

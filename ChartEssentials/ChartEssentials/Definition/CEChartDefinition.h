@@ -34,7 +34,12 @@ NS_ASSUME_NONNULL_BEGIN
  @param horizontalAxis horizontal axis shared between all subcharts.
  */
 - (instancetype)initWithSubcharts:(NSArray<CESubchartDefinition *> *)subcharts
-                   horizontalAxis:(CEHorizontalAxisDefinition *)horizontalAxis;
+                   horizontalAxis:(CEHorizontalAxisDefinition *)horizontalAxis NS_DESIGNATED_INITIALIZER;
+
+/**
+ A decoding initializer.
+ */
+- (instancetype)initWithCoder:(NSCoder *)aDecoder NS_DESIGNATED_INITIALIZER;
 
 /**
  A list of subcharts.

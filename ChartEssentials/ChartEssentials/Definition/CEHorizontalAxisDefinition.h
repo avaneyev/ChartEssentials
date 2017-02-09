@@ -18,6 +18,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface CEHorizontalAxisDefinition : NSObject<NSCoding>
 
+- (instancetype)init NS_UNAVAILABLE;
+
+- (instancetype)initWithId:(NSString *)axisId NS_DESIGNATED_INITIALIZER;
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder NS_DESIGNATED_INITIALIZER;
+
+@property (nonatomic, readonly) NSString *axisId;
+
 @end
 
 NS_ASSUME_NONNULL_END
