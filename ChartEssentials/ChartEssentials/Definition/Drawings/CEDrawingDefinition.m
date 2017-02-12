@@ -16,13 +16,15 @@
     NSString *_drawingId;
 }
 
-- (instancetype)initWithId:(NSString *)drawingId
+- (instancetype)initWithId:(NSString *)drawingId studyId:(nonnull NSString *)studyId
 {
     CEAlwaysAssert(drawingId != nil);
+    CEAlwaysAssert(studyId != nil);
     
     if (self = [super init])
     {
         _drawingId = [drawingId copy];
+        _studyId = [studyId copy];
     }
     return self;
 }
@@ -45,5 +47,6 @@
 #pragma mark - Properties
 
 @synthesize drawingId = _drawingId;
+@synthesize studyId = _studyId;
 
 @end

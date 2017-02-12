@@ -22,11 +22,24 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)init NS_UNAVAILABLE;
 
-- (instancetype)initWithId:(NSString *)drawingId NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithId:(NSString *)drawingId studyId:(NSString *)studyId NS_DESIGNATED_INITIALIZER;
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder NS_DESIGNATED_INITIALIZER;
 
+/**
+ Drawing identifier - a string used by other objects to reference the drawing.
+ */
 @property (nonatomic, readonly) NSString *drawingId;
+
+/**
+ Study identifier - an identifier of the study that drawing belongs to.
+ */
+@property (nonatomic, readonly) NSString *studyId;
+
+/**
+ Sets the drawing as hidden. Hidden drawings are not displayed on the chart.
+ */
+@property (readwrite, assign) BOOL hidden;
 
 @end
 
