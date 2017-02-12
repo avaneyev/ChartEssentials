@@ -42,6 +42,14 @@
 		D58152F91E2D4AAC004DE813 /* ChartEssentials.h in Headers */ = {isa = PBXBuildFile; fileRef = D58152C61E2D4934004DE813 /* ChartEssentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D585A2C31E4C2B6C008271BE /* CEDrawingDefinition.h in Headers */ = {isa = PBXBuildFile; fileRef = D585A2C11E4C2B6C008271BE /* CEDrawingDefinition.h */; };
 		D585A2C41E4C2B6C008271BE /* CEDrawingDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = D585A2C21E4C2B6C008271BE /* CEDrawingDefinition.m */; };
+		D585F93C1E50FA61000238E7 /* CEColorScheme.h in Headers */ = {isa = PBXBuildFile; fileRef = D585F93A1E50FA61000238E7 /* CEColorScheme.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D585F93D1E50FA61000238E7 /* CEColorScheme.h in Headers */ = {isa = PBXBuildFile; fileRef = D585F93A1E50FA61000238E7 /* CEColorScheme.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D585F93E1E50FA61000238E7 /* CEColorScheme.m in Sources */ = {isa = PBXBuildFile; fileRef = D585F93B1E50FA61000238E7 /* CEColorScheme.m */; };
+		D585F93F1E50FA61000238E7 /* CEColorScheme.m in Sources */ = {isa = PBXBuildFile; fileRef = D585F93B1E50FA61000238E7 /* CEColorScheme.m */; };
+		D585F9411E50FBD8000238E7 /* CEPlatformDefinitions.h in Headers */ = {isa = PBXBuildFile; fileRef = D585F9401E50FBB1000238E7 /* CEPlatformDefinitions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D585F9421E50FBDB000238E7 /* CEPlatformDefinitions.h in Headers */ = {isa = PBXBuildFile; fileRef = D585F9401E50FBB1000238E7 /* CEPlatformDefinitions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D585F9441E50FCC5000238E7 /* CEColorScheme+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = D585F9431E50FCBF000238E7 /* CEColorScheme+Private.h */; };
+		D585F9451E50FCC6000238E7 /* CEColorScheme+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = D585F9431E50FCBF000238E7 /* CEColorScheme+Private.h */; };
 		D587C2671E3852ED00603B9C /* CEDateColumn.h in Headers */ = {isa = PBXBuildFile; fileRef = D587C2651E3852ED00603B9C /* CEDateColumn.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D587C2681E3852ED00603B9C /* CEDateColumn.mm in Sources */ = {isa = PBXBuildFile; fileRef = D587C2661E3852ED00603B9C /* CEDateColumn.mm */; };
 		D587C2691E3852F300603B9C /* CEDateColumn.h in Headers */ = {isa = PBXBuildFile; fileRef = D587C2651E3852ED00603B9C /* CEDateColumn.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -93,6 +101,10 @@
 		D58152E51E2D4A29004DE813 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D585A2C11E4C2B6C008271BE /* CEDrawingDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEDrawingDefinition.h; sourceTree = "<group>"; };
 		D585A2C21E4C2B6C008271BE /* CEDrawingDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEDrawingDefinition.m; sourceTree = "<group>"; };
+		D585F93A1E50FA61000238E7 /* CEColorScheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEColorScheme.h; sourceTree = "<group>"; };
+		D585F93B1E50FA61000238E7 /* CEColorScheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEColorScheme.m; sourceTree = "<group>"; };
+		D585F9401E50FBB1000238E7 /* CEPlatformDefinitions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEPlatformDefinitions.h; sourceTree = "<group>"; };
+		D585F9431E50FCBF000238E7 /* CEColorScheme+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CEColorScheme+Private.h"; sourceTree = "<group>"; };
 		D587C2651E3852ED00603B9C /* CEDateColumn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEDateColumn.h; sourceTree = "<group>"; };
 		D587C2661E3852ED00603B9C /* CEDateColumn.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CEDateColumn.mm; sourceTree = "<group>"; };
 		D58CA35C1E419391004B60DE /* CEDateIndexedTableTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEDateIndexedTableTests.m; sourceTree = "<group>"; };
@@ -138,6 +150,7 @@
 		D57D48981E43F467001CA791 /* Definition */ = {
 			isa = PBXGroup;
 			children = (
+				D585F9391E50FA2B000238E7 /* Color Schemes */,
 				D57D48B81E4996D4001CA791 /* Drawings */,
 				D57D48B11E494814001CA791 /* Vertical Axis */,
 				D57D48991E43F606001CA791 /* CEChartDefinition.h */,
@@ -223,6 +236,17 @@
 			path = "ChartEssentials-macOS";
 			sourceTree = "<group>";
 		};
+		D585F9391E50FA2B000238E7 /* Color Schemes */ = {
+			isa = PBXGroup;
+			children = (
+				D585F93A1E50FA61000238E7 /* CEColorScheme.h */,
+				D585F9431E50FCBF000238E7 /* CEColorScheme+Private.h */,
+				D585F93B1E50FA61000238E7 /* CEColorScheme.m */,
+			);
+			name = "Color Schemes";
+			path = ColorSchemes;
+			sourceTree = "<group>";
+		};
 		D599F23C1E2DBE4F00816FF7 /* DataTable */ = {
 			isa = PBXGroup;
 			children = (
@@ -242,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				D599F2441E2DC6FF00816FF7 /* CETools.h */,
+				D585F9401E50FBB1000238E7 /* CEPlatformDefinitions.h */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -277,6 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D57FA7D01E3EF10F0072DF8A /* CEDateColumn+Private.h in Headers */,
+				D585F93C1E50FA61000238E7 /* CEColorScheme.h in Headers */,
 				D57D48A11E43F787001CA791 /* CESubchartDefinition.h in Headers */,
 				D587C2671E3852ED00603B9C /* CEDateColumn.h in Headers */,
 				D599F23F1E2DBE7900816FF7 /* CEValueColumn.h in Headers */,
@@ -285,10 +311,12 @@
 				D57D48AD1E43FBDE001CA791 /* CEInstrumentDefinition.h in Headers */,
 				D599F2451E2DC6FF00816FF7 /* CETools.h in Headers */,
 				D57FA7CB1E3EEC880072DF8A /* CEDateIndexedTable.h in Headers */,
+				D585F9411E50FBD8000238E7 /* CEPlatformDefinitions.h in Headers */,
 				D57D48B41E494842001CA791 /* CEVerticalAxisDefinition.h in Headers */,
 				D58152D41E2D4934004DE813 /* ChartEssentials.h in Headers */,
 				D57D48BB1E49970C001CA791 /* CEStudyDefinition.h in Headers */,
 				D585A2C31E4C2B6C008271BE /* CEDrawingDefinition.h in Headers */,
+				D585F9441E50FCC5000238E7 /* CEColorScheme+Private.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,17 +324,20 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D585F9421E50FBDB000238E7 /* CEPlatformDefinitions.h in Headers */,
 				D57FA7D11E3EF1100072DF8A /* CEDateColumn+Private.h in Headers */,
 				D57D48A21E43F787001CA791 /* CESubchartDefinition.h in Headers */,
 				D587C2691E3852F300603B9C /* CEDateColumn.h in Headers */,
 				D599F2411E2DC2C900816FF7 /* CEValueColumn.h in Headers */,
 				D57D48A81E43F876001CA791 /* CEHorizontalAxisDefinition.h in Headers */,
 				D57D489C1E43F606001CA791 /* CEChartDefinition.h in Headers */,
+				D585F93D1E50FA61000238E7 /* CEColorScheme.h in Headers */,
 				D57D48AE1E43FBDE001CA791 /* CEInstrumentDefinition.h in Headers */,
 				D58152F91E2D4AAC004DE813 /* ChartEssentials.h in Headers */,
 				D57FA7CD1E3EEEE80072DF8A /* CEDateIndexedTable.h in Headers */,
 				D57D48B51E494842001CA791 /* CEVerticalAxisDefinition.h in Headers */,
 				D5B2626D1E345D8700328A1F /* CETools.h in Headers */,
+				D585F9451E50FCC6000238E7 /* CEColorScheme+Private.h in Headers */,
 				D57D48BC1E49970C001CA791 /* CEStudyDefinition.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -439,6 +470,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D585F93E1E50FA61000238E7 /* CEColorScheme.m in Sources */,
 				D57FA7CC1E3EEC880072DF8A /* CEDateIndexedTable.m in Sources */,
 				D57D489D1E43F606001CA791 /* CEChartDefinition.m in Sources */,
 				D599F2401E2DBE7900816FF7 /* CEValueColumn.mm in Sources */,
@@ -472,6 +504,7 @@
 				D587C26A1E3852F900603B9C /* CEDateColumn.mm in Sources */,
 				D57D48A41E43F787001CA791 /* CESubchartDefinition.m in Sources */,
 				D57D48BE1E49970C001CA791 /* CEStudyDefinition.m in Sources */,
+				D585F93F1E50FA61000238E7 /* CEColorScheme.m in Sources */,
 				D57D48B71E494842001CA791 /* CEVerticalAxisDefinition.m in Sources */,
 				D57D48B01E43FBDE001CA791 /* CEInstrumentDefinition.m in Sources */,
 				D57D48AA1E43F876001CA791 /* CEHorizontalAxisDefinition.m in Sources */,
