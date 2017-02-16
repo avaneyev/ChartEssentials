@@ -14,6 +14,11 @@
 
 @implementation CEColorScheme
 
+- (instancetype)init
+{
+    return [super init];
+}
+
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
     // subclasses will override

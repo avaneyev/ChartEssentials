@@ -18,6 +18,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface CEColorScheme : NSObject<NSCoding>
 
+- (instancetype)init NS_DESIGNATED_INITIALIZER;
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder NS_DESIGNATED_INITIALIZER;
+
 @end
 
 NS_ASSUME_NONNULL_END
