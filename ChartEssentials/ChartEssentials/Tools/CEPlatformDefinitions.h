@@ -12,6 +12,8 @@
 
 #import <UIKit/UIKit.h>
 
+#define CE_SUPPORTED_PLATFORM
+
 #define CEColor     UIColor
 #define CEFont      UIFont
 #define CEImage     UIImage
@@ -19,6 +21,8 @@
 #elif TARGET_OS_MAC
 
 #import <AppKit/AppKit.h>
+
+#define CE_SUPPORTED_PLATFORM
 
 #define CEColor     NSColor
 #define CEFont      NSFont

@@ -10,9 +10,16 @@
 
 #import <ChartEssentials/CEPlatformDefinitions.h>
 
-#if !defined CE_IMAGE_TOOLS_H
-#define CE_IMAGE_TOOLS_H
+#if TARGET_OS_IPHONE
 
-CEImage *_CEMaskedImageWithOverlayColor(CEImage *mask, CEColor *color);
+@interface UIImage (CEImageTools)
+- (nonnull UIImage *)_imageWithOverlayColor:(nonnull UIColor *)color;
+@end
+
+#elif TARGET_OS_MAC
+
+@interface NSImage (CEImageTools)
+- (nonnull NSImage *)_imageWithOverlayColor:(nonnull NSColor *)color;
+@end
 
 #endif

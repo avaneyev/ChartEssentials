@@ -54,6 +54,8 @@
 		D587C2681E3852ED00603B9C /* CEDateColumn.mm in Sources */ = {isa = PBXBuildFile; fileRef = D587C2661E3852ED00603B9C /* CEDateColumn.mm */; };
 		D587C2691E3852F300603B9C /* CEDateColumn.h in Headers */ = {isa = PBXBuildFile; fileRef = D587C2651E3852ED00603B9C /* CEDateColumn.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D587C26A1E3852F900603B9C /* CEDateColumn.mm in Sources */ = {isa = PBXBuildFile; fileRef = D587C2661E3852ED00603B9C /* CEDateColumn.mm */; };
+		D58870DB1E5B7B2200F6EA69 /* CEImageTools.h in Headers */ = {isa = PBXBuildFile; fileRef = D5888E311E55566300910052 /* CEImageTools.h */; };
+		D58870DC1E5B7B2300F6EA69 /* CEImageTools.h in Headers */ = {isa = PBXBuildFile; fileRef = D5888E311E55566300910052 /* CEImageTools.h */; };
 		D5888E2D1E55525500910052 /* CESingleColorScheme.h in Headers */ = {isa = PBXBuildFile; fileRef = D5888E2B1E55525500910052 /* CESingleColorScheme.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D5888E2E1E55525500910052 /* CESingleColorScheme.h in Headers */ = {isa = PBXBuildFile; fileRef = D5888E2B1E55525500910052 /* CESingleColorScheme.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D5888E2F1E55525500910052 /* CESingleColorScheme.m in Sources */ = {isa = PBXBuildFile; fileRef = D5888E2C1E55525500910052 /* CESingleColorScheme.m */; };
@@ -325,6 +327,7 @@
 				D57D48AD1E43FBDE001CA791 /* CEInstrumentDefinition.h in Headers */,
 				D599F2451E2DC6FF00816FF7 /* CETools.h in Headers */,
 				D57FA7CB1E3EEC880072DF8A /* CEDateIndexedTable.h in Headers */,
+				D58870DB1E5B7B2200F6EA69 /* CEImageTools.h in Headers */,
 				D585F9411E50FBD8000238E7 /* CEPlatformDefinitions.h in Headers */,
 				D57D48B41E494842001CA791 /* CEVerticalAxisDefinition.h in Headers */,
 				D5888E2D1E55525500910052 /* CESingleColorScheme.h in Headers */,
@@ -347,6 +350,7 @@
 				D57D48A81E43F876001CA791 /* CEHorizontalAxisDefinition.h in Headers */,
 				D57D489C1E43F606001CA791 /* CEChartDefinition.h in Headers */,
 				D585F93D1E50FA61000238E7 /* CEColorScheme.h in Headers */,
+				D58870DC1E5B7B2300F6EA69 /* CEImageTools.h in Headers */,
 				D57D48AE1E43FBDE001CA791 /* CEInstrumentDefinition.h in Headers */,
 				D5888E2E1E55525500910052 /* CESingleColorScheme.h in Headers */,
 				D58152F91E2D4AAC004DE813 /* ChartEssentials.h in Headers */,

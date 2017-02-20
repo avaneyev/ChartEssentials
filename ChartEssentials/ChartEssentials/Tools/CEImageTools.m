@@ -14,21 +14,23 @@
 
 #import <UIKit/UIKit.h>
 
-UIImage *_CEMaskedImageWithOverlayColor(UIImage *mask, UIColor *color)
+@implementation UIImage (CEImageTools)
+
+- (UIImage *)_imageWithOverlayColor:(UIColor *)color
 {
-    CGSize imageSize = mask.size;
+    CGSize imageSize = self.size;
     CGRect rect = { CGPointZero, imageSize };
     
     if (UIGraphicsBeginImageContextWithOptions)
     {
-        UIGraphicsBeginImageContextWithOptions(imageSize, NO, mask.scale);
+        UIGraphicsBeginImageContextWithOptions(imageSize, NO, self.scale);
     }
     else
     {
         UIGraphicsBeginImageContext(imageSize);
     }
     
-    [mask drawInRect:rect];
+    [self drawInRect:rect];
     
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetBlendMode(context, kCGBlendModeSourceIn);
@@ -42,13 +44,16 @@ UIImage *_CEMaskedImageWithOverlayColor(UIImage *mask, UIColor *color)
     return image;
 }
 
+@end
+
 #elif TARGET_OS_MAC
 
 #import <AppKit/AppKit.h>
 
-NSImage *_CEMaskedImageWithOverlayColor(NSImage *mask, NSColor *color)
+- (NSImage *)_imageWithOverlayColor:(NSColor *)color
 {
     return nil;
 }
+
 #endif
 

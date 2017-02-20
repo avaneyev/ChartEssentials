@@ -42,7 +42,7 @@
 - (CEImage *)_drawSchemeWithMask:(CEImage *)mask
 {
     CEAlwaysAssert(mask != nil);
-    return _CEMaskedImageWithOverlayColor(mask, _color);
+    return [mask _imageWithOverlayColor:_color];
 }
 
 #pragma mark - Properties
