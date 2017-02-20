@@ -21,27 +21,46 @@
     CGSize imageSize = self.size;
     CGRect rect = { CGPointZero, imageSize };
     
-    if (UIGraphicsBeginImageContextWithOptions)
+    if ([UIGraphicsImageRenderer class])
     {
-        UIGraphicsBeginImageContextWithOptions(imageSize, NO, self.scale);
+        UIGraphicsImageRendererFormat *format = [[UIGraphicsImageRendererFormat alloc] init];
+        format.scale = mask.scale;
+        
+        UIGraphicsImageRenderer *renderer = [[UIGraphicsImageRenderer alloc] initWithSize:maskSize format:format];
+        
+        return [renderer imageWithActions:^(UIGraphicsImageRendererContext *rendererContext) {
+            [mask drawInRect:rect];
+            
+            [color setFill];
+            [rendererContext fillRect:rect];
+            
+            CGContextSetBlendMode(rendererContext.CGContext, kCGBlendModeSourceIn);
+        }];
     }
     else
     {
-        UIGraphicsBeginImageContext(imageSize);
+        if (UIGraphicsBeginImageContextWithOptions)
+        {
+            UIGraphicsBeginImageContextWithOptions(imageSize, NO, self.scale);
+        }
+        else
+        {
+            UIGraphicsBeginImageContext(imageSize);
+        }
+        
+        [self drawInRect:rect];
+        
+        CGContextRef context = UIGraphicsGetCurrentContext();
+        CGContextSetBlendMode(context, kCGBlendModeSourceIn);
+        
+        CGContextSetFillColorWithColor(context, color.CGColor);
+        CGContextFillRect(context, rect);
+        
+        UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        return image;
     }
-    
-    [self drawInRect:rect];
-    
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetBlendMode(context, kCGBlendModeSourceIn);
-    
-    CGContextSetFillColorWithColor(context, color.CGColor);
-    CGContextFillRect(context, rect);
-    
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    return image;
 }
 
 @end
