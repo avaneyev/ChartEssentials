@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
  Abstract color scheme class. Concrete color scheme behavior is defined in specific subclasses.
  Color scheme determines how drawings and legend items are colored.
  */
-@interface CEColorScheme : NSObject<NSCoding>
+@interface CEColorScheme : NSObject<NSCoding, NSCopying>
 
 - (instancetype)init NS_DESIGNATED_INITIALIZER;
 

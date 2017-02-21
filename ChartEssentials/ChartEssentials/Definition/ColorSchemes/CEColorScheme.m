@@ -31,6 +31,11 @@
     // subclasses will override
 }
 
+- (id)copyWithZone:(NSZone *)zone
+{
+    return self;
+}
+
 - (CEImage *)_drawSchemeWithMask:(CEImage *)mask
 {
     THROW_ABSTRACT(nil);

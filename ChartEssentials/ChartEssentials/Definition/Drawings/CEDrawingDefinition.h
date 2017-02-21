@@ -12,6 +12,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class CEDrawingType;
+
 /**
  Describes a drawing, graphical representation of time series data.
  A drawing definition consists of general properties (ID, study that drawing belongs to, etc.)
@@ -39,7 +41,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Sets the drawing as hidden. Hidden drawings are not displayed on the chart.
  */
-@property (readwrite, assign) BOOL hidden;
+@property (nonatomic, readwrite, assign) BOOL hidden;
+
+@property (nonatomic, readwrite, nullable) CEDrawingType *drawingType;
 
 @end
 
