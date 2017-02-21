@@ -23,12 +23,12 @@
 		D57D48AE1E43FBDE001CA791 /* CEInstrumentDefinition.h in Headers */ = {isa = PBXBuildFile; fileRef = D57D48AB1E43FBDE001CA791 /* CEInstrumentDefinition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D57D48AF1E43FBDE001CA791 /* CEInstrumentDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = D57D48AC1E43FBDE001CA791 /* CEInstrumentDefinition.m */; };
 		D57D48B01E43FBDE001CA791 /* CEInstrumentDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = D57D48AC1E43FBDE001CA791 /* CEInstrumentDefinition.m */; };
-		D57D48B41E494842001CA791 /* CEVerticalAxisDefinition.h in Headers */ = {isa = PBXBuildFile; fileRef = D57D48B21E494842001CA791 /* CEVerticalAxisDefinition.h */; };
-		D57D48B51E494842001CA791 /* CEVerticalAxisDefinition.h in Headers */ = {isa = PBXBuildFile; fileRef = D57D48B21E494842001CA791 /* CEVerticalAxisDefinition.h */; };
+		D57D48B41E494842001CA791 /* CEVerticalAxisDefinition.h in Headers */ = {isa = PBXBuildFile; fileRef = D57D48B21E494842001CA791 /* CEVerticalAxisDefinition.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D57D48B51E494842001CA791 /* CEVerticalAxisDefinition.h in Headers */ = {isa = PBXBuildFile; fileRef = D57D48B21E494842001CA791 /* CEVerticalAxisDefinition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D57D48B61E494842001CA791 /* CEVerticalAxisDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = D57D48B31E494842001CA791 /* CEVerticalAxisDefinition.m */; };
 		D57D48B71E494842001CA791 /* CEVerticalAxisDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = D57D48B31E494842001CA791 /* CEVerticalAxisDefinition.m */; };
-		D57D48BB1E49970C001CA791 /* CEStudyDefinition.h in Headers */ = {isa = PBXBuildFile; fileRef = D57D48B91E49970C001CA791 /* CEStudyDefinition.h */; };
-		D57D48BC1E49970C001CA791 /* CEStudyDefinition.h in Headers */ = {isa = PBXBuildFile; fileRef = D57D48B91E49970C001CA791 /* CEStudyDefinition.h */; };
+		D57D48BB1E49970C001CA791 /* CEStudyDefinition.h in Headers */ = {isa = PBXBuildFile; fileRef = D57D48B91E49970C001CA791 /* CEStudyDefinition.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D57D48BC1E49970C001CA791 /* CEStudyDefinition.h in Headers */ = {isa = PBXBuildFile; fileRef = D57D48B91E49970C001CA791 /* CEStudyDefinition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D57D48BD1E49970C001CA791 /* CEStudyDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = D57D48BA1E49970C001CA791 /* CEStudyDefinition.m */; };
 		D57D48BE1E49970C001CA791 /* CEStudyDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = D57D48BA1E49970C001CA791 /* CEStudyDefinition.m */; };
 		D57FA7CB1E3EEC880072DF8A /* CEDateIndexedTable.h in Headers */ = {isa = PBXBuildFile; fileRef = D57FA7C91E3EEC880072DF8A /* CEDateIndexedTable.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -40,7 +40,7 @@
 		D58152CD1E2D4934004DE813 /* ChartEssentials.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D58152C31E2D4934004DE813 /* ChartEssentials.framework */; };
 		D58152D41E2D4934004DE813 /* ChartEssentials.h in Headers */ = {isa = PBXBuildFile; fileRef = D58152C61E2D4934004DE813 /* ChartEssentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D58152F91E2D4AAC004DE813 /* ChartEssentials.h in Headers */ = {isa = PBXBuildFile; fileRef = D58152C61E2D4934004DE813 /* ChartEssentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D585A2C31E4C2B6C008271BE /* CEDrawingDefinition.h in Headers */ = {isa = PBXBuildFile; fileRef = D585A2C11E4C2B6C008271BE /* CEDrawingDefinition.h */; };
+		D585A2C31E4C2B6C008271BE /* CEDrawingDefinition.h in Headers */ = {isa = PBXBuildFile; fileRef = D585A2C11E4C2B6C008271BE /* CEDrawingDefinition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D585A2C41E4C2B6C008271BE /* CEDrawingDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = D585A2C21E4C2B6C008271BE /* CEDrawingDefinition.m */; };
 		D585F93C1E50FA61000238E7 /* CEColorScheme.h in Headers */ = {isa = PBXBuildFile; fileRef = D585F93A1E50FA61000238E7 /* CEColorScheme.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D585F93D1E50FA61000238E7 /* CEColorScheme.h in Headers */ = {isa = PBXBuildFile; fileRef = D585F93A1E50FA61000238E7 /* CEColorScheme.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -56,10 +56,11 @@
 		D587C26A1E3852F900603B9C /* CEDateColumn.mm in Sources */ = {isa = PBXBuildFile; fileRef = D587C2661E3852ED00603B9C /* CEDateColumn.mm */; };
 		D58870DB1E5B7B2200F6EA69 /* CEImageTools.h in Headers */ = {isa = PBXBuildFile; fileRef = D5888E311E55566300910052 /* CEImageTools.h */; };
 		D58870DC1E5B7B2300F6EA69 /* CEImageTools.h in Headers */ = {isa = PBXBuildFile; fileRef = D5888E311E55566300910052 /* CEImageTools.h */; };
-		D58870DF1E5B8AF400F6EA69 /* CEDualColorScheme.h in Headers */ = {isa = PBXBuildFile; fileRef = D58870DD1E5B8AF400F6EA69 /* CEDualColorScheme.h */; };
-		D58870E01E5B8AF400F6EA69 /* CEDualColorScheme.h in Headers */ = {isa = PBXBuildFile; fileRef = D58870DD1E5B8AF400F6EA69 /* CEDualColorScheme.h */; };
+		D58870DF1E5B8AF400F6EA69 /* CEDualColorScheme.h in Headers */ = {isa = PBXBuildFile; fileRef = D58870DD1E5B8AF400F6EA69 /* CEDualColorScheme.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D58870E01E5B8AF400F6EA69 /* CEDualColorScheme.h in Headers */ = {isa = PBXBuildFile; fileRef = D58870DD1E5B8AF400F6EA69 /* CEDualColorScheme.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D58870E11E5B8AF400F6EA69 /* CEDualColorScheme.m in Sources */ = {isa = PBXBuildFile; fileRef = D58870DE1E5B8AF400F6EA69 /* CEDualColorScheme.m */; };
 		D58870E21E5B8AF400F6EA69 /* CEDualColorScheme.m in Sources */ = {isa = PBXBuildFile; fileRef = D58870DE1E5B8AF400F6EA69 /* CEDualColorScheme.m */; };
+		D58870E31E5BDEC200F6EA69 /* CEDrawingDefinition.h in Headers */ = {isa = PBXBuildFile; fileRef = D585A2C11E4C2B6C008271BE /* CEDrawingDefinition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D5888E2D1E55525500910052 /* CESingleColorScheme.h in Headers */ = {isa = PBXBuildFile; fileRef = D5888E2B1E55525500910052 /* CESingleColorScheme.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D5888E2E1E55525500910052 /* CESingleColorScheme.h in Headers */ = {isa = PBXBuildFile; fileRef = D5888E2B1E55525500910052 /* CESingleColorScheme.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D5888E2F1E55525500910052 /* CESingleColorScheme.m in Sources */ = {isa = PBXBuildFile; fileRef = D5888E2C1E55525500910052 /* CESingleColorScheme.m */; };
@@ -358,6 +359,7 @@
 				D587C2691E3852F300603B9C /* CEDateColumn.h in Headers */,
 				D599F2411E2DC2C900816FF7 /* CEValueColumn.h in Headers */,
 				D57D48A81E43F876001CA791 /* CEHorizontalAxisDefinition.h in Headers */,
+				D58870E31E5BDEC200F6EA69 /* CEDrawingDefinition.h in Headers */,
 				D57D489C1E43F606001CA791 /* CEChartDefinition.h in Headers */,
 				D585F93D1E50FA61000238E7 /* CEColorScheme.h in Headers */,
 				D58870DC1E5B7B2300F6EA69 /* CEImageTools.h in Headers */,

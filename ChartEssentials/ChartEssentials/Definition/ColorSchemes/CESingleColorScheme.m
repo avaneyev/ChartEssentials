@@ -47,6 +47,7 @@
     return [mask _imageWithOverlayColor:_color];
 }
 
+
 #pragma mark - Properties
 
 @synthesize color = _color;

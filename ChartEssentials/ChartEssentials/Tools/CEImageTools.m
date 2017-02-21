@@ -21,6 +21,7 @@
     CGSize imageSize = self.size;
     CGRect rect = { CGPointZero, imageSize };
     
+    // Graphics renderer is the recommended way to make images, but it is only available starting iOS 10.
     if ([UIGraphicsImageRenderer class])
     {
         UIGraphicsImageRendererFormat *format = [[UIGraphicsImageRendererFormat alloc] init];
@@ -39,14 +40,7 @@
     }
     else
     {
-        if (UIGraphicsBeginImageContextWithOptions)
-        {
-            UIGraphicsBeginImageContextWithOptions(imageSize, NO, self.scale);
-        }
-        else
-        {
-            UIGraphicsBeginImageContext(imageSize);
-        }
+        UIGraphicsBeginImageContextWithOptions(imageSize, NO, self.scale);
         
         [self drawInRect:rect];
         

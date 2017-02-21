@@ -60,6 +60,7 @@
     CGSize maskSize = mask.size;
     CGRect rect = { CGPointZero, maskSize };
 
+    // Graphics renderer is the recommended way to make images, but it is only available starting iOS 10.
     if ([UIGraphicsImageRenderer class])
     {
         UIGraphicsImageRendererFormat *format = [[UIGraphicsImageRendererFormat alloc] init];
@@ -113,7 +114,6 @@
 }
 
 #endif
-
 
 
 #pragma mark - Properties
