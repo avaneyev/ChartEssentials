@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D57A39881E635E2C00818C1D /* CELineStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = D57A39861E635E2C00818C1D /* CELineStyle.h */; };
+		D57A39891E635E2C00818C1D /* CELineStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = D57A39861E635E2C00818C1D /* CELineStyle.h */; };
+		D57A398A1E635E2C00818C1D /* CELineStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D57A39871E635E2C00818C1D /* CELineStyle.m */; };
+		D57A398B1E635E2C00818C1D /* CELineStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D57A39871E635E2C00818C1D /* CELineStyle.m */; };
 		D57D489B1E43F606001CA791 /* CEChartDefinition.h in Headers */ = {isa = PBXBuildFile; fileRef = D57D48991E43F606001CA791 /* CEChartDefinition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D57D489C1E43F606001CA791 /* CEChartDefinition.h in Headers */ = {isa = PBXBuildFile; fileRef = D57D48991E43F606001CA791 /* CEChartDefinition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D57D489D1E43F606001CA791 /* CEChartDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = D57D489A1E43F606001CA791 /* CEChartDefinition.m */; };
@@ -93,6 +97,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D57A39861E635E2C00818C1D /* CELineStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CELineStyle.h; sourceTree = "<group>"; };
+		D57A39871E635E2C00818C1D /* CELineStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CELineStyle.m; sourceTree = "<group>"; };
 		D57D48991E43F606001CA791 /* CEChartDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEChartDefinition.h; sourceTree = "<group>"; };
 		D57D489A1E43F606001CA791 /* CEChartDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEChartDefinition.m; sourceTree = "<group>"; };
 		D57D489F1E43F787001CA791 /* CESubchartDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CESubchartDefinition.h; sourceTree = "<group>"; };
@@ -209,6 +215,8 @@
 				D585A2C21E4C2B6C008271BE /* CEDrawingDefinition.m */,
 				D58870E41E5BDFC500F6EA69 /* CEDrawingType.h */,
 				D58870E51E5BDFC500F6EA69 /* CEDrawingType.m */,
+				D57A39861E635E2C00818C1D /* CELineStyle.h */,
+				D57A39871E635E2C00818C1D /* CELineStyle.m */,
 			);
 			path = Drawings;
 			sourceTree = "<group>";
@@ -348,6 +356,7 @@
 				D58870E61E5BDFC500F6EA69 /* CEDrawingType.h in Headers */,
 				D58870DB1E5B7B2200F6EA69 /* CEImageTools.h in Headers */,
 				D585F9411E50FBD8000238E7 /* CEPlatformDefinitions.h in Headers */,
+				D57A39881E635E2C00818C1D /* CELineStyle.h in Headers */,
 				D57D48B41E494842001CA791 /* CEVerticalAxisDefinition.h in Headers */,
 				D5888E2D1E55525500910052 /* CESingleColorScheme.h in Headers */,
 				D58152D41E2D4934004DE813 /* ChartEssentials.h in Headers */,
@@ -375,6 +384,7 @@
 				D58870E71E5BDFC500F6EA69 /* CEDrawingType.h in Headers */,
 				D57D48AE1E43FBDE001CA791 /* CEInstrumentDefinition.h in Headers */,
 				D5888E2E1E55525500910052 /* CESingleColorScheme.h in Headers */,
+				D57A39891E635E2C00818C1D /* CELineStyle.h in Headers */,
 				D58152F91E2D4AAC004DE813 /* ChartEssentials.h in Headers */,
 				D57FA7CD1E3EEEE80072DF8A /* CEDateIndexedTable.h in Headers */,
 				D57D48B51E494842001CA791 /* CEVerticalAxisDefinition.h in Headers */,
@@ -521,6 +531,7 @@
 				D587C2681E3852ED00603B9C /* CEDateColumn.mm in Sources */,
 				D57D48A31E43F787001CA791 /* CESubchartDefinition.m in Sources */,
 				D5888E2F1E55525500910052 /* CESingleColorScheme.m in Sources */,
+				D57A398A1E635E2C00818C1D /* CELineStyle.m in Sources */,
 				D57D48BD1E49970C001CA791 /* CEStudyDefinition.m in Sources */,
 				D57D48B61E494842001CA791 /* CEVerticalAxisDefinition.m in Sources */,
 				D58870E81E5BDFC500F6EA69 /* CEDrawingType.m in Sources */,
@@ -546,6 +557,7 @@
 			files = (
 				D57FA7CE1E3EEEF00072DF8A /* CEDateIndexedTable.m in Sources */,
 				D57D489E1E43F606001CA791 /* CEChartDefinition.m in Sources */,
+				D57A398B1E635E2C00818C1D /* CELineStyle.m in Sources */,
 				D599F2421E2DC2CE00816FF7 /* CEValueColumn.mm in Sources */,
 				D58870E21E5B8AF400F6EA69 /* CEDualColorScheme.m in Sources */,
 				D58870E91E5BDFC500F6EA69 /* CEDrawingType.m in Sources */,
