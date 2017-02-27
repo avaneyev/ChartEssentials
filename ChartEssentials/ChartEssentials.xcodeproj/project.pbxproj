@@ -11,6 +11,10 @@
 		D57A39891E635E2C00818C1D /* CELineStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = D57A39861E635E2C00818C1D /* CELineStyle.h */; };
 		D57A398A1E635E2C00818C1D /* CELineStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D57A39871E635E2C00818C1D /* CELineStyle.m */; };
 		D57A398B1E635E2C00818C1D /* CELineStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D57A39871E635E2C00818C1D /* CELineStyle.m */; };
+		D57A398E1E63D59200818C1D /* CELineDrawingType.h in Headers */ = {isa = PBXBuildFile; fileRef = D57A398C1E63D59200818C1D /* CELineDrawingType.h */; };
+		D57A398F1E63D59200818C1D /* CELineDrawingType.h in Headers */ = {isa = PBXBuildFile; fileRef = D57A398C1E63D59200818C1D /* CELineDrawingType.h */; };
+		D57A39901E63D59200818C1D /* CELineDrawingType.m in Sources */ = {isa = PBXBuildFile; fileRef = D57A398D1E63D59200818C1D /* CELineDrawingType.m */; };
+		D57A39911E63D59200818C1D /* CELineDrawingType.m in Sources */ = {isa = PBXBuildFile; fileRef = D57A398D1E63D59200818C1D /* CELineDrawingType.m */; };
 		D57D489B1E43F606001CA791 /* CEChartDefinition.h in Headers */ = {isa = PBXBuildFile; fileRef = D57D48991E43F606001CA791 /* CEChartDefinition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D57D489C1E43F606001CA791 /* CEChartDefinition.h in Headers */ = {isa = PBXBuildFile; fileRef = D57D48991E43F606001CA791 /* CEChartDefinition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D57D489D1E43F606001CA791 /* CEChartDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = D57D489A1E43F606001CA791 /* CEChartDefinition.m */; };
@@ -99,6 +103,8 @@
 /* Begin PBXFileReference section */
 		D57A39861E635E2C00818C1D /* CELineStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CELineStyle.h; sourceTree = "<group>"; };
 		D57A39871E635E2C00818C1D /* CELineStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CELineStyle.m; sourceTree = "<group>"; };
+		D57A398C1E63D59200818C1D /* CELineDrawingType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CELineDrawingType.h; sourceTree = "<group>"; };
+		D57A398D1E63D59200818C1D /* CELineDrawingType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CELineDrawingType.m; sourceTree = "<group>"; };
 		D57D48991E43F606001CA791 /* CEChartDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEChartDefinition.h; sourceTree = "<group>"; };
 		D57D489A1E43F606001CA791 /* CEChartDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEChartDefinition.m; sourceTree = "<group>"; };
 		D57D489F1E43F787001CA791 /* CESubchartDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CESubchartDefinition.h; sourceTree = "<group>"; };
@@ -217,6 +223,8 @@
 				D58870E51E5BDFC500F6EA69 /* CEDrawingType.m */,
 				D57A39861E635E2C00818C1D /* CELineStyle.h */,
 				D57A39871E635E2C00818C1D /* CELineStyle.m */,
+				D57A398C1E63D59200818C1D /* CELineDrawingType.h */,
+				D57A398D1E63D59200818C1D /* CELineDrawingType.m */,
 			);
 			path = Drawings;
 			sourceTree = "<group>";
@@ -349,6 +357,7 @@
 				D599F23F1E2DBE7900816FF7 /* CEValueColumn.h in Headers */,
 				D57D48A71E43F876001CA791 /* CEHorizontalAxisDefinition.h in Headers */,
 				D57D489B1E43F606001CA791 /* CEChartDefinition.h in Headers */,
+				D57A398E1E63D59200818C1D /* CELineDrawingType.h in Headers */,
 				D58870DF1E5B8AF400F6EA69 /* CEDualColorScheme.h in Headers */,
 				D57D48AD1E43FBDE001CA791 /* CEInstrumentDefinition.h in Headers */,
 				D599F2451E2DC6FF00816FF7 /* CETools.h in Headers */,
@@ -377,6 +386,7 @@
 				D587C2691E3852F300603B9C /* CEDateColumn.h in Headers */,
 				D599F2411E2DC2C900816FF7 /* CEValueColumn.h in Headers */,
 				D57D48A81E43F876001CA791 /* CEHorizontalAxisDefinition.h in Headers */,
+				D57A398F1E63D59200818C1D /* CELineDrawingType.h in Headers */,
 				D58870E31E5BDEC200F6EA69 /* CEDrawingDefinition.h in Headers */,
 				D57D489C1E43F606001CA791 /* CEChartDefinition.h in Headers */,
 				D585F93D1E50FA61000238E7 /* CEColorScheme.h in Headers */,
@@ -537,6 +547,7 @@
 				D58870E81E5BDFC500F6EA69 /* CEDrawingType.m in Sources */,
 				D585A2C41E4C2B6C008271BE /* CEDrawingDefinition.m in Sources */,
 				D57D48AF1E43FBDE001CA791 /* CEInstrumentDefinition.m in Sources */,
+				D57A39901E63D59200818C1D /* CELineDrawingType.m in Sources */,
 				D57D48A91E43F876001CA791 /* CEHorizontalAxisDefinition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -567,6 +578,7 @@
 				D57D48BE1E49970C001CA791 /* CEStudyDefinition.m in Sources */,
 				D585F93F1E50FA61000238E7 /* CEColorScheme.m in Sources */,
 				D5888E301E55525500910052 /* CESingleColorScheme.m in Sources */,
+				D57A39911E63D59200818C1D /* CELineDrawingType.m in Sources */,
 				D57D48B71E494842001CA791 /* CEVerticalAxisDefinition.m in Sources */,
 				D57D48B01E43FBDE001CA791 /* CEInstrumentDefinition.m in Sources */,
 				D57D48AA1E43F876001CA791 /* CEHorizontalAxisDefinition.m in Sources */,
