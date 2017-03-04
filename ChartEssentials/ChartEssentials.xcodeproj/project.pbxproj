@@ -48,6 +48,14 @@
 		D58152CD1E2D4934004DE813 /* ChartEssentials.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D58152C31E2D4934004DE813 /* ChartEssentials.framework */; };
 		D58152D41E2D4934004DE813 /* ChartEssentials.h in Headers */ = {isa = PBXBuildFile; fileRef = D58152C61E2D4934004DE813 /* ChartEssentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D58152F91E2D4AAC004DE813 /* ChartEssentials.h in Headers */ = {isa = PBXBuildFile; fileRef = D58152C61E2D4934004DE813 /* ChartEssentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D584B61B1E6B49E50057F3BD /* CECandleDrawingType.h in Headers */ = {isa = PBXBuildFile; fileRef = D584B6191E6B49E50057F3BD /* CECandleDrawingType.h */; };
+		D584B61C1E6B49E50057F3BD /* CECandleDrawingType.h in Headers */ = {isa = PBXBuildFile; fileRef = D584B6191E6B49E50057F3BD /* CECandleDrawingType.h */; };
+		D584B61D1E6B49E50057F3BD /* CECandleDrawingType.m in Sources */ = {isa = PBXBuildFile; fileRef = D584B61A1E6B49E50057F3BD /* CECandleDrawingType.m */; };
+		D584B61E1E6B49E50057F3BD /* CECandleDrawingType.m in Sources */ = {isa = PBXBuildFile; fileRef = D584B61A1E6B49E50057F3BD /* CECandleDrawingType.m */; };
+		D584B6211E6B4A690057F3BD /* CEOHLCDrawingType.h in Headers */ = {isa = PBXBuildFile; fileRef = D584B61F1E6B4A690057F3BD /* CEOHLCDrawingType.h */; };
+		D584B6221E6B4A690057F3BD /* CEOHLCDrawingType.h in Headers */ = {isa = PBXBuildFile; fileRef = D584B61F1E6B4A690057F3BD /* CEOHLCDrawingType.h */; };
+		D584B6231E6B4A690057F3BD /* CEOHLCDrawingType.m in Sources */ = {isa = PBXBuildFile; fileRef = D584B6201E6B4A690057F3BD /* CEOHLCDrawingType.m */; };
+		D584B6241E6B4A690057F3BD /* CEOHLCDrawingType.m in Sources */ = {isa = PBXBuildFile; fileRef = D584B6201E6B4A690057F3BD /* CEOHLCDrawingType.m */; };
 		D585A2C31E4C2B6C008271BE /* CEDrawingDefinition.h in Headers */ = {isa = PBXBuildFile; fileRef = D585A2C11E4C2B6C008271BE /* CEDrawingDefinition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D585A2C41E4C2B6C008271BE /* CEDrawingDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = D585A2C21E4C2B6C008271BE /* CEDrawingDefinition.m */; };
 		D585F93C1E50FA61000238E7 /* CEColorScheme.h in Headers */ = {isa = PBXBuildFile; fileRef = D585F93A1E50FA61000238E7 /* CEColorScheme.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -128,6 +136,10 @@
 		D58152D31E2D4934004DE813 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D58152E21E2D4A29004DE813 /* ChartEssentials.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ChartEssentials.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D58152E51E2D4A29004DE813 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D584B6191E6B49E50057F3BD /* CECandleDrawingType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CECandleDrawingType.h; sourceTree = "<group>"; };
+		D584B61A1E6B49E50057F3BD /* CECandleDrawingType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CECandleDrawingType.m; sourceTree = "<group>"; };
+		D584B61F1E6B4A690057F3BD /* CEOHLCDrawingType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEOHLCDrawingType.h; sourceTree = "<group>"; };
+		D584B6201E6B4A690057F3BD /* CEOHLCDrawingType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEOHLCDrawingType.m; sourceTree = "<group>"; };
 		D585A2C11E4C2B6C008271BE /* CEDrawingDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEDrawingDefinition.h; sourceTree = "<group>"; };
 		D585A2C21E4C2B6C008271BE /* CEDrawingDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEDrawingDefinition.m; sourceTree = "<group>"; };
 		D585F93A1E50FA61000238E7 /* CEColorScheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEColorScheme.h; sourceTree = "<group>"; };
@@ -225,6 +237,10 @@
 				D57A39871E635E2C00818C1D /* CELineStyle.m */,
 				D57A398C1E63D59200818C1D /* CELineDrawingType.h */,
 				D57A398D1E63D59200818C1D /* CELineDrawingType.m */,
+				D584B6191E6B49E50057F3BD /* CECandleDrawingType.h */,
+				D584B61A1E6B49E50057F3BD /* CECandleDrawingType.m */,
+				D584B61F1E6B4A690057F3BD /* CEOHLCDrawingType.h */,
+				D584B6201E6B4A690057F3BD /* CEOHLCDrawingType.m */,
 			);
 			path = Drawings;
 			sourceTree = "<group>";
@@ -355,10 +371,12 @@
 				D57D48A11E43F787001CA791 /* CESubchartDefinition.h in Headers */,
 				D587C2671E3852ED00603B9C /* CEDateColumn.h in Headers */,
 				D599F23F1E2DBE7900816FF7 /* CEValueColumn.h in Headers */,
+				D584B6211E6B4A690057F3BD /* CEOHLCDrawingType.h in Headers */,
 				D57D48A71E43F876001CA791 /* CEHorizontalAxisDefinition.h in Headers */,
 				D57D489B1E43F606001CA791 /* CEChartDefinition.h in Headers */,
 				D57A398E1E63D59200818C1D /* CELineDrawingType.h in Headers */,
 				D58870DF1E5B8AF400F6EA69 /* CEDualColorScheme.h in Headers */,
+				D584B61B1E6B49E50057F3BD /* CECandleDrawingType.h in Headers */,
 				D57D48AD1E43FBDE001CA791 /* CEInstrumentDefinition.h in Headers */,
 				D599F2451E2DC6FF00816FF7 /* CETools.h in Headers */,
 				D57FA7CB1E3EEC880072DF8A /* CEDateIndexedTable.h in Headers */,
@@ -384,10 +402,12 @@
 				D57D48A21E43F787001CA791 /* CESubchartDefinition.h in Headers */,
 				D58870E01E5B8AF400F6EA69 /* CEDualColorScheme.h in Headers */,
 				D587C2691E3852F300603B9C /* CEDateColumn.h in Headers */,
+				D584B6221E6B4A690057F3BD /* CEOHLCDrawingType.h in Headers */,
 				D599F2411E2DC2C900816FF7 /* CEValueColumn.h in Headers */,
 				D57D48A81E43F876001CA791 /* CEHorizontalAxisDefinition.h in Headers */,
 				D57A398F1E63D59200818C1D /* CELineDrawingType.h in Headers */,
 				D58870E31E5BDEC200F6EA69 /* CEDrawingDefinition.h in Headers */,
+				D584B61C1E6B49E50057F3BD /* CECandleDrawingType.h in Headers */,
 				D57D489C1E43F606001CA791 /* CEChartDefinition.h in Headers */,
 				D585F93D1E50FA61000238E7 /* CEColorScheme.h in Headers */,
 				D58870DC1E5B7B2300F6EA69 /* CEImageTools.h in Headers */,
@@ -536,6 +556,8 @@
 				D5888E351E55568600910052 /* CEImageTools.m in Sources */,
 				D57FA7CC1E3EEC880072DF8A /* CEDateIndexedTable.m in Sources */,
 				D57D489D1E43F606001CA791 /* CEChartDefinition.m in Sources */,
+				D584B61D1E6B49E50057F3BD /* CECandleDrawingType.m in Sources */,
+				D584B6231E6B4A690057F3BD /* CEOHLCDrawingType.m in Sources */,
 				D58870E11E5B8AF400F6EA69 /* CEDualColorScheme.m in Sources */,
 				D599F2401E2DBE7900816FF7 /* CEValueColumn.mm in Sources */,
 				D587C2681E3852ED00603B9C /* CEDateColumn.mm in Sources */,
@@ -572,7 +594,9 @@
 				D599F2421E2DC2CE00816FF7 /* CEValueColumn.mm in Sources */,
 				D58870E21E5B8AF400F6EA69 /* CEDualColorScheme.m in Sources */,
 				D58870E91E5BDFC500F6EA69 /* CEDrawingType.m in Sources */,
+				D584B61E1E6B49E50057F3BD /* CECandleDrawingType.m in Sources */,
 				D5888E361E55568600910052 /* CEImageTools.m in Sources */,
+				D584B6241E6B4A690057F3BD /* CEOHLCDrawingType.m in Sources */,
 				D587C26A1E3852F900603B9C /* CEDateColumn.mm in Sources */,
 				D57D48A41E43F787001CA791 /* CESubchartDefinition.m in Sources */,
 				D57D48BE1E49970C001CA791 /* CEStudyDefinition.m in Sources */,
