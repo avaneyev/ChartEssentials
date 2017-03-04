@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D57A39881E635E2C00818C1D /* CELineStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = D57A39861E635E2C00818C1D /* CELineStyle.h */; };
-		D57A39891E635E2C00818C1D /* CELineStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = D57A39861E635E2C00818C1D /* CELineStyle.h */; };
+		D57A39881E635E2C00818C1D /* CELineStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = D57A39861E635E2C00818C1D /* CELineStyle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D57A39891E635E2C00818C1D /* CELineStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = D57A39861E635E2C00818C1D /* CELineStyle.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D57A398A1E635E2C00818C1D /* CELineStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D57A39871E635E2C00818C1D /* CELineStyle.m */; };
 		D57A398B1E635E2C00818C1D /* CELineStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D57A39871E635E2C00818C1D /* CELineStyle.m */; };
-		D57A398E1E63D59200818C1D /* CELineDrawingType.h in Headers */ = {isa = PBXBuildFile; fileRef = D57A398C1E63D59200818C1D /* CELineDrawingType.h */; };
-		D57A398F1E63D59200818C1D /* CELineDrawingType.h in Headers */ = {isa = PBXBuildFile; fileRef = D57A398C1E63D59200818C1D /* CELineDrawingType.h */; };
+		D57A398E1E63D59200818C1D /* CELineDrawingType.h in Headers */ = {isa = PBXBuildFile; fileRef = D57A398C1E63D59200818C1D /* CELineDrawingType.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D57A398F1E63D59200818C1D /* CELineDrawingType.h in Headers */ = {isa = PBXBuildFile; fileRef = D57A398C1E63D59200818C1D /* CELineDrawingType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D57A39901E63D59200818C1D /* CELineDrawingType.m in Sources */ = {isa = PBXBuildFile; fileRef = D57A398D1E63D59200818C1D /* CELineDrawingType.m */; };
 		D57A39911E63D59200818C1D /* CELineDrawingType.m in Sources */ = {isa = PBXBuildFile; fileRef = D57A398D1E63D59200818C1D /* CELineDrawingType.m */; };
 		D57D489B1E43F606001CA791 /* CEChartDefinition.h in Headers */ = {isa = PBXBuildFile; fileRef = D57D48991E43F606001CA791 /* CEChartDefinition.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -48,16 +48,16 @@
 		D58152CD1E2D4934004DE813 /* ChartEssentials.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D58152C31E2D4934004DE813 /* ChartEssentials.framework */; };
 		D58152D41E2D4934004DE813 /* ChartEssentials.h in Headers */ = {isa = PBXBuildFile; fileRef = D58152C61E2D4934004DE813 /* ChartEssentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D58152F91E2D4AAC004DE813 /* ChartEssentials.h in Headers */ = {isa = PBXBuildFile; fileRef = D58152C61E2D4934004DE813 /* ChartEssentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D584B61B1E6B49E50057F3BD /* CECandleDrawingType.h in Headers */ = {isa = PBXBuildFile; fileRef = D584B6191E6B49E50057F3BD /* CECandleDrawingType.h */; };
-		D584B61C1E6B49E50057F3BD /* CECandleDrawingType.h in Headers */ = {isa = PBXBuildFile; fileRef = D584B6191E6B49E50057F3BD /* CECandleDrawingType.h */; };
+		D584B61B1E6B49E50057F3BD /* CECandleDrawingType.h in Headers */ = {isa = PBXBuildFile; fileRef = D584B6191E6B49E50057F3BD /* CECandleDrawingType.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D584B61C1E6B49E50057F3BD /* CECandleDrawingType.h in Headers */ = {isa = PBXBuildFile; fileRef = D584B6191E6B49E50057F3BD /* CECandleDrawingType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D584B61D1E6B49E50057F3BD /* CECandleDrawingType.m in Sources */ = {isa = PBXBuildFile; fileRef = D584B61A1E6B49E50057F3BD /* CECandleDrawingType.m */; };
 		D584B61E1E6B49E50057F3BD /* CECandleDrawingType.m in Sources */ = {isa = PBXBuildFile; fileRef = D584B61A1E6B49E50057F3BD /* CECandleDrawingType.m */; };
-		D584B6211E6B4A690057F3BD /* CEOHLCDrawingType.h in Headers */ = {isa = PBXBuildFile; fileRef = D584B61F1E6B4A690057F3BD /* CEOHLCDrawingType.h */; };
-		D584B6221E6B4A690057F3BD /* CEOHLCDrawingType.h in Headers */ = {isa = PBXBuildFile; fileRef = D584B61F1E6B4A690057F3BD /* CEOHLCDrawingType.h */; };
+		D584B6211E6B4A690057F3BD /* CEOHLCDrawingType.h in Headers */ = {isa = PBXBuildFile; fileRef = D584B61F1E6B4A690057F3BD /* CEOHLCDrawingType.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D584B6221E6B4A690057F3BD /* CEOHLCDrawingType.h in Headers */ = {isa = PBXBuildFile; fileRef = D584B61F1E6B4A690057F3BD /* CEOHLCDrawingType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D584B6231E6B4A690057F3BD /* CEOHLCDrawingType.m in Sources */ = {isa = PBXBuildFile; fileRef = D584B6201E6B4A690057F3BD /* CEOHLCDrawingType.m */; };
 		D584B6241E6B4A690057F3BD /* CEOHLCDrawingType.m in Sources */ = {isa = PBXBuildFile; fileRef = D584B6201E6B4A690057F3BD /* CEOHLCDrawingType.m */; };
-		D584B6271E6B4E8C0057F3BD /* CEBarDrawingType.h in Headers */ = {isa = PBXBuildFile; fileRef = D584B6251E6B4E8C0057F3BD /* CEBarDrawingType.h */; };
-		D584B6281E6B4E8C0057F3BD /* CEBarDrawingType.h in Headers */ = {isa = PBXBuildFile; fileRef = D584B6251E6B4E8C0057F3BD /* CEBarDrawingType.h */; };
+		D584B6271E6B4E8C0057F3BD /* CEBarDrawingType.h in Headers */ = {isa = PBXBuildFile; fileRef = D584B6251E6B4E8C0057F3BD /* CEBarDrawingType.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D584B6281E6B4E8C0057F3BD /* CEBarDrawingType.h in Headers */ = {isa = PBXBuildFile; fileRef = D584B6251E6B4E8C0057F3BD /* CEBarDrawingType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D584B6291E6B4E8C0057F3BD /* CEBarDrawingType.m in Sources */ = {isa = PBXBuildFile; fileRef = D584B6261E6B4E8C0057F3BD /* CEBarDrawingType.m */; };
 		D584B62A1E6B4E8C0057F3BD /* CEBarDrawingType.m in Sources */ = {isa = PBXBuildFile; fileRef = D584B6261E6B4E8C0057F3BD /* CEBarDrawingType.m */; };
 		D585A2C31E4C2B6C008271BE /* CEDrawingDefinition.h in Headers */ = {isa = PBXBuildFile; fileRef = D585A2C11E4C2B6C008271BE /* CEDrawingDefinition.h */; settings = {ATTRIBUTES = (Public, ); }; };
