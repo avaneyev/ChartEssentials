@@ -1,4 +1,5 @@
 //
+//  CEOHLCDrawingType.m
 //  ChartEssentials
 //
 //  Created by Anton Vaneev.

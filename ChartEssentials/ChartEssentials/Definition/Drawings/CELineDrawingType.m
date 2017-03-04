@@ -10,6 +10,7 @@
 
 #import <ChartEssentials/CELineDrawingType.h>
 #import <ChartEssentials/CELineStyle.h>
+#import <ChartEssentials/CETools.h>
 
 @implementation CELineDrawingType
 {
@@ -19,6 +20,9 @@
 
 - (instancetype)initWithColumn:(NSString *)column colorScheme:(CEColorScheme *)colorScheme lineStyle:(CELineStyle *)lineStyle
 {
+    CEAlwaysAssert(column != nil);
+    CEAlwaysAssert(lineStyle != nil);
+    
      if (self = [super initWithColorScheme:colorScheme])
      {
          _column = [column copy];
