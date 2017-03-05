@@ -24,16 +24,27 @@
 #define THROW_INVALID_PARAMS(info) @throw [NSException exceptionWithName:NSInvalidArgumentException reason:[NSString stringWithFormat:@"%s received invalid parameters!",  __PRETTY_FUNCTION__] userInfo:(info)]
 #define THROW_INVALID_PARAM(param, info) @throw [NSException exceptionWithName:NSInvalidArgumentException reason:[NSString stringWithFormat:@"%s received invalid %s",  __PRETTY_FUNCTION__, #param] userInfo:(info)]
 
-#ifdef DEBUG
-#define CEAssert(condition)                         \
+#define CEAlwaysAssert(condition)                   \
 do {                                                \
     BOOL conditionResult = (condition);             \
-    if (!conditionResult) {                          \
-        @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:[NSString stringWithFormat:@"Assertion failed in in %s: %s!",  __PRETTY_FUNCTION__, #condition] userInfo:nil];   \
+    if (!conditionResult) {                         \
+        @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:[NSString stringWithFormat:@"Assertion failed in %s: %s!",  __PRETTY_FUNCTION__, #condition] userInfo:nil];   \
     }                                               \
 } while (0)
+
+#ifdef DEBUG
+#define CEAssert(condition) CEAlwaysAssert(condition)
 #else
 #define CEAssert(condition)
+#endif
+
+#ifdef DEBUG
+#define CEBug()                                     \
+do {                                                \
+    @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:[NSString stringWithFormat:@"BUG: unexpected operation in %s!",  __PRETTY_FUNCTION__] userInfo:nil];   \
+} while (0)
+#else
+#define CEBug()
 #endif
 
 // Pair of macros to enter and leave the critical section
