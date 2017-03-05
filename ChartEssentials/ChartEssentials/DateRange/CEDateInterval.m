@@ -59,6 +59,11 @@
     return _unit == otherInterval->_unit && _quantity ==  otherInterval->_quantity;
 }
 
+- (NSUInteger)hash
+{
+    return 37 * (NSUInteger)_unit + _quantity;
+}
+
 
 #pragma mark - Properties
 
