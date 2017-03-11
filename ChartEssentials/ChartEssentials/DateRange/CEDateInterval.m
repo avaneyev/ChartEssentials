@@ -19,7 +19,17 @@
 
 - (instancetype)initWithUnit:(NSCalendarUnit)unit quantity:(NSUInteger)quantity
 {
-    CEAlwaysAssert(quantity > 0);
+    if (quantity == 0) THROW_INVALID_PARAM(quantity, nil);
+    if (unit != NSCalendarUnitMinute &&
+        unit != NSCalendarUnitHour &&
+        unit != NSCalendarUnitDay &&
+        unit != NSCalendarUnitWeekOfYear &&
+        unit != NSCalendarUnitMonth &&
+        unit != NSCalendarUnitYear)
+    {
+        THROW_INVALID_PARAM(unit, nil);
+    }
+    
     if (self = [super init])
     {
         _unit = unit;
@@ -92,8 +102,49 @@
 
 - (NSDate *)dateByRoundingToIntervalUp:(BOOL)up date:(NSDate *)date
 {
-    // TODO: implement
-    THROW_NYI(nil);
+    NSCalendarUnit queryUnits = 0;
+    
+    switch (_unit) {
+        case NSCalendarUnitMinute:
+            queryUnits = NSCalendarUnitMinute|NSCalendarUnitHour|NSCalendarUnitDay|NSCalendarUnitMonth|NSCalendarUnitYear;
+            break;
+        case NSCalendarUnitHour:
+            queryUnits = NSCalendarUnitHour|NSCalendarUnitDay|NSCalendarUnitMonth|NSCalendarUnitYear;
+            break;
+        case NSCalendarUnitDay:
+            queryUnits = NSCalendarUnitDay|NSCalendarUnitMonth|NSCalendarUnitYear;
+            break;
+        case NSCalendarUnitWeekOfYear:
+            queryUnits = NSCalendarUnitWeekOfYear|NSCalendarUnitYear;
+            break;
+        case NSCalendarUnitMonth:
+            queryUnits = NSCalendarUnitMonth|NSCalendarUnitYear;
+            break;
+        case NSCalendarUnitYear:
+            queryUnits = NSCalendarUnitYear;
+            break;
+        default:
+            THROW_INCONSISTENCY(nil);
+            break;
+    }
+    
+    NSCalendar *calendar = [CEDateInterval _calendar];
+    NSDateComponents *components = [calendar components:queryUnits fromDate:date];
+    if (_quantity > 1)
+    {
+        NSInteger unitQuantity = [components valueForComponent:_unit];
+        NSInteger roundedUnitQuantity = (unitQuantity / _quantity) * _quantity;
+        if (unitQuantity != roundedUnitQuantity)
+        {
+            [components setValue:roundedUnitQuantity forComponent:_unit];
+        }
+    }
+    
+    NSDate *dateRoundedDown = [calendar dateFromComponents:components];
+    
+    if (!up || [dateRoundedDown isEqualToDate:date]) return dateRoundedDown;
+    
+    return [self dateByAddingIntervals:1 toDate:dateRoundedDown];
 }
 
 @end

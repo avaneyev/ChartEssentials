@@ -60,10 +60,14 @@
 		D584B6281E6B4E8C0057F3BD /* CEBarDrawingType.h in Headers */ = {isa = PBXBuildFile; fileRef = D584B6251E6B4E8C0057F3BD /* CEBarDrawingType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D584B6291E6B4E8C0057F3BD /* CEBarDrawingType.m in Sources */ = {isa = PBXBuildFile; fileRef = D584B6261E6B4E8C0057F3BD /* CEBarDrawingType.m */; };
 		D584B62A1E6B4E8C0057F3BD /* CEBarDrawingType.m in Sources */ = {isa = PBXBuildFile; fileRef = D584B6261E6B4E8C0057F3BD /* CEBarDrawingType.m */; };
-		D584B62E1E6C9E160057F3BD /* CEDateInterval.h in Headers */ = {isa = PBXBuildFile; fileRef = D584B62C1E6C9E160057F3BD /* CEDateInterval.h */; };
-		D584B62F1E6C9E160057F3BD /* CEDateInterval.h in Headers */ = {isa = PBXBuildFile; fileRef = D584B62C1E6C9E160057F3BD /* CEDateInterval.h */; };
+		D584B62E1E6C9E160057F3BD /* CEDateInterval.h in Headers */ = {isa = PBXBuildFile; fileRef = D584B62C1E6C9E160057F3BD /* CEDateInterval.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D584B62F1E6C9E160057F3BD /* CEDateInterval.h in Headers */ = {isa = PBXBuildFile; fileRef = D584B62C1E6C9E160057F3BD /* CEDateInterval.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D584B6301E6C9E160057F3BD /* CEDateInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = D584B62D1E6C9E160057F3BD /* CEDateInterval.m */; };
 		D584B6311E6C9E160057F3BD /* CEDateInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = D584B62D1E6C9E160057F3BD /* CEDateInterval.m */; };
+		D584B6341E71D4240057F3BD /* CEDateRange.h in Headers */ = {isa = PBXBuildFile; fileRef = D584B6321E71D4240057F3BD /* CEDateRange.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D584B6351E71D4240057F3BD /* CEDateRange.h in Headers */ = {isa = PBXBuildFile; fileRef = D584B6321E71D4240057F3BD /* CEDateRange.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D584B6361E71D4240057F3BD /* CEDateRange.m in Sources */ = {isa = PBXBuildFile; fileRef = D584B6331E71D4240057F3BD /* CEDateRange.m */; };
+		D584B6371E71D4240057F3BD /* CEDateRange.m in Sources */ = {isa = PBXBuildFile; fileRef = D584B6331E71D4240057F3BD /* CEDateRange.m */; };
 		D585A2C31E4C2B6C008271BE /* CEDrawingDefinition.h in Headers */ = {isa = PBXBuildFile; fileRef = D585A2C11E4C2B6C008271BE /* CEDrawingDefinition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D585A2C41E4C2B6C008271BE /* CEDrawingDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = D585A2C21E4C2B6C008271BE /* CEDrawingDefinition.m */; };
 		D585F93C1E50FA61000238E7 /* CEColorScheme.h in Headers */ = {isa = PBXBuildFile; fileRef = D585F93A1E50FA61000238E7 /* CEColorScheme.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -152,6 +156,8 @@
 		D584B6261E6B4E8C0057F3BD /* CEBarDrawingType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEBarDrawingType.m; sourceTree = "<group>"; };
 		D584B62C1E6C9E160057F3BD /* CEDateInterval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEDateInterval.h; sourceTree = "<group>"; };
 		D584B62D1E6C9E160057F3BD /* CEDateInterval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEDateInterval.m; sourceTree = "<group>"; };
+		D584B6321E71D4240057F3BD /* CEDateRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEDateRange.h; sourceTree = "<group>"; };
+		D584B6331E71D4240057F3BD /* CEDateRange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEDateRange.m; sourceTree = "<group>"; };
 		D585A2C11E4C2B6C008271BE /* CEDrawingDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEDrawingDefinition.h; sourceTree = "<group>"; };
 		D585A2C21E4C2B6C008271BE /* CEDrawingDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEDrawingDefinition.m; sourceTree = "<group>"; };
 		D585F93A1E50FA61000238E7 /* CEColorScheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEColorScheme.h; sourceTree = "<group>"; };
@@ -315,6 +321,8 @@
 			children = (
 				D584B62C1E6C9E160057F3BD /* CEDateInterval.h */,
 				D584B62D1E6C9E160057F3BD /* CEDateInterval.m */,
+				D584B6321E71D4240057F3BD /* CEDateRange.h */,
+				D584B6331E71D4240057F3BD /* CEDateRange.m */,
 			);
 			name = "Date Range";
 			path = DateRange;
@@ -393,6 +401,7 @@
 			files = (
 				D57FA7D01E3EF10F0072DF8A /* CEDateColumn+Private.h in Headers */,
 				D585F93C1E50FA61000238E7 /* CEColorScheme.h in Headers */,
+				D584B6341E71D4240057F3BD /* CEDateRange.h in Headers */,
 				D57D48A11E43F787001CA791 /* CESubchartDefinition.h in Headers */,
 				D584B62E1E6C9E160057F3BD /* CEDateInterval.h in Headers */,
 				D587C2671E3852ED00603B9C /* CEDateColumn.h in Headers */,
@@ -426,6 +435,7 @@
 			files = (
 				D585F9421E50FBDB000238E7 /* CEPlatformDefinitions.h in Headers */,
 				D57FA7D11E3EF1100072DF8A /* CEDateColumn+Private.h in Headers */,
+				D584B6351E71D4240057F3BD /* CEDateRange.h in Headers */,
 				D57D48A21E43F787001CA791 /* CESubchartDefinition.h in Headers */,
 				D584B62F1E6C9E160057F3BD /* CEDateInterval.h in Headers */,
 				D58870E01E5B8AF400F6EA69 /* CEDualColorScheme.h in Headers */,
@@ -582,6 +592,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D585F93E1E50FA61000238E7 /* CEColorScheme.m in Sources */,
+				D584B6361E71D4240057F3BD /* CEDateRange.m in Sources */,
 				D5888E351E55568600910052 /* CEImageTools.m in Sources */,
 				D57FA7CC1E3EEC880072DF8A /* CEDateIndexedTable.m in Sources */,
 				D57D489D1E43F606001CA791 /* CEChartDefinition.m in Sources */,
@@ -633,6 +644,7 @@
 				D57D48BE1E49970C001CA791 /* CEStudyDefinition.m in Sources */,
 				D585F93F1E50FA61000238E7 /* CEColorScheme.m in Sources */,
 				D5888E301E55525500910052 /* CESingleColorScheme.m in Sources */,
+				D584B6371E71D4240057F3BD /* CEDateRange.m in Sources */,
 				D584B62A1E6B4E8C0057F3BD /* CEBarDrawingType.m in Sources */,
 				D57A39911E63D59200818C1D /* CELineDrawingType.m in Sources */,
 				D57D48B71E494842001CA791 /* CEVerticalAxisDefinition.m in Sources */,
