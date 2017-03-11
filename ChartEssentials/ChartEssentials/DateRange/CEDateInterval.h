@@ -20,6 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
  - 10 minutes (one data point corresponds to 10 minutes).
  Interval is defined by a unit (day, month, minute) and quantity of the named units.
  Intervals are used to define date ranges.
+ 
+ TODO: need to add support for time zones.
  */
 __attribute__((objc_subclassing_restricted))
 @interface CEDateInterval : NSObject<NSCopying, NSCoding>
@@ -42,6 +44,14 @@ __attribute__((objc_subclassing_restricted))
  - Add -1 yearly intervals - subtract 1 year from the date.
  */
 - (NSDate *)dateByAddingIntervals:(NSInteger)intervals toDate:(NSDate *)date;
+
+/**
+ Returns a date rounded to interval, either up or down.
+ Examples:
+ - 2015-08-14 08:00:05 rounded to daily interval down will be 2015-08-14 00:00:00.
+ - 2015-08-14 08:00:05 rounded to hourly interval up will be 2015-08-14 09:00:00.
+ */
+- (NSDate *)dateByRoundingToIntervalUp:(BOOL)up date:(NSDate *)date;
 
 @end
 

@@ -73,7 +73,7 @@
 
 #pragma mark - Methods
 
-- (NSDate *)dateByAddingIntervals:(NSInteger)intervals toDate:(NSDate *)date
++ (NSCalendar *)_calendar
 {
     static NSCalendar *_calendar = nil;
     static dispatch_once_t onceToken;
@@ -81,8 +81,19 @@
         _calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
         [_calendar setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"UTC"]];
     });
+    return _calendar;
+}
+
+- (NSDate *)dateByAddingIntervals:(NSInteger)intervals toDate:(NSDate *)date
+{
     
-    return [_calendar dateByAddingUnit:_unit value:_quantity * intervals toDate:date options:0];
+    return [[CEDateInterval _calendar] dateByAddingUnit:_unit value:_quantity * intervals toDate:date options:0];
+}
+
+- (NSDate *)dateByRoundingToIntervalUp:(BOOL)up date:(NSDate *)date
+{
+    // TODO: implement
+    THROW_NYI(nil);
 }
 
 @end
