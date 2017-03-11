@@ -102,26 +102,30 @@
 
 - (NSDate *)dateByRoundingToIntervalUp:(BOOL)up date:(NSDate *)date
 {
+    // TODO: for some units(like minute or hour) rounding does not have to involve a calendar
+    // Date can be rounded to minutes using time intervals.
+    // With hours it's a bit more complicated because some time zones have fractional offset from GMT.
+    
     NSCalendarUnit queryUnits = 0;
     
     switch (_unit) {
         case NSCalendarUnitMinute:
-            queryUnits = NSCalendarUnitMinute|NSCalendarUnitHour|NSCalendarUnitDay|NSCalendarUnitMonth|NSCalendarUnitYear;
+            queryUnits = NSCalendarUnitMinute|NSCalendarUnitHour|NSCalendarUnitDay|NSCalendarUnitMonth|NSCalendarUnitYear|NSCalendarUnitEra;
             break;
         case NSCalendarUnitHour:
-            queryUnits = NSCalendarUnitHour|NSCalendarUnitDay|NSCalendarUnitMonth|NSCalendarUnitYear;
+            queryUnits = NSCalendarUnitHour|NSCalendarUnitDay|NSCalendarUnitMonth|NSCalendarUnitYear|NSCalendarUnitEra;
             break;
         case NSCalendarUnitDay:
-            queryUnits = NSCalendarUnitDay|NSCalendarUnitMonth|NSCalendarUnitYear;
+            queryUnits = NSCalendarUnitDay|NSCalendarUnitMonth|NSCalendarUnitYear|NSCalendarUnitEra;
             break;
         case NSCalendarUnitWeekOfYear:
-            queryUnits = NSCalendarUnitWeekOfYear|NSCalendarUnitYear;
+            queryUnits = NSCalendarUnitWeekOfYear|NSCalendarUnitYear|NSCalendarUnitEra;
             break;
         case NSCalendarUnitMonth:
-            queryUnits = NSCalendarUnitMonth|NSCalendarUnitYear;
+            queryUnits = NSCalendarUnitMonth|NSCalendarUnitYear|NSCalendarUnitEra;
             break;
         case NSCalendarUnitYear:
-            queryUnits = NSCalendarUnitYear;
+            queryUnits = NSCalendarUnitYear|NSCalendarUnitEra;
             break;
         default:
             THROW_INCONSISTENCY(nil);
@@ -133,7 +137,13 @@
     if (_quantity > 1)
     {
         NSInteger unitQuantity = [components valueForComponent:_unit];
-        NSInteger roundedUnitQuantity = (unitQuantity / _quantity) * _quantity;
+        NSRange minimumUnitRange = [calendar minimumRangeOfUnit:_unit];
+        
+        // Rounding needs to take into account the minimum unit quantity.
+        // Minutes are 0-60, and rounding 3 minutes to 5 minute interval will result in 0;
+        // Days, however, start with one (ranges are 1-28 to 1-31) and rounding 3 days to 5 day interval
+        // should not produce a 0, but should produce 1.
+        NSInteger roundedUnitQuantity = (unitQuantity / _quantity) * _quantity + minimumUnitRange.location;
         if (unitQuantity != roundedUnitQuantity)
         {
             [components setValue:roundedUnitQuantity forComponent:_unit];
