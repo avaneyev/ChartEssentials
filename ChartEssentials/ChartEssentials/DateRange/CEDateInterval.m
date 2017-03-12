@@ -107,6 +107,7 @@
     // With hours it's a bit more complicated because some time zones have fractional offset from GMT.
     
     NSCalendarUnit queryUnits = 0;
+    NSCalendarUnit subunitToReset = 0;
     
     switch (_unit) {
         case NSCalendarUnitMinute:
@@ -120,12 +121,15 @@
             break;
         case NSCalendarUnitWeekOfYear:
             queryUnits = NSCalendarUnitWeekOfYear|NSCalendarUnitYear|NSCalendarUnitEra;
+            subunitToReset = NSCalendarUnitWeekday;
             break;
         case NSCalendarUnitMonth:
             queryUnits = NSCalendarUnitMonth|NSCalendarUnitYear|NSCalendarUnitEra;
+            subunitToReset = NSCalendarUnitDay;
             break;
         case NSCalendarUnitYear:
             queryUnits = NSCalendarUnitYear|NSCalendarUnitEra;
+            subunitToReset = NSCalendarUnitDay;
             break;
         default:
             THROW_INCONSISTENCY(nil);
@@ -135,10 +139,10 @@
     NSCalendar *calendar = [CEDateInterval _calendar];
     NSDateComponents *components = [calendar components:queryUnits fromDate:date];
     
-    if (_unit == NSCalendarUnitWeekOfYear)
+    if (subunitToReset != 0)
     {
-        NSRange minimumWeekdayRange = [calendar minimumRangeOfUnit:NSCalendarUnitWeekday];
-        components.weekday = minimumWeekdayRange.location;
+        NSRange minimumResetUnitRange = [calendar minimumRangeOfUnit:subunitToReset];
+        [components setValue:minimumResetUnitRange.location forComponent:subunitToReset];
     }
     
     if (_quantity > 1)
