@@ -301,4 +301,72 @@ static const NSTimeInterval oneWeek = 7 * oneDay;
     XCTAssertEqual(dateRoundedUp, preciselyRoundedDate);
 }
 
+- (void)testThreeMonthsInterval
+{
+    // Three months are one quarter, a very typical value
+    
+    CEDateInterval *interval = [[CEDateInterval alloc] initWithUnit:NSCalendarUnitMonth quantity:3];
+    
+    XCTAssertEqual(interval.unit, NSCalendarUnitQuarter);
+    XCTAssertEqual(interval.quantity, 1);
+    
+    NSDate *arbitraryDate = [_calendar dateWithEra:1 year:2016 month:7 day:12 hour:8 minute:9 second:10 nanosecond:0];
+    
+    NSDate *datePlusFiveIntervals = [interval dateByAddingIntervals:5 toDate:arbitraryDate];
+    NSDate *expectedDate = [_calendar dateWithEra:1 year:2017 month:10 day:12 hour:8 minute:9 second:10 nanosecond:0];
+    XCTAssertEqualObjects(datePlusFiveIntervals, expectedDate);
+    
+    NSDate *dateMinusTenIntervals = [interval dateByAddingIntervals:-10 toDate:arbitraryDate];
+    expectedDate = [_calendar dateWithEra:1 year:2014 month:1 day:12 hour:8 minute:9 second:10 nanosecond:0];
+    XCTAssertEqualObjects(dateMinusTenIntervals, expectedDate);
+    
+    NSDate *dateRoundedDown = [interval dateByRoundingToIntervalUp:NO date:arbitraryDate];
+    expectedDate = [_calendar dateWithEra:1 year:2016 month:7 day:1 hour:0 minute:0 second:0 nanosecond:0];
+    XCTAssertEqualObjects(dateRoundedDown, expectedDate);
+    
+    NSDate *dateRoundedUp = [interval dateByRoundingToIntervalUp:YES date:arbitraryDate];
+    expectedDate = [_calendar dateWithEra:1 year:2016 month:10 day:1 hour:0 minute:0 second:0 nanosecond:0];
+    XCTAssertEqualObjects(dateRoundedUp, expectedDate);
+    
+    NSDate *preciselyRoundedDate = dateRoundedUp;
+    dateRoundedDown = [interval dateByRoundingToIntervalUp:NO date:preciselyRoundedDate];
+    dateRoundedUp = [interval dateByRoundingToIntervalUp:YES date:preciselyRoundedDate];
+    
+    XCTAssertEqual(dateRoundedDown, preciselyRoundedDate);
+    XCTAssertEqual(dateRoundedUp, preciselyRoundedDate);
+}
+
+- (void)testOneYearInterval
+{
+    CEDateInterval *interval = [[CEDateInterval alloc] initWithUnit:NSCalendarUnitYear quantity:1];
+    
+    XCTAssertEqual(interval.unit, NSCalendarUnitYear);
+    XCTAssertEqual(interval.quantity, 1);
+    
+    NSDate *arbitraryDate = [_calendar dateWithEra:1 year:2016 month:7 day:12 hour:8 minute:9 second:10 nanosecond:0];
+    
+    NSDate *datePlusFiveIntervals = [interval dateByAddingIntervals:5 toDate:arbitraryDate];
+    NSDate *expectedDate = [_calendar dateWithEra:1 year:2021 month:7 day:12 hour:8 minute:9 second:10 nanosecond:0];
+    XCTAssertEqualObjects(datePlusFiveIntervals, expectedDate);
+    
+    NSDate *dateMinusTenIntervals = [interval dateByAddingIntervals:-10 toDate:arbitraryDate];
+    expectedDate = [_calendar dateWithEra:1 year:2006 month:7 day:12 hour:8 minute:9 second:10 nanosecond:0];
+    XCTAssertEqualObjects(dateMinusTenIntervals, expectedDate);
+    
+    NSDate *dateRoundedDown = [interval dateByRoundingToIntervalUp:NO date:arbitraryDate];
+    expectedDate = [_calendar dateWithEra:1 year:2016 month:1 day:1 hour:0 minute:0 second:0 nanosecond:0];
+    XCTAssertEqualObjects(dateRoundedDown, expectedDate);
+    
+    NSDate *dateRoundedUp = [interval dateByRoundingToIntervalUp:YES date:arbitraryDate];
+    expectedDate = [_calendar dateWithEra:1 year:2017 month:1 day:1 hour:0 minute:0 second:0 nanosecond:0];
+    XCTAssertEqualObjects(dateRoundedUp, expectedDate);
+    
+    NSDate *preciselyRoundedDate = dateRoundedUp;
+    dateRoundedDown = [interval dateByRoundingToIntervalUp:NO date:preciselyRoundedDate];
+    dateRoundedUp = [interval dateByRoundingToIntervalUp:YES date:preciselyRoundedDate];
+    
+    XCTAssertEqual(dateRoundedDown, preciselyRoundedDate);
+    XCTAssertEqual(dateRoundedUp, preciselyRoundedDate);
+}
+
 @end
