@@ -134,6 +134,13 @@
     
     NSCalendar *calendar = [CEDateInterval _calendar];
     NSDateComponents *components = [calendar components:queryUnits fromDate:date];
+    
+    if (_unit == NSCalendarUnitWeekOfYear)
+    {
+        NSRange minimumWeekdayRange = [calendar minimumRangeOfUnit:NSCalendarUnitWeekday];
+        components.weekday = minimumWeekdayRange.location;
+    }
+    
     if (_quantity > 1)
     {
         NSInteger unitQuantity = [components valueForComponent:_unit];

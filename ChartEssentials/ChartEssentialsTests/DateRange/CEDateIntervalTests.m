@@ -12,6 +12,7 @@
 #import <ChartEssentials/CEDateInterval.h>
 
 static const NSTimeInterval oneDay = 24 * 60 * 60;
+static const NSTimeInterval oneWeek = 7 * oneDay;
 
 @interface CEDateIntervalTests : XCTestCase
 @end
@@ -234,6 +235,37 @@ static const NSTimeInterval oneDay = 24 * 60 * 60;
     dateRoundedUp = [interval dateByRoundingToIntervalUp:YES date:dateCloseToMonthEnd];
     expectedDate = [_calendar dateWithEra:1 year:2016 month:9 day:3 hour:0 minute:0 second:0 nanosecond:0];
     XCTAssertEqualObjects(dateRoundedUp, expectedDate);
+}
+
+- (void)testOneWeekInterval
+{
+    CEDateInterval *interval = [[CEDateInterval alloc] initWithUnit:NSCalendarUnitWeekOfYear quantity:1];
+    
+    XCTAssertEqual(interval.unit, NSCalendarUnitWeekOfYear);
+    XCTAssertEqual(interval.quantity, 1);
+    
+    NSDate *arbitraryDate = [_calendar dateWithEra:1 year:2016 month:7 day:12 hour:8 minute:9 second:10 nanosecond:0];
+    
+    NSDate *datePlusFiveIntervals = [interval dateByAddingIntervals:5 toDate:arbitraryDate];
+    XCTAssertEqual([datePlusFiveIntervals timeIntervalSinceDate:arbitraryDate], 5 * oneWeek);
+    
+    NSDate *dateMinusTenIntervals = [interval dateByAddingIntervals:-10 toDate:arbitraryDate];
+    XCTAssertEqual([dateMinusTenIntervals timeIntervalSinceDate:arbitraryDate], -10 * oneWeek);
+    
+    NSDate *dateRoundedDown = [interval dateByRoundingToIntervalUp:NO date:arbitraryDate];
+    NSDate *expectedDate = [_calendar dateWithEra:1 year:2016 month:7 day:10 hour:0 minute:0 second:0 nanosecond:0];
+    XCTAssertEqualObjects(dateRoundedDown, expectedDate);
+    
+    NSDate *dateRoundedUp = [interval dateByRoundingToIntervalUp:YES date:arbitraryDate];
+    expectedDate = [_calendar dateWithEra:1 year:2016 month:7 day:17 hour:0 minute:0 second:0 nanosecond:0];
+    XCTAssertEqualObjects(dateRoundedUp, expectedDate);
+    
+    NSDate *preciselyRoundedDate = dateRoundedUp;
+    dateRoundedDown = [interval dateByRoundingToIntervalUp:NO date:preciselyRoundedDate];
+    dateRoundedUp = [interval dateByRoundingToIntervalUp:YES date:preciselyRoundedDate];
+    
+    XCTAssertEqual(dateRoundedDown, preciselyRoundedDate);
+    XCTAssertEqual(dateRoundedUp, preciselyRoundedDate);
 }
 
 
