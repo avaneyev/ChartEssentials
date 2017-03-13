@@ -307,8 +307,8 @@ static const NSTimeInterval oneWeek = 7 * oneDay;
     
     CEDateInterval *interval = [[CEDateInterval alloc] initWithUnit:NSCalendarUnitMonth quantity:3];
     
-    XCTAssertEqual(interval.unit, NSCalendarUnitQuarter);
-    XCTAssertEqual(interval.quantity, 1);
+    XCTAssertEqual(interval.unit, NSCalendarUnitMonth);
+    XCTAssertEqual(interval.quantity, 3);
     
     NSDate *arbitraryDate = [_calendar dateWithEra:1 year:2016 month:7 day:12 hour:8 minute:9 second:10 nanosecond:0];
     
