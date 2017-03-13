@@ -54,3 +54,6 @@ FOUNDATION_EXPORT const unsigned char ChartEssentialsVersionString[];
 #import <ChartEssentials/CEColorScheme.h>
 #import <ChartEssentials/CESingleColorScheme.h>
 #import <ChartEssentials/CEDualColorScheme.h>
+
+#import <ChartEssentials/CEDateInterval.h>
+#import <ChartEssentials/CEDateRange.h>

@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Concrete color scheme for single color drawing
  */
+__attribute__((objc_subclassing_restricted))
 @interface CESingleColorScheme : CEColorScheme
 
 - (instancetype)init NS_UNAVAILABLE;
