@@ -69,6 +69,7 @@
 		D584B6361E71D4240057F3BD /* CEDateRange.m in Sources */ = {isa = PBXBuildFile; fileRef = D584B6331E71D4240057F3BD /* CEDateRange.m */; };
 		D584B6371E71D4240057F3BD /* CEDateRange.m in Sources */ = {isa = PBXBuildFile; fileRef = D584B6331E71D4240057F3BD /* CEDateRange.m */; };
 		D584B63A1E74B9630057F3BD /* CEDateIntervalTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D584B6391E74B9630057F3BD /* CEDateIntervalTests.m */; };
+		D584B63C1E7615670057F3BD /* CEDateRangeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D584B63B1E7615670057F3BD /* CEDateRangeTests.m */; };
 		D585A2C31E4C2B6C008271BE /* CEDrawingDefinition.h in Headers */ = {isa = PBXBuildFile; fileRef = D585A2C11E4C2B6C008271BE /* CEDrawingDefinition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D585A2C41E4C2B6C008271BE /* CEDrawingDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = D585A2C21E4C2B6C008271BE /* CEDrawingDefinition.m */; };
 		D585F93C1E50FA61000238E7 /* CEColorScheme.h in Headers */ = {isa = PBXBuildFile; fileRef = D585F93A1E50FA61000238E7 /* CEColorScheme.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -160,6 +161,7 @@
 		D584B6321E71D4240057F3BD /* CEDateRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEDateRange.h; sourceTree = "<group>"; };
 		D584B6331E71D4240057F3BD /* CEDateRange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEDateRange.m; sourceTree = "<group>"; };
 		D584B6391E74B9630057F3BD /* CEDateIntervalTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEDateIntervalTests.m; sourceTree = "<group>"; };
+		D584B63B1E7615670057F3BD /* CEDateRangeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEDateRangeTests.m; sourceTree = "<group>"; };
 		D585A2C11E4C2B6C008271BE /* CEDrawingDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEDrawingDefinition.h; sourceTree = "<group>"; };
 		D585A2C21E4C2B6C008271BE /* CEDrawingDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEDrawingDefinition.m; sourceTree = "<group>"; };
 		D585F93A1E50FA61000238E7 /* CEColorScheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEColorScheme.h; sourceTree = "<group>"; };
@@ -335,6 +337,7 @@
 			isa = PBXGroup;
 			children = (
 				D584B6391E74B9630057F3BD /* CEDateIntervalTests.m */,
+				D584B63B1E7615670057F3BD /* CEDateRangeTests.m */,
 			);
 			name = "Date Range";
 			path = DateRange;
@@ -633,6 +636,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5B2626C1E345C5600328A1F /* CEValueColumnTests.m in Sources */,
+				D584B63C1E7615670057F3BD /* CEDateRangeTests.m in Sources */,
 				D5B053D81E399E7A002E2362 /* CEDateColumnTests.m in Sources */,
 				D584B63A1E74B9630057F3BD /* CEDateIntervalTests.m in Sources */,
 				D58CA35D1E419391004B60DE /* CEDateIndexedTableTests.m in Sources */,

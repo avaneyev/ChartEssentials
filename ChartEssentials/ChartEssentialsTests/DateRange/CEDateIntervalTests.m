@@ -369,4 +369,31 @@ static const NSTimeInterval oneWeek = 7 * oneDay;
     XCTAssertEqual(dateRoundedUp, preciselyRoundedDate);
 }
 
+- (void)testIntervalEquality
+{
+    CEDateInterval *oneMinuteInterval = [[CEDateInterval alloc] initWithUnit:NSCalendarUnitMinute quantity:1];
+    CEDateInterval *anotherMinuteInterval = [[CEDateInterval alloc] initWithUnit:NSCalendarUnitMinute quantity:1];
+    CEDateInterval *tenMinuteInterval = [[CEDateInterval alloc] initWithUnit:NSCalendarUnitMinute quantity:10];
+    
+    XCTAssertEqualObjects(oneMinuteInterval, anotherMinuteInterval);
+    XCTAssertNotEqualObjects(oneMinuteInterval, tenMinuteInterval);
+    
+    CEDateInterval *sixtyMinuteInterval = [[CEDateInterval alloc] initWithUnit:NSCalendarUnitMinute quantity:60];
+    CEDateInterval *oneHourInterval = [[CEDateInterval alloc] initWithUnit:NSCalendarUnitHour quantity:1];
+
+    // Sixty minutes are equal to one hour but intervals are not the same.
+    XCTAssertNotEqualObjects(sixtyMinuteInterval, oneHourInterval);
+    
+    CEDateInterval *twoDayInterval = [[CEDateInterval alloc] initWithUnit:NSCalendarUnitDay quantity:2];
+    CEDateInterval *anotherTwoDayInterval = [[CEDateInterval alloc] initWithUnit:NSCalendarUnitDay quantity:2];
+    XCTAssertEqualObjects(twoDayInterval, anotherTwoDayInterval);
+    
+    NSDictionary<CEDateInterval *, NSNumber *> *useIntervalAsKey = @{
+                                                                     twoDayInterval : @10,
+                                                                     oneMinuteInterval: @100
+                                                                     };
+    XCTAssertEqualObjects(useIntervalAsKey[anotherTwoDayInterval], @10);
+    XCTAssertEqualObjects(useIntervalAsKey[anotherMinuteInterval], @100);
+}
+
 @end

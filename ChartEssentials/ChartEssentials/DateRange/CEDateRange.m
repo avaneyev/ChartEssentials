@@ -172,4 +172,7 @@
     return self;
 }
 
+@synthesize startDate = _startDate;
+@synthesize endDate = _endDate;
+
 @end
