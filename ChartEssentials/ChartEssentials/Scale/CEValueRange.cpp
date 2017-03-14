@@ -63,7 +63,7 @@ void CEValueRange::addLowValue(CGFloat value)
     }
 }
 
-void CEValueRange::addValues(const CGFloat *values, unsigned int count)
+void CEValueRange::addValues(const CGFloat *values, size_t count)
 {
     if (values == NULL) throw std::invalid_argument("values");
     if (count == 0) return;
@@ -95,7 +95,7 @@ void CEValueRange::addValues(const CGFloat *values, unsigned int count)
     }
 }
 
-void CEValueRange::addHighValues(const CGFloat *values, unsigned int count)
+void CEValueRange::addHighValues(const CGFloat *values, size_t count)
 {
     if (values == NULL) throw std::invalid_argument("values");
     if (count == 0) return;
@@ -119,7 +119,7 @@ void CEValueRange::addHighValues(const CGFloat *values, unsigned int count)
     }
 }
 
-void CEValueRange::addLowValues(const CGFloat *values, unsigned int count)
+void CEValueRange::addLowValues(const CGFloat *values, size_t count)
 {
     if (values == NULL) throw std::invalid_argument("values");
     if (count == 0) return;

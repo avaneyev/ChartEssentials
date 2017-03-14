@@ -20,7 +20,7 @@ private:
     CGFloat _high, _low;
     
 public:
-    CEValueRange(const CGFloat high, const CGFloat low) : _high(high), _low(low) {}
+    CEValueRange(const CGFloat low, const CGFloat high) : _high(high), _low(low) {}
     CEValueRange() : _high(NAN), _low(NAN) {}
     
     inline CGFloat high() const { return _high; }
@@ -32,9 +32,9 @@ public:
     void addLowValue(CGFloat value);
     void addHighValue(CGFloat value);
     
-    void addValues(const CGFloat * values, unsigned int count);
-    void addLowValues(const CGFloat * values, unsigned int count);
-    void addHighValues(const CGFloat * values, unsigned int count);
+    void addValues(const CGFloat * values, size_t count);
+    void addLowValues(const CGFloat * values, size_t count);
+    void addHighValues(const CGFloat * values, size_t count);
 };
 
 
