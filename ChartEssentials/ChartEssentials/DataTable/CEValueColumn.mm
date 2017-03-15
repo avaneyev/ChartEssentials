@@ -209,6 +209,11 @@
 - (CEValueColumn *)columnFromRange:(NSRange)range
 {
     // TODO: is it possible to reuse the same data chunks rather than copying data?
+    // A possible efficient solution is to have variable first chunk size
+    // while all other chunks will still have same size constant per column.
+    // That way it is still possible to find a chunk based on index without iterating through them.
+    // Chunks will have to be reference counted.
+    
     return [[CEValueColumn alloc] initWithColumn:self valueRange:range];
 }
 
