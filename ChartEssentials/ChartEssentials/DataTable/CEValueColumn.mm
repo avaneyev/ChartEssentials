@@ -14,6 +14,42 @@
 #import "CEValueColumn+Private.h"
 #import "CEValueColumn+Range.h"
 #import <vector>
+#include <functional>
+
+void _CEValueColumnIterateChunks(
+                                 NSRange range,
+                                 const std::vector<CGFloat *> &chunks,
+                                 const NSUInteger totalCount,
+                                 const NSUInteger chunkLength,
+                                 std::function< void(CGFloat *, NSUInteger) > &processChunk
+                                 )
+{
+    NSUInteger firstChunk = range.location / chunkLength;
+    NSUInteger firstPosition = range.location % chunkLength;
+    NSUInteger remainingInChunk = chunkLength - firstPosition;
+    NSUInteger remainingInColumn = totalCount - range.location;
+    auto iterator = chunks.cbegin() + firstChunk;
+    
+    if (remainingInChunk >= range.length && remainingInColumn >= range.length)
+    {
+        processChunk(*iterator + firstPosition, range.length);
+    }
+    else
+    {
+        NSUInteger iteratedLength = MIN(remainingInChunk, remainingInColumn);
+        processChunk(*iterator + firstPosition, iteratedLength);
+        remainingInColumn -= iteratedLength;
+        
+        while (remainingInColumn > 0 && iteratedLength < range.length)
+        {
+            ++iterator;
+            remainingInChunk = MIN(range.length - iteratedLength, MIN(remainingInColumn, chunkLength));
+            processChunk(*iterator, remainingInChunk);
+            iteratedLength += remainingInChunk;
+            remainingInColumn -= remainingInChunk;
+        }
+    }
+}
 
 @implementation CEValueColumn
 {
@@ -185,31 +221,13 @@
     
     if (range.length == 0) return 0;
     
-    NSUInteger firstChunk = range.location / _chunkLength;
-    NSUInteger firstPosition = range.location % _chunkLength;
-    NSUInteger remainingInChunk = _chunkLength - firstPosition;
-    NSUInteger remainingInColumn = _totalCount - range.location;
-    auto iterator = _chunks.cbegin() + firstChunk;
+    NSUInteger copiedLength = 0;
+    std::function< void(CGFloat *, NSUInteger) > copyDataLambda = [&copiedLength, buffer](CGFloat *chunk, NSUInteger length) {
+        memcpy(buffer + copiedLength, chunk, sizeof(CGFloat) * length);
+        copiedLength += length;
+    };
+    _CEValueColumnIterateChunks(range, _chunks, _totalCount, _chunkLength, copyDataLambda);
     
-    if (remainingInChunk >= range.length && remainingInColumn >= range.length)
-    {
-        memcpy(buffer, *iterator + firstPosition, sizeof(CGFloat) * range.length);
-        return range.length;
-    }
-
-    NSUInteger copiedLength = MIN(remainingInChunk, remainingInColumn);
-    memcpy(buffer, *iterator + firstPosition, sizeof(CGFloat) * copiedLength);
-    remainingInColumn -= copiedLength;
-    
-    while (remainingInColumn > 0 && copiedLength < range.length)
-    {
-        ++iterator;
-        remainingInChunk = MIN(range.length - copiedLength, MIN(remainingInColumn, _chunkLength));
-        memcpy(buffer + copiedLength, *iterator, sizeof(CGFloat) * remainingInChunk);
-        copiedLength += remainingInChunk;
-        remainingInColumn -= remainingInChunk;
-    }
-
     return copiedLength;
 }
 
