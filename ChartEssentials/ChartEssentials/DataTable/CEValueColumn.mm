@@ -12,6 +12,7 @@
 #import <ChartEssentials/CEDateIndexedTable.h>
 #import <ChartEssentials/CETools.h>
 #import "CEValueColumn+Private.h"
+#import "CEValueColumn+Range.h"
 #import <vector>
 
 @implementation CEValueColumn
@@ -215,6 +216,20 @@
 - (CEValueColumn *)columnFromRange:(NSRange)range
 {
     return [[CEValueColumn alloc] initWithColumn:self valueRange:range];
+}
+
+@end
+
+@implementation CEValueColumn (ValueRange)
+
+- (void)addValuesInRange:(NSRange)range toValueRange:(CEValueRange *)valueRange
+{
+    CEAssert(valueRange != NULL);
+    CEAssert(range.location + range.length <= _totalCount);
+    
+    if (range.length == 0) return;
+    
+    // TODO: implement adding value chunks as arrays of data to the value range.
 }
 
 @end

@@ -35,6 +35,8 @@ public:
     void addValues(const CGFloat * values, size_t count);
     void addLowValues(const CGFloat * values, size_t count);
     void addHighValues(const CGFloat * values, size_t count);
+    
+    CEValueRange &operator= (CEValueRange &) = delete;
 };
 
 
