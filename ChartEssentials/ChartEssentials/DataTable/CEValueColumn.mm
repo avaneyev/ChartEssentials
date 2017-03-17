@@ -247,7 +247,36 @@ void _CEValueColumnIterateChunks(
     
     if (range.length == 0) return;
     
-    // TODO: implement adding value chunks as arrays of data to the value range.
+    std::function< void(CGFloat *, NSUInteger) > addToScaleLambda = [valueRange](CGFloat *chunk, NSUInteger length) {
+        valueRange->addValues(chunk, length);
+    };
+    _CEValueColumnIterateChunks(range, _chunks, _totalCount, _chunkLength, addToScaleLambda);
+}
+
+- (void)addHighValuesInRange:(NSRange)range toValueRange:(CEValueRange *)valueRange
+{
+    CEAssert(valueRange != NULL);
+    CEAssert(range.location + range.length <= _totalCount);
+    
+    if (range.length == 0) return;
+    
+    std::function< void(CGFloat *, NSUInteger) > addToScaleLambda = [valueRange](CGFloat *chunk, NSUInteger length) {
+        valueRange->addHighValues(chunk, length);
+    };
+    _CEValueColumnIterateChunks(range, _chunks, _totalCount, _chunkLength, addToScaleLambda);
+}
+
+- (void)addLowValuesInRange:(NSRange)range toValueRange:(CEValueRange *)valueRange
+{
+    CEAssert(valueRange != NULL);
+    CEAssert(range.location + range.length <= _totalCount);
+    
+    if (range.length == 0) return;
+    
+    std::function< void(CGFloat *, NSUInteger) > addToScaleLambda = [valueRange](CGFloat *chunk, NSUInteger length) {
+        valueRange->addLowValues(chunk, length);
+    };
+    _CEValueColumnIterateChunks(range, _chunks, _totalCount, _chunkLength, addToScaleLambda);
 }
 
 @end
