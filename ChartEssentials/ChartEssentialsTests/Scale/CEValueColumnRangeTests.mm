@@ -64,4 +64,31 @@
     XCTAssertEqual(_valueRange->low(), 19);
 }
 
+- (void)testAddHighAndLowTrivialRange
+{
+    [_column addHighValuesInRange:NSMakeRange(5, 1) toValueRange:_valueRange];
+    [_column addLowValuesInRange:NSMakeRange(8, 1) toValueRange:_valueRange];
+    XCTAssertFalse(_valueRange->isEmpty());
+    XCTAssertEqual(_valueRange->high(), 201);
+    XCTAssertEqual(_valueRange->low(), 19);
+}
+
+- (void)testAddHighAndLowWholeColumn
+{
+    [_column addHighValuesInRange:NSMakeRange(0, _column.count) toValueRange:_valueRange];
+    [_column addLowValuesInRange:NSMakeRange(0, _column.count) toValueRange:_valueRange];
+    XCTAssertFalse(_valueRange->isEmpty());
+    XCTAssertEqual(_valueRange->high(), 1357);
+    XCTAssertEqual(_valueRange->low(), 14);
+}
+
+- (void)testAddHighAndLowPartsOfColumn
+{
+    [_column addHighValuesInRange:NSMakeRange(0, 5) toValueRange:_valueRange];
+    [_column addLowValuesInRange:NSMakeRange(8, 5) toValueRange:_valueRange];
+    XCTAssertFalse(_valueRange->isEmpty());
+    XCTAssertEqual(_valueRange->high(), 201);
+    XCTAssertEqual(_valueRange->low(), 19);
+}
+
 @end
