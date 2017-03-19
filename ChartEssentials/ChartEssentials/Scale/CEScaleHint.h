@@ -23,7 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 __attribute__((objc_subclassing_restricted))
 @interface CEScaleHint : NSObject<NSCoding, NSCopying>
 
-- (instancetype)initWithValue:(CGFloat)value kind:(NSString *)kind context:(id<NSCopying> _Nullable)context;
+- (instancetype)initWithValue:(CGFloat)value kind:(NSString *)kind context:(id<NSCopying> _Nullable)context NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithCoder:(NSCoder *)aDecoder NS_DESIGNATED_INITIALIZER;
 - (instancetype)init NS_UNAVAILABLE;
 
 @property (nonatomic, readonly) CGFloat value;

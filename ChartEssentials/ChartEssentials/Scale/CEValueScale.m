@@ -9,6 +9,7 @@
 //
 
 #import <ChartEssentials/CEValueScale.h>
+#import <ChartEssentials/CETools.h>
 
 @implementation CEAxisMarker
 {
@@ -37,5 +38,45 @@
 @end
 
 @implementation CEValueScale
+{
+    CGFloat _valueRangeLow;
+    CGFloat _valueRangeHigh;
+    CGFloat _renderHeight;
+    NSArray<CEScaleHint *> *_hints;
+}
+
+- (instancetype)initWithValueRangeLow:(CGFloat)low high:(CGFloat)high renderHeight:(CGFloat)renderHeight hints:(NSArray<CEScaleHint *> *)hints
+{
+    if (self = [super init])
+    {
+        _valueRangeLow = low;
+        _valueRangeHigh = high;
+        _renderHeight = renderHeight;
+        _hints = [hints copy];
+    }
+    return self;
+}
+
+#pragma mark - Properties
+
+@synthesize valueRangeLow = _valueRangeLow;
+@synthesize valueRangeHigh = _valueRangeHigh;
+@synthesize renderHeight = _renderHeight;
+@synthesize hints = _hints;
+
+- (CGFloat)scaleLow
+{
+    THROW_ABSTRACT(nil);
+}
+
+- (CGFloat)scaleHigh
+{
+    THROW_ABSTRACT(nil);
+}
+
+- (NSArray<CEAxisMarker *> *)markers
+{
+    THROW_ABSTRACT(nil);
+}
 
 @end

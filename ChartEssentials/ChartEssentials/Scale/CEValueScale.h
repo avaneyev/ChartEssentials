@@ -20,13 +20,15 @@ NS_ASSUME_NONNULL_BEGIN
 __attribute__((objc_subclassing_restricted))
 @interface CEAxisMarker : NSObject<NSCopying>
 
-- (instancetype)initWithCaption:(NSString *)caption value:(CGFloat)value;
+- (instancetype)initWithCaption:(NSString *)caption value:(CGFloat)value NS_DESIGNATED_INITIALIZER;
 - (instancetype)init NS_UNAVAILABLE;
 
 @property (nonatomic, readonly) NSString *caption;
 @property (nonatomic, readonly) CGFloat value;
 
 @end
+
+@class CEScaleHint;
 
 /**
  Value scale is a model object that defines how data will be scaled for rendering given:
@@ -40,10 +42,36 @@ __attribute__((objc_subclassing_restricted))
  
  CEValueScale is an abstract class that defines an interface for value scale model.
  To provide a custom scale, a concrete subclass must be provided, otherwise default linear scale is used.
- All methods and properties of the class except for those storing values passed to the initializer are abstract
- and a subclass must provide implementations for all of them.
  */
 @interface CEValueScale : NSObject
+
+- (instancetype)initWithValueRangeLow:(CGFloat)low high:(CGFloat)high renderHeight:(CGFloat)renderHeight hints:(NSArray<CEScaleHint *> * _Nullable)hints NS_DESIGNATED_INITIALIZER;
+- (instancetype)init NS_UNAVAILABLE;
+
+// Stores the low value of the actual data range
+@property (nonatomic, readonly) CGFloat valueRangeLow;
+// Stores the high value of the actual data range
+@property (nonatomic, readonly) CGFloat valueRangeHigh;
+
+// Stores the lower scale range value. May be the same or different from the value range low value.
+// Subclasses must provide a getter for this property.
+@property (nonatomic, readonly) CGFloat scaleLow;
+// Stores the higher scale range value. May be the same or different from the value range high value.
+// Subclasses must provide a getter for this property.
+@property (nonatomic, readonly) CGFloat scaleHigh;
+
+// Stores the render height for the data that is being scaled.
+// Height may be updated by the chart if the whole chart or its subcharts are resized.
+// A subclass may override the setter if it wants to update the scale properties (such as markers or scale range)
+// when height changes.
+@property (nonatomic, readwrite) CGFloat renderHeight;
+
+// An array of axis markers corresponding to the scale.
+// A subclass must provide a getter for this property.
+@property (nonatomic, readonly) NSArray<CEAxisMarker *> *markers;
+
+// Stores an optional array of scale hints.
+@property (nonatomic, readonly, nullable) NSArray<CEScaleHint *> *hints;
 
 @end
 
