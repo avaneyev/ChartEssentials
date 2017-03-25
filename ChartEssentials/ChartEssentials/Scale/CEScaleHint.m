@@ -11,6 +11,8 @@
 #import <ChartEssentials/CEScaleHint.h>
 #import <ChartEssentials/CETools.h>
 
+NSString * const CEScaleHintIncludeValueInRangeKey = @"CEScaleHintIncludeValueInRange";
+
 @implementation CEScaleHint
 
 - (instancetype)initWithValue:(CGFloat)value kind:(NSString *)kind context:(id<NSCopying>)context

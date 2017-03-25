@@ -60,3 +60,4 @@ FOUNDATION_EXPORT const unsigned char ChartEssentialsVersionString[];
 
 #import <ChartEssentials/CEScaleHint.h>
 #import <ChartEssentials/CEValueScale.h>
+#import <ChartEssentials/CELinearValueScale.h>

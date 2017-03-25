@@ -13,6 +13,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+extern NSString * const CEScaleHintIncludeValueInRangeKey;
+
 /**
  Scale hints help scale and present the data in a way that makes most sense to a user.
  Hints may be something like:
