@@ -10,6 +10,7 @@
 
 #import <ChartEssentials/CELinearValueScale.h>
 #import <ChartEssentials/CEScaleHint.h>
+#import <ChartEssentials/CETools.h>
 
 @implementation CELinearValueScale
 {
@@ -41,6 +42,31 @@
     [super setRenderHeight:renderHeight];
     
     // TODO: maybe don't recalculate for small changes?
+}
+
+- (CGFloat)scaleValue:(CGFloat)value
+{
+    if (_markers == nil) [self _calculateScale];
+    
+    if (isnan(value)) return NAN;
+    
+    return (value - _scaleLow) * self.renderHeight / (_scaleHigh - _scaleLow);
+}
+
+- (void)scaleValues:(const CGFloat *)values outputBuffer:(CGFloat *)output count:(NSUInteger)count
+{
+    CEAssert(values != NULL);
+    CEAssert(output != NULL);
+    
+    if (_markers == nil) [self _calculateScale];
+
+    CGFloat range = _scaleHigh - _scaleLow;
+    CGFloat renderHeight = self.renderHeight;
+    for (NSUInteger i=0; i < count; i++)
+    {
+        CGFloat value = values[i];
+        output[i] = isnan(value) ? NAN : (value - _scaleLow) * renderHeight / range;
+    }
 }
 
 - (void)_calculateScale

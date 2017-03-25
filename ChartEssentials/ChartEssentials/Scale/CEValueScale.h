@@ -73,6 +73,13 @@ __attribute__((objc_subclassing_restricted))
 // Stores an optional array of scale hints.
 @property (nonatomic, readonly, nullable) NSArray<CEScaleHint *> *hints;
 
+// Scales a single value based on value range and render height
+- (CGFloat)scaleValue:(CGFloat)value;
+
+// Scales an array of values and places scaled values to the output buffer.
+// Output buffer must be of at least the same size as input value array.
+- (void)scaleValues:(const CGFloat *)values outputBuffer:(CGFloat *)output count:(NSUInteger)count;
+
 @end
 
 NS_ASSUME_NONNULL_END

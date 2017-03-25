@@ -79,4 +79,14 @@
     THROW_ABSTRACT(nil);
 }
 
+- (CGFloat)scaleValue:(CGFloat)value
+{
+    THROW_ABSTRACT(nil);
+}
+
+- (void)scaleValues:(const CGFloat *)values outputBuffer:(CGFloat *)output count:(NSUInteger)count
+{
+    THROW_ABSTRACT(nil);
+}
+
 @end
