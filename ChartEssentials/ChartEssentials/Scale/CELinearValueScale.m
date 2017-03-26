@@ -65,18 +65,18 @@ static void _CELinearValueScaleGetMagnitude(CGFloat value, NSInteger *outPower, 
     }
 }
 
-static NSArray<CEAxisMarker *> *_CELinearValueScaleEqualMarkers(CGFloat low, CGFloat high, NSUInteger count)
+static NSArray<CEAxisMarker *> *_CELinearValueScaleEqualMarkers(CGFloat low, CGFloat high, NSUInteger count, NSNumberFormatter *valueFormatter)
 {
     CEAssert(count > 0);
     
     CGFloat step = (high - low) / count;
     NSMutableArray<CEAxisMarker *> *markers = [[NSMutableArray alloc] initWithCapacity:count];
-    [markers addObject:[[CEAxisMarker alloc] initWithCaption:@"" value:low]];
+    [markers addObject:[[CEAxisMarker alloc] initWithCaption:[valueFormatter stringFromNumber:@(low)] value:low]];
     
     for (NSUInteger i = 1; i < count; ++i)
     {
         low += step;
-        [markers addObject:[[CEAxisMarker alloc] initWithCaption:@"" value:low]];
+        [markers addObject:[[CEAxisMarker alloc] initWithCaption:[valueFormatter stringFromNumber:@(low)] value:low]];
     }
     
     return markers;
@@ -87,6 +87,19 @@ static NSArray<CEAxisMarker *> *_CELinearValueScaleEqualMarkers(CGFloat low, CGF
     CGFloat _scaleLow;
     CGFloat _scaleHigh;
     NSArray<CEAxisMarker *> *_markers;
+    
+    NSNumberFormatter *_markerFormatter;
+}
+
+- (instancetype)initWithValueRangeLow:(CGFloat)low high:(CGFloat)high renderHeight:(CGFloat)renderHeight hints:(NSArray<CEScaleHint *> *)hints
+{
+    if (self = [super initWithValueRangeLow:low high:high renderHeight:renderHeight hints:hints])
+    {
+        // TODO: create the formatter based on order, accept a factory in an initializer?
+        _markerFormatter = [[NSNumberFormatter alloc] init];
+        _markerFormatter.positiveFormat = @"#0.###";
+    }
+    return self;
 }
 
 - (CGFloat)scaleLow
@@ -165,7 +178,7 @@ static NSArray<CEAxisMarker *> *_CELinearValueScaleEqualMarkers(CGFloat low, CGF
         {
             _scaleLow = 0;
             _scaleHigh = 1;
-            _markers = _CELinearValueScaleEqualMarkers(_scaleLow, _scaleHigh, 2);
+            _markers = _CELinearValueScaleEqualMarkers(_scaleLow, _scaleHigh, 2, _markerFormatter);
         }
         else
         {
