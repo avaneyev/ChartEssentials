@@ -65,6 +65,33 @@ static void _CELinearValueScaleGetMagnitude(CGFloat value, NSInteger *outPower, 
     }
 }
 
+static NSRange _CELinearValueScaleMarkerCountRange(CGFloat renderHeight)
+{
+    // For now determine the reasonable marker count range statically based on render height.
+    // The goal is to make markers so they are not overlapping and not too far.
+    // For example, for a chart of 500 pt a good range may be between 6 and 10,
+    // scale then picks the exact count based on values.
+    // TODO: consider passing the range or finding another way to determine if markers are too close
+    
+    CEAssert(renderHeight >= 0);
+    
+    NSUInteger baselineIntervals = renderHeight / 40;
+    if (baselineIntervals <= 1)
+    {
+        return NSMakeRange(2, 1);
+    }
+    
+    if (baselineIntervals > 8)
+    {
+        return NSMakeRange(6, 4);
+    }
+    
+    
+    NSUInteger min = baselineIntervals * 3 / 4;
+    NSUInteger max = min * 2 - baselineIntervals / 4;
+    return NSMakeRange(min, MAX(max - min, 1));
+}
+
 static NSArray<CEAxisMarker *> *_CELinearValueScaleEqualMarkers(CGFloat low, CGFloat high, NSUInteger count, NSNumberFormatter *valueFormatter)
 {
     CEAssert(count > 0);
@@ -170,6 +197,9 @@ static NSArray<CEAxisMarker *> *_CELinearValueScaleEqualMarkers(CGFloat low, CGF
         }
     }
     
+    CGFloat magnitude;
+    NSInteger power;
+
     if (high == low)
     {
         // If the only known value is 0, there's nothing to be said about the value magnitude.
@@ -182,20 +212,38 @@ static NSArray<CEAxisMarker *> *_CELinearValueScaleEqualMarkers(CGFloat low, CGF
         }
         else
         {
-            // TODO: create 2 markers, one above and one below, based on scale of the values
+            // Create 2 markers, one above and one below, based on scale of the values
             // If the value happens to be rounded to scale, include it too
+            
+            _CELinearValueScaleGetMagnitude(low, &power, &magnitude);
+            _scaleLow = cetrunc(low / magnitude) * magnitude;
+            _scaleHigh = _scaleLow + magnitude;
         }
     }
     else
     {
-        CGFloat magnitude;
-        NSInteger power;
-        
         // Low value may be negative and have bigger absolute value that high value,
         // need to get magnitude based on the value that has larger magnitude.
         CGFloat valueForPower = MAX(cefabs(low), cefabs(high));
         _CELinearValueScaleGetMagnitude(valueForPower, &power, &magnitude);
+        NSRange proposedMarkerCountRange = _CELinearValueScaleMarkerCountRange(self.renderHeight);
+        
+        // Corner case: value magnitude is high but the variance of data is very low
+        // (maybe very few values, or just stable value).
+        // For example, a column with values of [1,000,002; 1,000,007; 999,989]
+        // will have value magnitude of 100,000 but on that magnitude there is no difference
+        // between values and putting even 2 markers of that magnitude will loose any precision.
+        // Therefore, need to divide the magnitude until there is visible distance between values.
+        
+        CGFloat minimumMarkedRange = (proposedMarkerCountRange.location - 1) * magnitude;
+        CGFloat doubleInitialRange = (high - low) * 2;
+        if (minimumMarkedRange >= doubleInitialRange)
+        {
+            
+        }
     }
+    
+    CEAssert(_scaleLow <= low && _scaleHigh >= high);
 }
 
 @end
