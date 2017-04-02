@@ -275,7 +275,7 @@ static NSArray<CEAxisMarker *> *_CELinearValueScaleEqualMarkers(CGFloat low, CGF
         // - [100, 110, 120, 130] and data occupies 53,3%;
         // - [100, 110, 120, 130, 140].
         // The first option is the best because it uses the most of chart's available area for drawing.
-        CGFloat magnitudeLow = cetrunc(low / magnitude);
+        CGFloat magnitudeLow = cefloor(low / magnitude);
         CGFloat magnitudeHigh = ceceil(high / magnitude);
         CGFloat magnitudeDataRange = magnitudeHigh - magnitudeLow;
         CGFloat mostOccupied = 0;

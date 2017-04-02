@@ -45,4 +45,25 @@
     XCTAssertEqualObjects(scale.markers, expectedMarkers);
 }
 
+- (void)testCalculateLinearScaleWithNegativeLowerBound
+{
+    CELinearValueScale *scale = [[CELinearValueScale alloc] initWithValueRangeLow:-115 high:35 renderHeight:800 hints:nil];
+    
+    XCTAssertEqualWithAccuracy(scale.scaleLow, -120, 0.1);
+    XCTAssertEqualWithAccuracy(scale.scaleHigh, 40, 0.1);
+    
+    NSArray<CEAxisMarker *> *expectedMarkers = @[
+                                                 [[CEAxisMarker alloc] initWithCaption:@"-120" value:-120],
+                                                 [[CEAxisMarker alloc] initWithCaption:@"-100" value:-100],
+                                                 [[CEAxisMarker alloc] initWithCaption:@"-80" value:-80],
+                                                 [[CEAxisMarker alloc] initWithCaption:@"-60" value:-60],
+                                                 [[CEAxisMarker alloc] initWithCaption:@"-40" value:-40],
+                                                 [[CEAxisMarker alloc] initWithCaption:@"-20" value:-20],
+                                                 [[CEAxisMarker alloc] initWithCaption:@"0" value:0],
+                                                 [[CEAxisMarker alloc] initWithCaption:@"20" value:20],
+                                                 [[CEAxisMarker alloc] initWithCaption:@"40" value:40]
+                                                 ];
+    XCTAssertEqualObjects(scale.markers, expectedMarkers);
+}
+
 @end
