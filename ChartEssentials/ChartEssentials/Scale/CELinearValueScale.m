@@ -92,11 +92,10 @@ static NSRange _CELinearValueScaleMarkerCountRange(CGFloat renderHeight)
     return NSMakeRange(min, MAX(max - min, 1));
 }
 
-static NSArray<CEAxisMarker *> *_CELinearValueScaleEqualMarkers(CGFloat low, CGFloat high, NSUInteger count, NSNumberFormatter *valueFormatter)
+static NSArray<CEAxisMarker *> *_CELinearValueScaleEqualMarkers(CGFloat low, CGFloat step, NSUInteger count, NSNumberFormatter *valueFormatter)
 {
     CEAssert(count > 0);
     
-    CGFloat step = (high - low) / count;
     NSMutableArray<CEAxisMarker *> *markers = [[NSMutableArray alloc] initWithCapacity:count];
     [markers addObject:[[CEAxisMarker alloc] initWithCaption:[valueFormatter stringFromNumber:@(low)] value:low]];
     
@@ -208,7 +207,7 @@ static NSArray<CEAxisMarker *> *_CELinearValueScaleEqualMarkers(CGFloat low, CGF
         {
             _scaleLow = 0;
             _scaleHigh = 1;
-            _markers = _CELinearValueScaleEqualMarkers(_scaleLow, _scaleHigh, 2, _markerFormatter);
+            _markers = _CELinearValueScaleEqualMarkers(_scaleLow, 1, 2, _markerFormatter);
         }
         else
         {
@@ -218,6 +217,15 @@ static NSArray<CEAxisMarker *> *_CELinearValueScaleEqualMarkers(CGFloat low, CGF
             _CELinearValueScaleGetMagnitude(low, &power, &magnitude);
             _scaleLow = cetrunc(low / magnitude) * magnitude;
             _scaleHigh = _scaleLow + magnitude;
+            if (_scaleLow == low)
+            {
+                _scaleLow -= magnitude;
+                _markers = _CELinearValueScaleEqualMarkers(_scaleLow, magnitude, 3, _markerFormatter);
+            }
+            else
+            {
+                _markers = _CELinearValueScaleEqualMarkers(_scaleLow, magnitude, 2, _markerFormatter);
+            }
         }
     }
     else
@@ -225,8 +233,10 @@ static NSArray<CEAxisMarker *> *_CELinearValueScaleEqualMarkers(CGFloat low, CGF
         // Low value may be negative and have bigger absolute value that high value,
         // need to get magnitude based on the value that has larger magnitude.
         CGFloat valueForPower = MAX(cefabs(low), cefabs(high));
-        _CELinearValueScaleGetMagnitude(valueForPower, &power, &magnitude);
         NSRange proposedMarkerCountRange = _CELinearValueScaleMarkerCountRange(self.renderHeight);
+        CEAssert(proposedMarkerCountRange.location >= 2);
+
+        _CELinearValueScaleGetMagnitude(valueForPower, &power, &magnitude);
         
         // Corner case: value magnitude is high but the variance of data is very low
         // (maybe very few values, or just stable value).
@@ -236,11 +246,61 @@ static NSArray<CEAxisMarker *> *_CELinearValueScaleEqualMarkers(CGFloat low, CGF
         // Therefore, need to divide the magnitude until there is visible distance between values.
         
         CGFloat minimumMarkedRange = (proposedMarkerCountRange.location - 1) * magnitude;
-        CGFloat doubleInitialRange = (high - low) * 2;
-        if (minimumMarkedRange >= doubleInitialRange)
+        NSUInteger maxMarkerCount = proposedMarkerCountRange.location + proposedMarkerCountRange.length;
+        CGFloat initialRange = (high - low);
+        if (minimumMarkedRange >= initialRange)
         {
-            
+            do
+            {
+                CGFloat dividedRange = minimumMarkedRange / 2;
+                if (dividedRange >= initialRange)
+                {
+                    magnitude /= 10;
+                    minimumMarkedRange /= 10;
+                }
+                else
+                {
+                    magnitude /= 2;
+                    minimumMarkedRange = dividedRange;
+                    break;
+                }
+            } while (minimumMarkedRange >= initialRange);
         }
+        
+        // Among the range of suggested marker counts pick the count where actual data range occupies
+        // the largest percentage of the available chart area.
+        // For example, if data lies in the range of [107, 121] and proposed marker count is between 3 and 5,
+        // the options might be:
+        // - [105, 115, 125], and data occupies 80% of the area;
+        // - [100, 110, 120, 130] and data occupies 53,3%;
+        // - [100, 110, 120, 130, 140].
+        // The first option is the best because it uses the most of chart's available area for drawing.
+        CGFloat magnitudeLow = cetrunc(low / magnitude);
+        CGFloat magnitudeHigh = ceceil(high / magnitude);
+        CGFloat magnitudeDataRange = magnitudeHigh - magnitudeLow;
+        CGFloat mostOccupied = 0;
+        CGFloat optimalStep = 0;
+        NSUInteger optimalIntervals = 0;
+        
+        for (NSUInteger intervals = proposedMarkerCountRange.location - 1; intervals < maxMarkerCount - 1; ++intervals)
+        {
+            CGFloat step = ceceil(magnitudeDataRange / intervals);
+            CGFloat span = step * intervals;
+            CGFloat occupationPercentage = magnitudeDataRange / span;
+            if (occupationPercentage > mostOccupied)
+            {
+                mostOccupied = occupationPercentage;
+                optimalStep = step;
+                optimalIntervals = intervals;
+            }
+        }
+        
+        CEAssert(optimalStep > 0);
+        
+        _scaleLow = magnitudeLow * magnitude;
+        CGFloat trueStep = optimalStep * magnitude;
+        _scaleHigh = _scaleLow + optimalIntervals * trueStep;
+        _markers = _CELinearValueScaleEqualMarkers(_scaleLow, trueStep, optimalIntervals + 1, _markerFormatter);
     }
     
     CEAssert(_scaleLow <= low && _scaleHigh >= high);

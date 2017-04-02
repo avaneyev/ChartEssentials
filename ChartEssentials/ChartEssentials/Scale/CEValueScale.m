@@ -35,6 +35,28 @@
     return self;
 }
 
+- (BOOL)isEqualToMarker:(CEAxisMarker *)other
+{
+    return _value == other->_value && _CEIsStringEqualToString(_caption, other->_caption);
+}
+
+- (BOOL)isEqual:(id)object
+{
+    if (object == nil) return NO;
+    if (object == self) return YES;
+    
+    if ([object class] == [self class])
+    {
+        return [self isEqualToMarker:object];
+    }
+    return NO;
+}
+
+- (NSUInteger)hash
+{
+    return @(_value).hash * 37 + _caption.hash;
+}
+
 @end
 
 @implementation CEValueScale

@@ -60,5 +60,11 @@ do {                                                \
     pthread_mutex_unlock(&(object->mutex));         \
 }
 
+static inline BOOL _CEIsStringEqualToString(NSString *first, NSString *second)
+{
+    if (first == nil) return second == nil;
+    return [first isEqualToString:second];
+}
+
 
 #endif

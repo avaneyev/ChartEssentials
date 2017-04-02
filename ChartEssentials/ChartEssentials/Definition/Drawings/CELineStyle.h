@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 // initializes a solid line of specified width with specific cap and join.
 - (instancetype)initWithWidth:(CGFloat) lineWidth lineCap:(CGLineCap)lineCap lineJoin:(CGLineJoin)lineJoin;
 // initializes a dashed line of specified width with default cap, join and dash pattern.
-- (instancetype)initWithWidth:(CGFloat)lineWidth lineCap:(CGLineCap)lineCap lineJoin:(CGLineJoin)lineJoin dashPatternLength:(NSUInteger)patternLength dashPattern:(CGFloat [])pattern dashStart:(CGFloat)dashStart NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithWidth:(CGFloat)lineWidth lineCap:(CGLineCap)lineCap lineJoin:(CGLineJoin)lineJoin dashPatternLength:(NSUInteger)patternLength dashPattern:(CGFloat [_Nullable])pattern dashStart:(CGFloat)dashStart NS_DESIGNATED_INITIALIZER;
 
 - (instancetype)init NS_UNAVAILABLE;
 

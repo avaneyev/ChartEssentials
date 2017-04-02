@@ -48,6 +48,7 @@
 		D58152CD1E2D4934004DE813 /* ChartEssentials.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D58152C31E2D4934004DE813 /* ChartEssentials.framework */; };
 		D58152D41E2D4934004DE813 /* ChartEssentials.h in Headers */ = {isa = PBXBuildFile; fileRef = D58152C61E2D4934004DE813 /* ChartEssentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D58152F91E2D4AAC004DE813 /* ChartEssentials.h in Headers */ = {isa = PBXBuildFile; fileRef = D58152C61E2D4934004DE813 /* ChartEssentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D58445F41E917A1800FFE9AC /* CELinearValueScaleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D58445F31E917A1800FFE9AC /* CELinearValueScaleTests.m */; };
 		D584B61B1E6B49E50057F3BD /* CECandleDrawingType.h in Headers */ = {isa = PBXBuildFile; fileRef = D584B6191E6B49E50057F3BD /* CECandleDrawingType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D584B61C1E6B49E50057F3BD /* CECandleDrawingType.h in Headers */ = {isa = PBXBuildFile; fileRef = D584B6191E6B49E50057F3BD /* CECandleDrawingType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D584B61D1E6B49E50057F3BD /* CECandleDrawingType.m in Sources */ = {isa = PBXBuildFile; fileRef = D584B61A1E6B49E50057F3BD /* CECandleDrawingType.m */; };
@@ -170,6 +171,7 @@
 		D58152D31E2D4934004DE813 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D58152E21E2D4A29004DE813 /* ChartEssentials.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ChartEssentials.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D58152E51E2D4A29004DE813 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D58445F31E917A1800FFE9AC /* CELinearValueScaleTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CELinearValueScaleTests.m; sourceTree = "<group>"; };
 		D584B6191E6B49E50057F3BD /* CECandleDrawingType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CECandleDrawingType.h; sourceTree = "<group>"; };
 		D584B61A1E6B49E50057F3BD /* CECandleDrawingType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CECandleDrawingType.m; sourceTree = "<group>"; };
 		D584B61F1E6B4A690057F3BD /* CEOHLCDrawingType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEOHLCDrawingType.h; sourceTree = "<group>"; };
@@ -397,6 +399,7 @@
 			children = (
 				D584B6451E78AF4D0057F3BD /* CEValueRangeTests.mm */,
 				D584B64A1E7CAC2A0057F3BD /* CEValueColumnRangeTests.mm */,
+				D58445F31E917A1800FFE9AC /* CELinearValueScaleTests.m */,
 			);
 			path = Scale;
 			sourceTree = "<group>";
@@ -714,6 +717,7 @@
 				D584B63A1E74B9630057F3BD /* CEDateIntervalTests.m in Sources */,
 				D584B64B1E7CAC2A0057F3BD /* CEValueColumnRangeTests.mm in Sources */,
 				D58CA35D1E419391004B60DE /* CEDateIndexedTableTests.m in Sources */,
+				D58445F41E917A1800FFE9AC /* CELinearValueScaleTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
