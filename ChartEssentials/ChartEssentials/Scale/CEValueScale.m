@@ -57,6 +57,11 @@
     return @(_value).hash * 37 + _caption.hash;
 }
 
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"<%@: %p, value = %f, label = %@>", [self class], self, _value, _caption];
+}
+
 @end
 
 @implementation CEValueScale
