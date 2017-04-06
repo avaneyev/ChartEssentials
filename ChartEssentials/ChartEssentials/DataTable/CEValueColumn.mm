@@ -12,7 +12,44 @@
 #import <ChartEssentials/CEDateIndexedTable.h>
 #import <ChartEssentials/CETools.h>
 #import "CEValueColumn+Private.h"
+#import "CEValueColumn+Range.h"
 #import <vector>
+#include <functional>
+
+void _CEValueColumnIterateChunks(
+                                 NSRange range,
+                                 const std::vector<CGFloat *> &chunks,
+                                 const NSUInteger totalCount,
+                                 const NSUInteger chunkLength,
+                                 std::function< void(CGFloat *, NSUInteger) > &processChunk
+                                 )
+{
+    NSUInteger firstChunk = range.location / chunkLength;
+    NSUInteger firstPosition = range.location % chunkLength;
+    NSUInteger remainingInChunk = chunkLength - firstPosition;
+    NSUInteger remainingInColumn = totalCount - range.location;
+    auto iterator = chunks.cbegin() + firstChunk;
+    
+    if (remainingInChunk >= range.length && remainingInColumn >= range.length)
+    {
+        processChunk(*iterator + firstPosition, range.length);
+    }
+    else
+    {
+        NSUInteger iteratedLength = MIN(remainingInChunk, remainingInColumn);
+        processChunk(*iterator + firstPosition, iteratedLength);
+        remainingInColumn -= iteratedLength;
+        
+        while (remainingInColumn > 0 && iteratedLength < range.length)
+        {
+            ++iterator;
+            remainingInChunk = MIN(range.length - iteratedLength, MIN(remainingInColumn, chunkLength));
+            processChunk(*iterator, remainingInChunk);
+            iteratedLength += remainingInChunk;
+            remainingInColumn -= remainingInChunk;
+        }
+    }
+}
 
 @implementation CEValueColumn
 {
@@ -43,6 +80,12 @@
 
 - (instancetype)initWithColumn:(CEValueColumn *)column valueRange:(NSRange)range
 {
+    // TODO: is it possible to reuse the same data chunks rather than copying data?
+    // A possible efficient solution is to have variable first chunk size
+    // while all other chunks will still have same size constant per column.
+    // That way it is still possible to find a chunk based on index without iterating through them.
+    // Chunks will have to be reference counted.
+    
     THROW_NOT_IMPLEMENTED(nil);
 }
 
@@ -178,38 +221,62 @@
     
     if (range.length == 0) return 0;
     
-    NSUInteger firstChunk = range.location / _chunkLength;
-    NSUInteger firstPosition = range.location % _chunkLength;
-    NSUInteger remainingInChunk = _chunkLength - firstPosition;
-    NSUInteger remainingInColumn = _totalCount - range.location;
-    auto iterator = _chunks.cbegin() + firstChunk;
+    NSUInteger copiedLength = 0;
+    std::function< void(CGFloat *, NSUInteger) > copyDataLambda = [&copiedLength, buffer](CGFloat *chunk, NSUInteger length) {
+        memcpy(buffer + copiedLength, chunk, sizeof(CGFloat) * length);
+        copiedLength += length;
+    };
+    _CEValueColumnIterateChunks(range, _chunks, _totalCount, _chunkLength, copyDataLambda);
     
-    if (remainingInChunk >= range.length && remainingInColumn >= range.length)
-    {
-        memcpy(buffer, *iterator + firstPosition, sizeof(CGFloat) * range.length);
-        return range.length;
-    }
-
-    NSUInteger copiedLength = MIN(remainingInChunk, remainingInColumn);
-    memcpy(buffer, *iterator + firstPosition, sizeof(CGFloat) * copiedLength);
-    remainingInColumn -= copiedLength;
-    
-    while (remainingInColumn > 0 && copiedLength < range.length)
-    {
-        ++iterator;
-        remainingInChunk = MIN(range.length - copiedLength, MIN(remainingInColumn, _chunkLength));
-        memcpy(buffer + copiedLength, *iterator, sizeof(CGFloat) * remainingInChunk);
-        copiedLength += remainingInChunk;
-        remainingInColumn -= remainingInChunk;
-    }
-
     return copiedLength;
 }
 
 - (CEValueColumn *)columnFromRange:(NSRange)range
 {
-    // TODO: is it possible to reuse the same data chunks rather than copying data?
     return [[CEValueColumn alloc] initWithColumn:self valueRange:range];
+}
+
+@end
+
+@implementation CEValueColumn (ValueRange)
+
+- (void)addValuesInRange:(NSRange)range toValueRange:(CEValueRange *)valueRange
+{
+    CEAssert(valueRange != NULL);
+    CEAssert(range.location + range.length <= _totalCount);
+    
+    if (range.length == 0) return;
+    
+    std::function< void(CGFloat *, NSUInteger) > addToScaleLambda = [valueRange](CGFloat *chunk, NSUInteger length) {
+        valueRange->addValues(chunk, length);
+    };
+    _CEValueColumnIterateChunks(range, _chunks, _totalCount, _chunkLength, addToScaleLambda);
+}
+
+- (void)addHighValuesInRange:(NSRange)range toValueRange:(CEValueRange *)valueRange
+{
+    CEAssert(valueRange != NULL);
+    CEAssert(range.location + range.length <= _totalCount);
+    
+    if (range.length == 0) return;
+    
+    std::function< void(CGFloat *, NSUInteger) > addToScaleLambda = [valueRange](CGFloat *chunk, NSUInteger length) {
+        valueRange->addHighValues(chunk, length);
+    };
+    _CEValueColumnIterateChunks(range, _chunks, _totalCount, _chunkLength, addToScaleLambda);
+}
+
+- (void)addLowValuesInRange:(NSRange)range toValueRange:(CEValueRange *)valueRange
+{
+    CEAssert(valueRange != NULL);
+    CEAssert(range.location + range.length <= _totalCount);
+    
+    if (range.length == 0) return;
+    
+    std::function< void(CGFloat *, NSUInteger) > addToScaleLambda = [valueRange](CGFloat *chunk, NSUInteger length) {
+        valueRange->addLowValues(chunk, length);
+    };
+    _CEValueColumnIterateChunks(range, _chunks, _totalCount, _chunkLength, addToScaleLambda);
 }
 
 @end
