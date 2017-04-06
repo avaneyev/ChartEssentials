@@ -104,6 +104,20 @@
     XCTAssertEqualObjects(scale.markers, expectedMarkers);
 }
 
+- (void)testCalculateLinearScaleFewerMarkers
+{
+    CELinearValueScale *scale = [[CELinearValueScale alloc] initWithValueRangeLow:52 high:147 renderHeight:120 hints:nil];
+    XCTAssertEqualWithAccuracy(scale.scaleLow, 50, 0.1);
+    XCTAssertEqualWithAccuracy(scale.scaleHigh, 150, 0.1);
+    
+    NSArray<CEAxisMarker *> *expectedMarkers = @[
+                                                 [[CEAxisMarker alloc] initWithCaption:@"50" value:50],
+                                                 [[CEAxisMarker alloc] initWithCaption:@"150" value:150]
+                                                 ];
+    XCTAssertEqualObjects(scale.markers, expectedMarkers);
+}
+
+
 - (void)testCalculateLinearScaleWithHintInRange
 {
     CEScaleHint *hintZero = [[CEScaleHint alloc] initWithValue:0 kind:CEScaleHintIncludeValueInRangeKey context:nil];
@@ -145,6 +159,41 @@
                                                  [[CEAxisMarker alloc] initWithCaption:@"1000" value:1000]
                                                  ];
     XCTAssertEqualObjects(scale.markers, expectedMarkers);
+}
+
+- (void)testScaleSingleValue
+{
+    CEScaleHint *hintZero = [[CEScaleHint alloc] initWithValue:0 kind:CEScaleHintIncludeValueInRangeKey context:nil];
+    
+    CELinearValueScale *scale = [[CELinearValueScale alloc] initWithValueRangeLow:101 high:999 renderHeight:800 hints:@[ hintZero ]];
+
+    XCTAssertEqualWithAccuracy([scale scaleValue:0], 0, 0.1);
+    XCTAssertEqualWithAccuracy([scale scaleValue:50], 40, 0.1);
+    XCTAssertEqualWithAccuracy([scale scaleValue:234], 187.2, 0.1);
+    XCTAssertEqualWithAccuracy([scale scaleValue:999], 799.2, 0.1);
+    
+    XCTAssert(isnan([scale scaleValue:NAN]));
+}
+
+- (void)testScaleValueArray
+{
+    CGFloat values[] = { 250, 120, 153, 580, 999, NAN, 430 };
+    CGFloat output[] = { 9999, 9999, 9999, 9999, 9999, 9999, 9999, 9999, 9999 }; // two more values to verify against out of bounds writes
+    
+    CELinearValueScale *scale = [[CELinearValueScale alloc] initWithValueRangeLow:101 high:999 renderHeight:500 hints:nil];
+    
+    [scale scaleValues:values outputBuffer:&output[1] count:sizeof(values) / sizeof(CGFloat)];
+    
+    XCTAssertEqualWithAccuracy(output[0], 9999, 0.1);
+    XCTAssertEqualWithAccuracy(output[sizeof(output) / sizeof(CGFloat) - 1], 9999, 0.1);
+
+    XCTAssertEqualWithAccuracy(output[1], 83.33, 0.1);
+    XCTAssertEqualWithAccuracy(output[2], 11.11, 0.1);
+    XCTAssertEqualWithAccuracy(output[3], 29.44, 0.1);
+    XCTAssertEqualWithAccuracy(output[4], 266.66, 0.1);
+    XCTAssertEqualWithAccuracy(output[5], 499.44, 0.1);
+    XCTAssert(isnan(output[6]));
+    XCTAssertEqualWithAccuracy(output[7], 183.33, 0.1);
 }
 
 @end
