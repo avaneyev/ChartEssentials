@@ -26,6 +26,8 @@ FOUNDATION_EXPORT double ChartEssentialsVersionNumber;
 //! Project version string for ChartEssentials.
 FOUNDATION_EXPORT const unsigned char ChartEssentialsVersionString[];
 
+#import <ChartEssentials/CEChartView.h>
+
 #import <ChartEssentials/CETools.h>
 #import <ChartEssentials/CEPlatformDefinitions.h>
 

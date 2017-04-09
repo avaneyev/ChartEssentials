@@ -25,12 +25,12 @@
     if ([UIGraphicsImageRenderer class])
     {
         UIGraphicsImageRendererFormat *format = [[UIGraphicsImageRendererFormat alloc] init];
-        format.scale = mask.scale;
+        format.scale = self.scale;
         
-        UIGraphicsImageRenderer *renderer = [[UIGraphicsImageRenderer alloc] initWithSize:maskSize format:format];
+        UIGraphicsImageRenderer *renderer = [[UIGraphicsImageRenderer alloc] initWithSize:imageSize format:format];
         
         return [renderer imageWithActions:^(UIGraphicsImageRendererContext *rendererContext) {
-            [mask drawInRect:rect];
+            [self drawInRect:rect];
             
             [color setFill];
             [rendererContext fillRect:rect];
@@ -63,10 +63,13 @@
 
 #import <AppKit/AppKit.h>
 
+@implementation NSImage (CEImageTools)
+
 - (NSImage *)_imageWithOverlayColor:(NSColor *)color
 {
     return nil;
 }
 
+@end
 #endif
 

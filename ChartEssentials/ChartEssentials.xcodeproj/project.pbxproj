@@ -131,6 +131,10 @@
 		D5B053D81E399E7A002E2362 /* CEDateColumnTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B053D71E399E7A002E2362 /* CEDateColumnTests.m */; };
 		D5B2626C1E345C5600328A1F /* CEValueColumnTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B2626B1E345C5600328A1F /* CEValueColumnTests.m */; };
 		D5B2626D1E345D8700328A1F /* CETools.h in Headers */ = {isa = PBXBuildFile; fileRef = D599F2441E2DC6FF00816FF7 /* CETools.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D5B80E481E99D256000E6C84 /* CEChartView.h in Headers */ = {isa = PBXBuildFile; fileRef = D5B80E461E99D256000E6C84 /* CEChartView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D5B80E491E99D256000E6C84 /* CEChartView.h in Headers */ = {isa = PBXBuildFile; fileRef = D5B80E461E99D256000E6C84 /* CEChartView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D5B80E4A1E99D256000E6C84 /* CEChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B80E471E99D256000E6C84 /* CEChartView.m */; };
+		D5B80E4B1E99D256000E6C84 /* CEChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B80E471E99D256000E6C84 /* CEChartView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -223,6 +227,8 @@
 		D5B262751E345DFD00328A1F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		D5B262771E345E0200328A1F /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/AppKit.framework; sourceTree = DEVELOPER_DIR; };
 		D5B262791E345E0900328A1F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		D5B80E461E99D256000E6C84 /* CEChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEChartView.h; sourceTree = "<group>"; };
+		D5B80E471E99D256000E6C84 /* CEChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEChartView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -331,6 +337,7 @@
 				D584B62B1E6C9DE20057F3BD /* Date Range */,
 				D57D48981E43F467001CA791 /* Definition */,
 				D584B63D1E7787B20057F3BD /* Scale */,
+				D5B80E451E99D229000E6C84 /* View */,
 				D58152C61E2D4934004DE813 /* ChartEssentials.h */,
 				D58152C71E2D4934004DE813 /* Info.plist */,
 			);
@@ -468,6 +475,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D5B80E451E99D229000E6C84 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D5B80E461E99D256000E6C84 /* CEChartView.h */,
+				D5B80E471E99D256000E6C84 /* CEChartView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -482,6 +498,7 @@
 				D57D48A11E43F787001CA791 /* CESubchartDefinition.h in Headers */,
 				D584B62E1E6C9E160057F3BD /* CEDateInterval.h in Headers */,
 				D587C2671E3852ED00603B9C /* CEDateColumn.h in Headers */,
+				D5B80E481E99D256000E6C84 /* CEChartView.h in Headers */,
 				D584B63F1E7788700057F3BD /* CEValueRange.h in Headers */,
 				D599F23F1E2DBE7900816FF7 /* CEValueColumn.h in Headers */,
 				D584B6211E6B4A690057F3BD /* CEOHLCDrawingType.h in Headers */,
@@ -521,6 +538,7 @@
 				D57D48A21E43F787001CA791 /* CESubchartDefinition.h in Headers */,
 				D584B62F1E6C9E160057F3BD /* CEDateInterval.h in Headers */,
 				D58870E01E5B8AF400F6EA69 /* CEDualColorScheme.h in Headers */,
+				D5B80E491E99D256000E6C84 /* CEChartView.h in Headers */,
 				D584B6401E7788700057F3BD /* CEValueRange.h in Headers */,
 				D587C2691E3852F300603B9C /* CEDateColumn.h in Headers */,
 				D584B6221E6B4A690057F3BD /* CEOHLCDrawingType.h in Headers */,
@@ -699,6 +717,7 @@
 				D584B65C1E7E055E0057F3BD /* CEScaleHint.m in Sources */,
 				D584B6301E6C9E160057F3BD /* CEDateInterval.m in Sources */,
 				D585A2C41E4C2B6C008271BE /* CEDrawingDefinition.m in Sources */,
+				D5B80E4A1E99D256000E6C84 /* CEChartView.m in Sources */,
 				D584B6291E6B4E8C0057F3BD /* CEBarDrawingType.m in Sources */,
 				D57D48AF1E43FBDE001CA791 /* CEInstrumentDefinition.m in Sources */,
 				D57A39901E63D59200818C1D /* CELineDrawingType.m in Sources */,
@@ -740,6 +759,7 @@
 				D587C26A1E3852F900603B9C /* CEDateColumn.mm in Sources */,
 				D57D48A41E43F787001CA791 /* CESubchartDefinition.m in Sources */,
 				D57D48BE1E49970C001CA791 /* CEStudyDefinition.m in Sources */,
+				D5B80E4B1E99D256000E6C84 /* CEChartView.m in Sources */,
 				D5A0EC551E86F377004E4A51 /* CELinearValueScale.m in Sources */,
 				D585F93F1E50FA61000238E7 /* CEColorScheme.m in Sources */,
 				D5888E301E55525500910052 /* CESingleColorScheme.m in Sources */,

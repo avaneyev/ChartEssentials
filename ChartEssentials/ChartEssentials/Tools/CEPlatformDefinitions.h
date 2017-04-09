@@ -8,6 +8,8 @@
 //  Distributed under BSD license. See LICENSE for details.
 //
 
+#import <TargetConditionals.h>
+
 #if TARGET_OS_IPHONE
 
 #import <UIKit/UIKit.h>
@@ -27,6 +29,10 @@
 #define CEColor     NSColor
 #define CEFont      NSFont
 #define CEImage     NSImage
+
+#else
+
+#error "Unsupported platform"
 
 #endif
 
