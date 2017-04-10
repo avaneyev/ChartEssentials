@@ -13,6 +13,8 @@
 @class CEChartView;
 @class CEChartDefinition;
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  Chart view delegate can be used to get certain events about the chart activity, 
  such as need for more data or presenting a menu.
@@ -34,8 +36,10 @@
  Definition describes the chart that should be rendered.
  Updates to the definition object will cause chart to re-draw.
  */
-@property (nonatomic, strong) CEChartDefinition *definition;
+@property (nonatomic, strong, nullable) CEChartDefinition *definition;
 
-@property (nonatomic, weak) id<CEChartViewDelegate> delegate;
+@property (nonatomic, weak, nullable) id<CEChartViewDelegate> delegate;
 
 @end
+
+NS_ASSUME_NONNULL_END
