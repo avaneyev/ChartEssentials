@@ -21,6 +21,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, readonly) CALayer *layer;
 
+- (void)addSublayer:(CEChartLayer *)layer;
+- (void)insertSublayer:(CEChartLayer *)layer atIndex:(unsigned int)idx;
+- (void)removeFromSuperlayer;
+
 @end
 
 NS_ASSUME_NONNULL_END

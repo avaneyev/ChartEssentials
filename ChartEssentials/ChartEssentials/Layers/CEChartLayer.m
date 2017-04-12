@@ -46,4 +46,24 @@
     return [NSNull null];
 }
 
+
+#pragma mark - Other layer methods
+
+- (void)addSublayer:(CEChartLayer *)layer
+{
+    [_layer addSublayer:layer->_layer];
+}
+
+- (void)insertSublayer:(CEChartLayer *)layer atIndex:(unsigned int)idx
+{
+    [_layer insertSublayer:layer->_layer atIndex:idx];
+}
+
+- (void)removeFromSuperlayer
+{
+    [_layer removeFromSuperlayer];
+}
+
+
+
 @end
