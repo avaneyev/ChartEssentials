@@ -9,13 +9,24 @@
 //
 
 #import <ChartEssentials/CEChartView.h>
-
+#import <ChartEssentials/CEPlatformDefinitions.h>
+#import "CEChartModel.h"
 
 @implementation CEChartView
 {
     CEChartDefinition *_definition;
+    CEChartModel *_model;
     
     __weak id<CEChartViewDelegate> _delegate;
+}
+
+- (instancetype)initWithFrame:(CERect)frameRect
+{
+    if (self = [super initWithFrame:frameRect])
+    {
+        _model = [[CEChartModel alloc] initWithChartView:self];
+    }
+    return self;
 }
 
 @synthesize delegate = _delegate;

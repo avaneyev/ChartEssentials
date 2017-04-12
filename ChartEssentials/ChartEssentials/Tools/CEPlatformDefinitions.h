@@ -20,6 +20,8 @@
 #define CEFont      UIFont
 #define CEImage     UIImage
 
+#define CERect      CGRect
+
 #elif TARGET_OS_MAC
 
 #import <AppKit/AppKit.h>
@@ -29,6 +31,8 @@
 #define CEColor     NSColor
 #define CEFont      NSFont
 #define CEImage     NSImage
+
+#define CERect      NSRect
 
 #else
 
