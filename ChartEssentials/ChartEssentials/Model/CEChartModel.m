@@ -15,6 +15,8 @@
 @implementation CEChartModel
 {
     __weak CEChartView *_chartView;
+    CEChartDefinition *_definition;
+    __weak id<CEChartViewDelegate> _delegate;
 }
 
 - (instancetype)initWithChartView:(CEChartView *)view
@@ -27,5 +29,11 @@
     }
     return self;
 }
+
+#pragma mark - Properties
+
+@synthesize view = _chartView;
+@synthesize definition = _definition;
+@synthesize delegate = _delegate;
 
 @end

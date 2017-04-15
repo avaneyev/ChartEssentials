@@ -9,8 +9,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <ChartEssentials/CEChartView.h>
 
-@class CEChartView;
+@class CEChartDefinition;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -19,6 +20,10 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)init NS_UNAVAILABLE;
 
 - (instancetype)initWithChartView:(CEChartView *)view NS_DESIGNATED_INITIALIZER;
+
+@property (nonatomic, readonly, weak, nullable) CEChartView *view;
+@property (nonatomic, readwrite, nullable) CEChartDefinition *definition;
+@property (nonatomic, readwrite, weak, nullable) id<CEChartViewDelegate> delegate;
 
 @end
 
