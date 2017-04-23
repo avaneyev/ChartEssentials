@@ -119,6 +119,9 @@
 		D5888E351E55568600910052 /* CEImageTools.m in Sources */ = {isa = PBXBuildFile; fileRef = D5888E341E55568600910052 /* CEImageTools.m */; };
 		D5888E361E55568600910052 /* CEImageTools.m in Sources */ = {isa = PBXBuildFile; fileRef = D5888E341E55568600910052 /* CEImageTools.m */; };
 		D58CA35D1E419391004B60DE /* CEDateIndexedTableTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D58CA35C1E419391004B60DE /* CEDateIndexedTableTests.m */; };
+		D596E08A1EAD2927009CD21C /* CESubchartLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = D596E0881EAD2927009CD21C /* CESubchartLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D596E08B1EAD2927009CD21C /* CESubchartLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D596E0891EAD2927009CD21C /* CESubchartLayer.m */; };
+		D596E08C1EAD29A9009CD21C /* CESubchartLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = D596E0881EAD2927009CD21C /* CESubchartLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D599F23F1E2DBE7900816FF7 /* CEValueColumn.h in Headers */ = {isa = PBXBuildFile; fileRef = D599F23D1E2DBE7900816FF7 /* CEValueColumn.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D599F2401E2DBE7900816FF7 /* CEValueColumn.mm in Sources */ = {isa = PBXBuildFile; fileRef = D599F23E1E2DBE7900816FF7 /* CEValueColumn.mm */; };
 		D599F2411E2DC2C900816FF7 /* CEValueColumn.h in Headers */ = {isa = PBXBuildFile; fileRef = D599F23D1E2DBE7900816FF7 /* CEValueColumn.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -151,8 +154,8 @@
 		D5B80E671EA3EA54000E6C84 /* CEVerticalAxisModel.h in Headers */ = {isa = PBXBuildFile; fileRef = D5B80E641EA3EA54000E6C84 /* CEVerticalAxisModel.h */; };
 		D5B80E681EA3EA54000E6C84 /* CEVerticalAxisModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B80E651EA3EA54000E6C84 /* CEVerticalAxisModel.m */; };
 		D5B80E691EA3EA54000E6C84 /* CEVerticalAxisModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B80E651EA3EA54000E6C84 /* CEVerticalAxisModel.m */; };
-		D5B80E6C1EA3EA8D000E6C84 /* CESubchartModel.h in Headers */ = {isa = PBXBuildFile; fileRef = D5B80E6A1EA3EA8D000E6C84 /* CESubchartModel.h */; };
-		D5B80E6D1EA3EA8D000E6C84 /* CESubchartModel.h in Headers */ = {isa = PBXBuildFile; fileRef = D5B80E6A1EA3EA8D000E6C84 /* CESubchartModel.h */; };
+		D5B80E6C1EA3EA8D000E6C84 /* CESubchartModel.h in Headers */ = {isa = PBXBuildFile; fileRef = D5B80E6A1EA3EA8D000E6C84 /* CESubchartModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D5B80E6D1EA3EA8D000E6C84 /* CESubchartModel.h in Headers */ = {isa = PBXBuildFile; fileRef = D5B80E6A1EA3EA8D000E6C84 /* CESubchartModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D5B80E6E1EA3EA8D000E6C84 /* CESubchartModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B80E6B1EA3EA8D000E6C84 /* CESubchartModel.m */; };
 		D5B80E6F1EA3EA8D000E6C84 /* CESubchartModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B80E6B1EA3EA8D000E6C84 /* CESubchartModel.m */; };
 /* End PBXBuildFile section */
@@ -234,6 +237,10 @@
 		D5888E311E55566300910052 /* CEImageTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEImageTools.h; sourceTree = "<group>"; };
 		D5888E341E55568600910052 /* CEImageTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEImageTools.m; sourceTree = "<group>"; };
 		D58CA35C1E419391004B60DE /* CEDateIndexedTableTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEDateIndexedTableTests.m; sourceTree = "<group>"; };
+		D596E0881EAD2927009CD21C /* CESubchartLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CESubchartLayer.h; sourceTree = "<group>"; };
+		D596E0891EAD2927009CD21C /* CESubchartLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CESubchartLayer.m; sourceTree = "<group>"; };
+		D596E08D1EAD2D7C009CD21C /* CESubchartLayer+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CESubchartLayer+Private.h"; sourceTree = "<group>"; };
+		D596E08E1EAD2E9D009CD21C /* CESubchartModel+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CESubchartModel+Private.h"; sourceTree = "<group>"; };
 		D599F23D1E2DBE7900816FF7 /* CEValueColumn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEValueColumn.h; sourceTree = "<group>"; };
 		D599F23E1E2DBE7900816FF7 /* CEValueColumn.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CEValueColumn.mm; sourceTree = "<group>"; };
 		D599F2441E2DC6FF00816FF7 /* CETools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CETools.h; sourceTree = "<group>"; };
@@ -521,6 +528,9 @@
 			children = (
 				D5B80E4D1E9B22C2000E6C84 /* CEChartLayer.h */,
 				D5B80E4E1E9B22C2000E6C84 /* CEChartLayer.m */,
+				D596E0881EAD2927009CD21C /* CESubchartLayer.h */,
+				D596E08D1EAD2D7C009CD21C /* CESubchartLayer+Private.h */,
+				D596E0891EAD2927009CD21C /* CESubchartLayer.m */,
 			);
 			path = Layers;
 			sourceTree = "<group>";
@@ -532,6 +542,7 @@
 				D5B80E541E9DCC33000E6C84 /* CEChartModel.h */,
 				D5B80E551E9DCC33000E6C84 /* CEChartModel.m */,
 				D5B80E6A1EA3EA8D000E6C84 /* CESubchartModel.h */,
+				D596E08E1EAD2E9D009CD21C /* CESubchartModel+Private.h */,
 				D5B80E6B1EA3EA8D000E6C84 /* CESubchartModel.m */,
 			);
 			path = Model;
@@ -558,6 +569,7 @@
 				D57FA7D01E3EF10F0072DF8A /* CEDateColumn+Private.h in Headers */,
 				D585F93C1E50FA61000238E7 /* CEColorScheme.h in Headers */,
 				D584B6341E71D4240057F3BD /* CEDateRange.h in Headers */,
+				D596E08A1EAD2927009CD21C /* CESubchartLayer.h in Headers */,
 				D5B80E661EA3EA54000E6C84 /* CEVerticalAxisModel.h in Headers */,
 				D584B65A1E7E055E0057F3BD /* CEScaleHint.h in Headers */,
 				D57D48A11E43F787001CA791 /* CESubchartDefinition.h in Headers */,
@@ -603,6 +615,7 @@
 				D585F9421E50FBDB000238E7 /* CEPlatformDefinitions.h in Headers */,
 				D57FA7D11E3EF1100072DF8A /* CEDateColumn+Private.h in Headers */,
 				D584B6351E71D4240057F3BD /* CEDateRange.h in Headers */,
+				D596E08C1EAD29A9009CD21C /* CESubchartLayer.h in Headers */,
 				D5B80E671EA3EA54000E6C84 /* CEVerticalAxisModel.h in Headers */,
 				D584B65B1E7E055E0057F3BD /* CEScaleHint.h in Headers */,
 				D57D48A21E43F787001CA791 /* CESubchartDefinition.h in Headers */,
@@ -784,6 +797,7 @@
 				D599F2401E2DBE7900816FF7 /* CEValueColumn.mm in Sources */,
 				D587C2681E3852ED00603B9C /* CEDateColumn.mm in Sources */,
 				D57D48A31E43F787001CA791 /* CESubchartDefinition.m in Sources */,
+				D596E08B1EAD2927009CD21C /* CESubchartLayer.m in Sources */,
 				D5B80E681EA3EA54000E6C84 /* CEVerticalAxisModel.m in Sources */,
 				D5B80E511E9B22C2000E6C84 /* CEChartLayer.m in Sources */,
 				D5888E2F1E55525500910052 /* CESingleColorScheme.m in Sources */,

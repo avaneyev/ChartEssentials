@@ -8,7 +8,8 @@
 //  Distributed under BSD license. See LICENSE for details.
 //
 
-#import "CESubchartModel.h"
+#import <ChartEssentials/CESubchartModel.h>
+#import "CESubchartModel+Private.h"
 #import "CEChartModel.h"
 #import <ChartEssentials/CESubchartDefinition.h>
 #import <ChartEssentials/CETools.h>

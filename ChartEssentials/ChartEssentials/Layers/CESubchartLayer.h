@@ -1,5 +1,5 @@
 //
-//  CESubchartModel.h
+//  CESubchartLayer.h
 //  ChartEssentials
 //
 //  Created by Anton Vaneev.
@@ -8,17 +8,15 @@
 //  Distributed under BSD license. See LICENSE for details.
 //
 
-#import <Foundation/Foundation.h>
+#import <ChartEssentials/CEChartLayer.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class CESubchartDefinition;
+@class CEChartView;
 
-@interface CESubchartModel : NSObject
+@interface CESubchartLayer : CEChartLayer
 
-- (instancetype)init NS_UNAVAILABLE;
-
-@property (nonatomic, readonly) CESubchartDefinition *definition;
+- (instancetype)initWithScale:(CGFloat)scale NS_UNAVAILABLE;
 
 @end
 

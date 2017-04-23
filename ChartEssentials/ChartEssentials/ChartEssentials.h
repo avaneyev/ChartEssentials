@@ -65,3 +65,6 @@ FOUNDATION_EXPORT const unsigned char ChartEssentialsVersionString[];
 #import <ChartEssentials/CELinearValueScale.h>
 
 #import <ChartEssentials/CEChartLayer.h>
+#import <ChartEssentials/CESubchartLayer.h>
+
+#import <ChartEssentials/CESubchartModel.h>

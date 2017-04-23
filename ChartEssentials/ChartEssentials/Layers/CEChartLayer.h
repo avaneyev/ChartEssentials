@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (CALayer *)createLayer;
 
 @property (nonatomic, readonly) CALayer *layer;
+@property (nonatomic, readonly, weak, nullable) CEChartLayer *superlayer;
 
 - (void)addSublayer:(CEChartLayer *)layer;
 - (void)insertSublayer:(CEChartLayer *)layer atIndex:(unsigned int)idx;

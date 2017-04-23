@@ -9,10 +9,12 @@
 //
 
 #import <ChartEssentials/CEChartLayer.h>
+#import <ChartEssentials/CETools.h>
 
 @implementation CEChartLayer
 {
     CALayer *_layer;
+    __weak CEChartLayer *_superlayer;
 }
 
 - (instancetype)initWithScale:(CGFloat)scale
@@ -36,6 +38,7 @@
 #pragma mark - Properties
 
 @synthesize layer = _layer;
+@synthesize superlayer = _superlayer;
 
 
 #pragma mark - Layer delegate methods
@@ -51,17 +54,30 @@
 
 - (void)addSublayer:(CEChartLayer *)layer
 {
+    if (!layer)
+    {
+        CELog(@"Attempting to add a nil layer");
+        return;
+    }
     [_layer addSublayer:layer->_layer];
+    layer->_superlayer = self;
 }
 
 - (void)insertSublayer:(CEChartLayer *)layer atIndex:(unsigned int)idx
 {
+    if (!layer)
+    {
+        CELog(@"Attempting to insert a nil layer");
+        return;
+    }
     [_layer insertSublayer:layer->_layer atIndex:idx];
+    layer->_superlayer = self;
 }
 
 - (void)removeFromSuperlayer
 {
     [_layer removeFromSuperlayer];
+    _superlayer = nil;
 }
 
 
