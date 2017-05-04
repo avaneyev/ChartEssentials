@@ -8,13 +8,13 @@
 //  Distributed under BSD license. See LICENSE for details.
 //
 
-#import <Foundation/Foundation.h>
+#import <ChartEssentials/CEChartContentModel.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @class CESubchartDefinition;
 
-@interface CESubchartModel : NSObject
+@interface CESubchartModel : CEChartContentModel
 
 - (instancetype)init NS_UNAVAILABLE;
 

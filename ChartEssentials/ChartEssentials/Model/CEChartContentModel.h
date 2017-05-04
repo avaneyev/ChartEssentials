@@ -1,5 +1,5 @@
 //
-//  CESubchartLayer.h
+//  CEChartContentModel.h
 //  ChartEssentials
 //
 //  Created by Anton Vaneev.
@@ -8,15 +8,15 @@
 //  Distributed under BSD license. See LICENSE for details.
 //
 
-#import <ChartEssentials/CEChartContentLayer.h>
+#import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class CEChartView;
+@class CEChartContentLayer;
 
-@interface CESubchartLayer : CEChartContentLayer
+@interface CEChartContentModel : NSObject
 
-- (instancetype)initWithScale:(CGFloat)scale NS_UNAVAILABLE;
+@property (nonatomic, readonly, weak, nullable) CEChartContentLayer *layer;
 
 @end
 

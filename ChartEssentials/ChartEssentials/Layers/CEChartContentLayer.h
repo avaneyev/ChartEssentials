@@ -1,5 +1,5 @@
 //
-//  CEChartLayer.h
+//  CEChartContentLayer.h
 //  ChartEssentials
 //
 //  Created by Anton Vaneev.
@@ -12,7 +12,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CEChartLayer : NSObject<CALayerDelegate>
+@class CEChartContentModel;
+
+@interface CEChartContentLayer : NSObject<CALayerDelegate>
 
 - (instancetype)initWithScale:(CGFloat)scale NS_DESIGNATED_INITIALIZER;
 - (instancetype)init NS_UNAVAILABLE;
@@ -20,11 +22,13 @@ NS_ASSUME_NONNULL_BEGIN
 + (CALayer *)createLayer;
 
 @property (nonatomic, readonly) CALayer *layer;
-@property (nonatomic, readonly, weak, nullable) CEChartLayer *superlayer;
+@property (nonatomic, readonly, weak, nullable) CEChartContentLayer *superlayer;
 
-- (void)addSublayer:(CEChartLayer *)layer;
-- (void)insertSublayer:(CEChartLayer *)layer atIndex:(unsigned int)idx;
+- (void)addSublayer:(CEChartContentLayer *)layer;
+- (void)insertSublayer:(CEChartContentLayer *)layer atIndex:(unsigned int)idx;
 - (void)removeFromSuperlayer;
+
+@property (nonatomic, readonly, weak, nullable) CEChartContentModel *model;
 
 @end
 

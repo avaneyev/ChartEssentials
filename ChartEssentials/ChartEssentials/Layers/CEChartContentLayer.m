@@ -1,5 +1,5 @@
 //
-//  CEChartLayer.m
+//  CEChartContentLayer.m
 //  ChartEssentials
 //
 //  Created by Anton Vaneev.
@@ -8,13 +8,13 @@
 //  Distributed under BSD license. See LICENSE for details.
 //
 
-#import <ChartEssentials/CEChartLayer.h>
+#import <ChartEssentials/CEChartContentLayer.h>
 #import <ChartEssentials/CETools.h>
 
-@implementation CEChartLayer
+@implementation CEChartContentLayer
 {
     CALayer *_layer;
-    __weak CEChartLayer *_superlayer;
+    __weak CEChartContentLayer *_superlayer;
 }
 
 - (instancetype)initWithScale:(CGFloat)scale
@@ -52,7 +52,7 @@
 
 #pragma mark - Other layer methods
 
-- (void)addSublayer:(CEChartLayer *)layer
+- (void)addSublayer:(CEChartContentLayer *)layer
 {
     if (!layer)
     {
@@ -63,7 +63,7 @@
     layer->_superlayer = self;
 }
 
-- (void)insertSublayer:(CEChartLayer *)layer atIndex:(unsigned int)idx
+- (void)insertSublayer:(CEChartContentLayer *)layer atIndex:(unsigned int)idx
 {
     if (!layer)
     {
