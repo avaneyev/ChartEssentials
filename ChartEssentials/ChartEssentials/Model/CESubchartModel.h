@@ -13,12 +13,16 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @class CESubchartDefinition;
+@class CEVerticalAxisModel;
 
 @interface CESubchartModel : CEChartContentModel
 
 - (instancetype)init NS_UNAVAILABLE;
 
 @property (nonatomic, readonly) CESubchartDefinition *definition;
+
+@property (nonatomic, readonly) NSString *subchartId;
+@property (nonatomic, readonly) NSArray<CEVerticalAxisModel *> *axes;
 
 @end
 
