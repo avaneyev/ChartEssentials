@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CEChartContentLayer : NSObject<CALayerDelegate>
 
-- (instancetype)initWithScale:(CGFloat)scale NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithModel:(__kindof CEChartContentModel *)model scale:(CGFloat)scale NS_DESIGNATED_INITIALIZER;
 - (instancetype)init NS_UNAVAILABLE;
 
 + (CALayer *)createLayer;
@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)insertSublayer:(CEChartContentLayer *)layer atIndex:(unsigned int)idx;
 - (void)removeFromSuperlayer;
 
-@property (nonatomic, readonly, weak, nullable) CEChartContentModel *model;
+@property (nonatomic, readonly, nullable) __kindof CEChartContentModel *model;
 
 @end
 

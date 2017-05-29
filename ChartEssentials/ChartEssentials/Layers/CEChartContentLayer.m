@@ -14,13 +14,18 @@
 @implementation CEChartContentLayer
 {
     CALayer *_layer;
+    CEChartContentModel *_model;
     __weak CEChartContentLayer *_superlayer;
 }
 
-- (instancetype)initWithScale:(CGFloat)scale
+- (instancetype)initWithModel:(__kindof CEChartContentModel *)model scale:(CGFloat)scale
 {
+    CEAssert(model != nil);
+    
     if (self = [super init])
     {
+        _model = model;
+        
         _layer = [[self class] createLayer];
         _layer.delegate = self;
         _layer.masksToBounds = YES;

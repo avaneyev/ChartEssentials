@@ -24,7 +24,7 @@
     CEAssert(chartView != nil);
     CEAssert(model != nil);
     
-    if (self = [super initWithScale:scale])
+    if (self = [super initWithModel:model scale:scale])
     {
         _chartView = chartView;
         model = _model;

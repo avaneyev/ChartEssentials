@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CEChartContentModel : NSObject
 
-@property (nonatomic, readonly, weak, nullable) CEChartContentLayer *layer;
+@property (nonatomic, readonly, weak, nullable) __kindof CEChartContentLayer *layer;
 
 @end
 

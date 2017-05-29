@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CESubchartLayer : CEChartContentLayer
 
-- (instancetype)initWithScale:(CGFloat)scale NS_UNAVAILABLE;
+- (instancetype)initWithModel:(__kindof CEChartContentModel *)model scale:(CGFloat)scale NS_UNAVAILABLE;
 
 @end
 
