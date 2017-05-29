@@ -10,6 +10,7 @@
 
 #import <ChartEssentials/CEChartContentLayer.h>
 #import <ChartEssentials/CETools.h>
+#import "CEChartContentModel+Private.h"
 
 @implementation CEChartContentLayer
 {
@@ -30,6 +31,8 @@
         _layer.delegate = self;
         _layer.masksToBounds = YES;
         _layer.contentsScale = scale;
+        
+        [model _setAssociatedLayer:self];
     }
     return self;
 }

@@ -18,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, readonly, weak, nullable) __kindof CEChartContentLayer *layer;
 
+- (void)didSetAssociatedLayer:(nonnull CEChartContentLayer *)layer;
+
 @end
 
 NS_ASSUME_NONNULL_END

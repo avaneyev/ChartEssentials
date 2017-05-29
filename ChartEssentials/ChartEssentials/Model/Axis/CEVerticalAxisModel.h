@@ -8,14 +8,14 @@
 //  Distributed under BSD license. See LICENSE for details.
 //
 
-#import <Foundation/Foundation.h>
+#import <ChartEssentials/CEChartContentModel.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @class CESubchartModel;
 @class CEVerticalAxisDefinition;
 
-@interface CEVerticalAxisModel : NSObject
+@interface CEVerticalAxisModel : CEChartContentModel
 
 - (instancetype)init NS_UNAVAILABLE;
 
